@@ -1,0 +1,101 @@
+@import '../_colors.scss';
+
+.home-wrap {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.body {
+    width: 1170px;
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    // border: solid red 2px;
+}
+
+.hero {
+    width: 1170px;
+    height: 500px;
+    background-image: url('../../images/BoxOfChocolates.jpg');
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    color: white;
+    font-family: Baskerville;
+    font-size: 20pt;
+
+    p {
+        border-bottom: solid 1px;
+        margin-right: 20px;
+    }
+}
+
+.body-content {
+    width: 1170px;
+    height: 420px;
+    display: flex;
+    justify-content: space-between;
+    // border: solid blue 2px;
+    margin-top: -30px;
+}
+
+.right-content {
+    width: 575px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    div {
+        width: 575px;
+        height: 370px;
+        background-image: url("../../images/berries.jpg");
+        background-size: cover;
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        margin-bottom: -20px;
+    }
+
+    p {
+        color: $dark-purple;
+        font-family: Baskerville;
+        font-weight: normal;
+        font-size: 20pt;
+        margin-bottom: 10px;
+    }
+}
+
+.left-content {
+    width: 575px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    div {
+        width: 575px;
+        height: 370px;
+        background-image: url("../../images/nuts.jpg");
+        background-size: cover;
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        margin-bottom: -15px;
+    }
+
+    p {
+        color: $dark-purple;
+        font-family: Baskerville;
+        font-weight: normal;
+        font-size: 20pt;
+        margin-bottom: 10px;
+    }
+}
