@@ -10,18 +10,18 @@ class Header extends Component {
         <div className="header-wrap">
             <div className="header">
                 <div className="logo">
-                    <img src={logo} alt="Lahna's Chocolate Logo"/>
+                    <Link to="/"><img src={logo} alt="Lahna's Chocolate Logo"/></Link>
                 </div>
                 <div className="nav">
-                    <p>Confections</p>
-                    <p>Boxes</p>
-                    <p>About</p>
-                    <p>Contact</p>
+                    <a href="">Confections</a>
+                    <a href="">Boxes</a>
+                    <a href="">About</a>
+                    <a href="">Contact</a>
                 </div>
                 <div className="login-register-wrap">
                     <div className="login-regi">
-                        <p>Login</p>
-                        <p>Register</p>
+                        <a href="">Login</a>
+                        <a href="">Register</a>
                     </div>
                 </div>
             </div>

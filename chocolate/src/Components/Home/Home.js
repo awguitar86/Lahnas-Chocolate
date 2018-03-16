@@ -14,16 +14,16 @@ class Home extends Component {
             <Header />
             <div className="body">
                 <div className="hero">
-                    <p>Shop Boxes</p>
+                    <a href="">Shop Boxes</a>
                 </div>
                 <div className="body-content">
                     <div className="right-content">
-                        <div></div>
-                        <p>Holiday</p>
+                        <a href="" ><div></div></a>
+                        <a href="" className="holiday-special"><p>Holiday</p></a>
                     </div>
                     <div className="left-content">
-                        <div></div>
-                        <p>Monthly Special</p>
+                        <a href=""><div></div></a>
+                        <a href="" className="holiday-special"><p>Monthly Special</p></a>
                     </div>
                 </div>
             </div>

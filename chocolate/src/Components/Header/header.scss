@@ -2,7 +2,7 @@
 
 .header-wrap {
     width: 100vw;
-    height: 100px;
+    height: 80px;
     background: $dark-purple;
     display: flex;
     justify-content: center;
@@ -10,7 +10,7 @@
 
 .header {
     width: 1170px;
-    height: 100px;
+    height: 80px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -18,14 +18,14 @@
 
 .logo {
     width: 390px;
-    height: 100px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     // border: solid white 1px;
 
     img {
-        width: 155px;
+        width: 130px;
         height: auto;
         margin-left: 50px;
     }
@@ -33,23 +33,28 @@
 
 .nav {
     width: 390px;
-    height: 100px;
+    height: 80px;
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
     // border: solid white 1px;
 
-    p {
+    a {
         color: white;
         font-family: Baskerville;
         font-size: 13pt;
         margin-bottom: 20px;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: $brown;
     }
 }
 
 .login-register-wrap {
     width: 390px;
-    height: 100px;
+    height: 80px;
     // border: solid white 1px;
     display: flex;
     justify-content: flex-end;
@@ -62,10 +67,15 @@
     justify-content: space-between;
     margin-right: 50px;
 
-    p {
+    a {
         color: white;
         font-family: Baskerville;
         font-size: 13pt;
         margin-bottom: 20px;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: $brown;
     }
 }

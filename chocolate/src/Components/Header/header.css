@@ -1,43 +1,46 @@
 .header-wrap {
   width: 100vw;
-  height: 100px;
+  height: 80px;
   background: #4E2E71;
   display: flex;
   justify-content: center; }
 
 .header {
   width: 1170px;
-  height: 100px;
+  height: 80px;
   display: flex;
   justify-content: space-around;
   align-items: center; }
 
 .logo {
   width: 390px;
-  height: 100px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: flex-start; }
   .logo img {
-    width: 155px;
+    width: 130px;
     height: auto;
     margin-left: 50px; }
 
 .nav {
   width: 390px;
-  height: 100px;
+  height: 80px;
   display: flex;
   justify-content: space-around;
   align-items: flex-end; }
-  .nav p {
+  .nav a {
     color: white;
     font-family: Baskerville;
     font-size: 13pt;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    text-decoration: none; }
+  .nav a:hover {
+    color: #BD9466; }
 
 .login-register-wrap {
   width: 390px;
-  height: 100px;
+  height: 80px;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end; }
@@ -47,8 +50,11 @@
   display: flex;
   justify-content: space-between;
   margin-right: 50px; }
-  .login-regi p {
+  .login-regi a {
     color: white;
     font-family: Baskerville;
     font-size: 13pt;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    text-decoration: none; }
+  .login-regi a:hover {
+    color: #BD9466; }
