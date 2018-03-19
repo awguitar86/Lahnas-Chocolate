@@ -6,7 +6,7 @@
   justify-content: center; }
 
 .header {
-  width: 1170px;
+  width: 80vw;
   height: 80px;
   display: flex;
   justify-content: space-around;

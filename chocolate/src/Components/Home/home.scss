@@ -9,7 +9,7 @@
 }
 
 .body {
-    width: 1170px;
+    width: 80vw;
     height: 1000px;
     display: flex;
     flex-direction: column;
@@ -19,17 +19,22 @@
 }
 
 .hero {
-    width: 1170px;
-    height: 500px;
+    width: 80vw;
+    height: 43vh;
     background-image: url('../../images/BoxOfChocolates.jpg');
     background-position: center center;
     background-size: cover;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    background-repeat: no-repeat;
 
     a {
+        // width: 150px;
         // border-bottom: solid 1px;
+        border: solid red;
+        // padding: 440px 30px 25px 80vw;
+        // display: block;
         margin-right: 30px;
         margin-bottom: 25px;
         color: white;
@@ -38,7 +43,7 @@
         // text-decoration: none;
     }
     a:hover {
-        color: $brown;
+        color: $purple;
     }
 }
 
@@ -76,6 +81,7 @@
         font-size: 20pt;
         margin-bottom: 10px;
     }
+
 }
 
 .left-content {
@@ -108,6 +114,9 @@
 .holiday-special {
     color: $dark-purple;
     text-decoration: none;
+    // display: block;
+    // padding: 370px 200px 0 200px;
+    // border: solid red;
 }
 .holiday-special:hover {
     color: $brown;
