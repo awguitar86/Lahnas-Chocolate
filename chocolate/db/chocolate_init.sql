@@ -7,19 +7,6 @@ CREATE TABLE products (
     price INT
 );
 
-CREATE TABLE orders (
-    id SERIAL PRIMARY KEY,
-    product_id INT REFERENCES products (id),
-    user_id INT REFERENCES users (id),
-    order_number INT,
-    order_date INT,
-    quantity INT,
-    price INT,
-    sales_tax INT,
-    total INT,
-    payment_type TEXT
-);
-
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     first_name TEXT,
@@ -29,9 +16,22 @@ CREATE TABLE users (
     city TEXT,
     state TEXT,
     zip_code INT,
-    phone INT,
+    phone BIGINT,
     email TEXT unique,
     password TEXT
+);
+
+CREATE TABLE orders (
+    id SERIAL PRIMARY KEY,
+    product_id INT REFERENCES products (id),
+    user_id INT REFERENCES users (id),
+    order_number BIGINT,
+    order_date BIGINT,
+    quantity INT,
+    price INT,
+    sales_tax INT,
+    total INT,
+    payment_type TEXT
 );
 
 INSERT INTO products (name, description, price)
@@ -49,16 +49,16 @@ INSERT INTO products (name, description, price)
         ('Two Pound Box', 'This box contains 10 of each chocolate.', 59.95)
 ;
 
+INSERT INTO users (first_name, last_name, company, address, city, state, zip_code, phone, email, password)
+    VALUES
+        ('Austin', 'Wright', 'The Wright Company', '123 Cool Ave', 'Layton', 'UT', 84041, 8015551234, 'austin@gmail.com', 'AustinWright'),
+        ('Lahna', 'Prows', 'Lahna''s Chocolates', '10 Chocolate Lane', 'Bountiful', 'UT', 84123, 8011234567, 'lahnaschocolates@gmail.com', 'chocolate')
+;
+
 INSERT INTO orders (product_id, user_id, order_number, order_date, quantity, price, sales_tax, total, payment_type)
     VALUES
         (1, 1, 12345, 03222018, 1, 3.75, 0.24, 3.99, 'PayPal'),
         (1, 1, 12345, 03222018, 2, 14.95, 1.94, 31.84, 'PayPal'),
         (1, 1, 12345, 03222018, 3, 2.49, 0.48, 7.95, 'PayPal')
-;
-
-INSERT INTO users (first_name, last_name, company, address, city, state, zip_code, phone, email, password)
-    VALUES
-        ('Austin', 'Wright', 'The Wright Company', '123 Cool Ave', 'Layton', 'UT', 84041, 8015551234, 'austin@gmail.com', 'AustinWright'),
-        ('Lahna', 'Prows', "Lahna's Chocolates", '10 Chocolate Lane', 'Bountiful', 'UT', 84123, 8011234567, 'lahnaschocolates@gmail.com', 'chocolate')
 ;
 
