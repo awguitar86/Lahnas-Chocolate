@@ -3,11 +3,12 @@ const getDb = require('../database/bootstrap.database');
 
 const productsRouter = express.Router();
 
-productsRouter.get('/get', (req, res) => {
+productsRouter.get('/get/:id', (req, res) => {
     const db = getDb();
-    db.get_product()
-        .then( product => res.send(product))
-        .catch( err => res.send(err))
+    const id = req.params.id;
+    db.get_product( [id] )
+        .then( product => res.status(200).send(product))
+        .catch( err => res.status(500).send(err))
 });
 
 productsRouter.put('/update/:id', (req, res) => {
@@ -19,7 +20,7 @@ productsRouter.put('/update/:id', (req, res) => {
         .catch( err => res.send(err))
 });
 
-productsRouter.post('/create/:id', (req, res) => {
+productsRouter.post('/:id', (req, res) => {
     const id = req.params.id;
     const db = getDb();
     const { name, description, price } = req.body;
