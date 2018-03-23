@@ -4,7 +4,7 @@ CREATE TABLE products (
     id SERIAL PRIMARY KEY,
     name TEXT,
     description TEXT,
-    price INT
+    price FLOAT
 );
 
 CREATE TABLE users (
@@ -23,14 +23,14 @@ CREATE TABLE users (
 
 CREATE TABLE orders (
     id SERIAL PRIMARY KEY,
-    product_id INT REFERENCES products (id),
     user_id INT REFERENCES users (id),
+    product_id INT REFERENCES products (id),
     order_number BIGINT,
     order_date BIGINT,
     quantity INT,
-    price INT,
-    sales_tax INT,
-    total INT,
+    price FLOAT,
+    sales_tax FLOAT,
+    total FLOAT,
     payment_type TEXT
 );
 
@@ -55,10 +55,10 @@ INSERT INTO users (first_name, last_name, company, address, city, state, zip_cod
         ('Lahna', 'Prows', 'Lahna''s Chocolates', '10 Chocolate Lane', 'Bountiful', 'UT', 84123, 8011234567, 'lahnaschocolates@gmail.com', 'chocolate')
 ;
 
-INSERT INTO orders (product_id, user_id, order_number, order_date, quantity, price, sales_tax, total, payment_type)
+INSERT INTO orders (user_id, product_id, order_number, order_date, quantity, price, sales_tax, total, payment_type)
     VALUES
-        (1, 1, 12345, 03222018, 1, 3.75, 0.24, 3.99, 'PayPal'),
-        (1, 1, 12345, 03222018, 2, 14.95, 1.94, 31.84, 'PayPal'),
-        (1, 1, 12345, 03222018, 3, 2.49, 0.48, 7.95, 'PayPal')
+        (1, 1, 12345, 3222018, 1, 3.75, 0.24, 3.99, 'PayPal'),
+        (1, 8, 12345, 3222018, 2, 14.95, 1.94, 31.84, 'PayPal'),
+        (2, 2, 12345, 3222018, 3, 2.49, 0.48, 7.95, 'PayPal')
 ;
 

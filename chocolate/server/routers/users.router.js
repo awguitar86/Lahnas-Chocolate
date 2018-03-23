@@ -11,9 +11,9 @@ usersRouter.get('/get/:id', (req, res) => {
         .catch( err => res.status(500).send(err))
 });
 
-usersRouter.post('/:id', (req, res) => {
+usersRouter.post('/new', (req, res) => {
     const db = getDb();
-    const id = req.params.id;
+    // const id = req.params.id;
     const { first_name, last_name, company, address, city, state, zip_code, phone, email, password } = req.body;
     db.create_user([first_name, last_name, company, address, city, state, zip_code, phone, email, password])
         .then( () => res.status(200).send())

@@ -8,7 +8,7 @@ massive(connectionString)
     .then( dbInstance => {
         db = dbInstance;
         messageString = 'Connection to the database was successful.'
-        return db.chocolate_init();
+        // return db.chocolate_init();
     })
     .catch ( err => {
         throw err

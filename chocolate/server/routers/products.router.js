@@ -20,7 +20,7 @@ productsRouter.put('/update/:id', (req, res) => {
         .catch( err => res.send(err))
 });
 
-productsRouter.post('/:id', (req, res) => {
+productsRouter.post('/new', (req, res) => {
     const id = req.params.id;
     const db = getDb();
     const { name, description, price } = req.body;
