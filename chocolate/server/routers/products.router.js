@@ -15,7 +15,7 @@ productsRouter.put('/update/:id', (req, res) => {
     const { name, description, price } = req.body;
     const db = getDb();
     db.update_product([id, name, description, price])
-        .then( promise => res.send(promise))
+        .then( promise => res.status(200).send(promise))
         .catch( err => res.send(err))
 });
 
@@ -23,7 +23,7 @@ productsRouter.post('/create/:id', (req, res) => {
     const id = req.params.id;
     const db = getDb();
     const { name, description, price } = req.body;
-    db.create([id, name, description, price])
+    db.create_product([name, description, price])
         .then( () => res.status(200).send())
         .catch( err => res.send(err))
 });
