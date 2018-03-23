@@ -3,7 +3,7 @@ const getDb = require('../database/bootstrap.database');
 
 const productsRouter = express.Router();
 
-productsRouter.get('/get/:id', (req, res) => {
+productsRouter.get('/:id', (req, res) => {
     const db = getDb();
     const id = req.params.id;
     db.get_product( [id] )
