@@ -3,7 +3,7 @@ const getDb = require('../database/bootstrap.database');
 
 const usersRouter = express.Router();
 
-usersRouter.get('/get/:id', (req, res) => {
+usersRouter.get('/:id', (req, res) => {
     const id = req.params.id;
     const db = getDb();
     db.get_user( [id] )
@@ -11,7 +11,7 @@ usersRouter.get('/get/:id', (req, res) => {
         .catch( err => res.status(500).send(err))
 });
 
-usersRouter.post('/new', (req, res) => {
+usersRouter.post('/register', (req, res) => {
     const db = getDb();
     // const id = req.params.id;
     const { first_name, last_name, company, address, city, state, zip_code, phone, email, password } = req.body;
