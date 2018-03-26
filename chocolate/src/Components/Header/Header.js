@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './header.css';
 
 import logo from '../../images/LCLogo.svg';
+import shoppingBag from '../../images/bag-icon.svg';
 
 class Header extends Component {
   render() {
@@ -13,8 +14,7 @@ class Header extends Component {
                     <Link to="/"><img src={logo} alt="Lahna's Chocolate Logo"/></Link>
                 </div>
                 <div className="nav">
-                    <a href="">Confections</a>
-                    <a href="">Boxes</a>
+                    <a href="">Products</a>
                     <a href="">About</a>
                     <a href="">Contact</a>
                 </div>
@@ -23,6 +23,7 @@ class Header extends Component {
                         <a href="">Login</a>
                         <a href="">Register</a>
                     </div>
+                    <img src={shoppingBag} alt="shopping bag"/>
                 </div>
             </div>
         </div>
