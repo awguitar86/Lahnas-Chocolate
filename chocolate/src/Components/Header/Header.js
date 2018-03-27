@@ -14,7 +14,7 @@ class Header extends Component {
                     <Link to="/"><img src={logo} alt="Lahna's Chocolate Logo"/></Link>
                 </div>
                 <div className="nav">
-                    <a href="">Products</a>
+                    <Link to="/api/products">Products</Link>
                     <a href="">About</a>
                     <a href="">Contact</a>
                 </div>
