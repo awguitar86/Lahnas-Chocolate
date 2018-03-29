@@ -1,2 +1,131 @@
 @import '../../_colors.scss';
 
+.lePetite-wrap {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.le-body {
+    width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.le-box {
+    width: 1000px;
+    height: 500px;
+    display: flex;
+}
+
+.le-description {
+    width: 500px;
+    // border: solid;
+
+    h1 {
+        font-family: Baskerville;
+        font-weight: normal;
+    }
+
+    p {
+        font-size: 14pt;
+        font-family: Baskerville;
+        color: $dark-purple;
+    }
+}
+
+.le-ingredients {
+    width: 500px;
+    height: 140px;
+    margin-top: 40px;
+    // border: solid;
+
+    h3 {
+        font-size: 16pt;
+        font-family: Baskerville;
+        font-weight: normal;
+        color: $dark-purple;
+        margin-top: 0px;
+        // border: solid;
+    }
+    p {
+        font-size: 14pt;
+        font-family: Baskerville;
+        color: $dark-purple;
+        // border: solid;
+        margin-top: -15px;
+    }
+}
+
+.le-add {
+    width: 260px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+        width: 125px;
+        height: 40px;
+        background: $purple;
+        color: white;
+        font-family: Baskerville;
+        font-size: 14pt;
+        border: none;
+        border-radius: 5px;
+    }
+
+    input {
+        width: 45px;
+        height: 40px;
+        border: solid $purple 1px;
+        font-size: 14pt;
+        font-family: Baskerville;
+        color: $dark-purple;
+        text-align: center;
+        outline: none;
+    }
+
+    input:focus{
+        border: solid $purple 2px;
+    }
+
+    h3 {
+        font-size: 16pt;
+        font-family: Baskerville;
+        color: $dark-purple;
+        font-weight: normal;
+    }
+}
+
+.le-picture {
+    width: 525px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // border: solid;
+
+    img {
+        width: 300px;
+        height: auto;
+        // margin-bottom: 100px;
+    }
+}
+
+
+.le-chocolates-in-box {
+    width: 920px;
+    height: 720px;
+    background: $light-purple;
+    padding: 40px;
+}
+
+.le-chocolates-description {
+    width: 800px;
+
+}

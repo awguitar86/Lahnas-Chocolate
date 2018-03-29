@@ -1,0 +1,95 @@
+.lePetite-wrap {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column; }
+
+.le-body {
+  width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 40px;
+  margin-bottom: 40px; }
+
+.le-box {
+  width: 1000px;
+  height: 500px;
+  display: flex; }
+
+.le-description {
+  width: 500px; }
+  .le-description h1 {
+    font-family: Baskerville;
+    font-weight: normal; }
+  .le-description p {
+    font-size: 14pt;
+    font-family: Baskerville;
+    color: #4E2E71; }
+
+.le-ingredients {
+  width: 500px;
+  height: 140px;
+  margin-top: 40px; }
+  .le-ingredients h3 {
+    font-size: 16pt;
+    font-family: Baskerville;
+    font-weight: normal;
+    color: #4E2E71;
+    margin-top: 0px; }
+  .le-ingredients p {
+    font-size: 14pt;
+    font-family: Baskerville;
+    color: #4E2E71;
+    margin-top: -15px; }
+
+.le-add {
+  width: 260px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .le-add button {
+    width: 125px;
+    height: 40px;
+    background: #907AD6;
+    color: white;
+    font-family: Baskerville;
+    font-size: 14pt;
+    border: none;
+    border-radius: 5px; }
+  .le-add input {
+    width: 45px;
+    height: 40px;
+    border: solid #907AD6 1px;
+    font-size: 14pt;
+    font-family: Baskerville;
+    color: #4E2E71;
+    text-align: center;
+    outline: none; }
+  .le-add input:focus {
+    border: solid #907AD6 2px; }
+  .le-add h3 {
+    font-size: 16pt;
+    font-family: Baskerville;
+    color: #4E2E71;
+    font-weight: normal; }
+
+.le-picture {
+  width: 525px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .le-picture img {
+    width: 300px;
+    height: auto; }
+
+.le-chocolates-in-box {
+  width: 920px;
+  height: 720px;
+  background: #EAE6F7;
+  padding: 40px; }
+
+.le-chocolates-description {
+  width: 800px; }
