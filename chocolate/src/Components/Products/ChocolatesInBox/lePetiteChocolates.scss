@@ -1,0 +1,53 @@
+@import '../../_colors.scss';
+
+.le-chocolates-in-box {
+    width: 940px;
+    height: 720px;
+    background: $light-purple;
+    padding: 20px 20px 40px 40px;
+}
+
+.le-chocolates-description {
+    width: 800px;
+    font-family: Baskerville;
+    color: $dark-purple;
+
+    h1 {
+        font-weight: normal;
+    }
+
+    p {
+        margin-top: -15px;
+    }
+
+}
+
+.le-chocolates-wrap {
+    width: 800px;
+    display: grid;
+    grid-row-gap: 50px;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 40px;
+    // border: solid $purple;
+}
+
+.le-chocolates {
+    width: 300px;
+    height: 250px;
+    font-family: Baskerville;
+    color: $dark-purple;
+    // border: solid;
+    h3 {
+        font-weight: normal;
+        font-size: 15pt;
+    }
+
+    img {
+        width: 150px;
+        height: auto;
+    }
+
+    p {
+        margin-top: -15px;
+    }
+}

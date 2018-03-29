@@ -1,0 +1,68 @@
+@import '../../_colors.scss';
+
+.chocolates-in-box {
+    width: 940px;
+    height: 720px;
+    background: $light-purple;
+    padding: 20px 20px 40px 40px;
+}
+
+.chocolates-description {
+    width: 800px;
+    font-family: Baskerville;
+    color: $dark-purple;
+
+    h1 {
+        font-weight: normal;
+    }
+
+    p {
+        margin-top: -15px;
+    }
+
+}
+
+.chocolates-body {
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    // border: solid $purple;
+}
+
+.top-chocolates {
+    width: 620px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    margin-top: 0px;
+    // border: solid;
+}
+
+.bottom-chocolates {
+    width: 900px;
+    display: flex;
+    justify-content: space-between;
+    // border: solid;
+}
+
+.chocolates {
+    width: 266px;
+    // border: solid;
+    font-family: Baskerville;
+    color: $dark-purple;
+    h3 {
+        font-weight: normal;
+        font-size: 15pt;
+    }
+
+    img {
+        width: 150px;
+        height: auto;
+    }
+
+    p {
+        margin-top: -15px;
+    }
+}

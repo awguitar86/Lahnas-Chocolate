@@ -21,7 +21,7 @@ class Products extends Component {
     return (
         <div className="products-wrap">
             <Header />
-            <div className="product-body">
+            <div className="products-body">
                 <div className="boxes-wrap">
                     <h1>Boxed Chocolates</h1>
                     <p>

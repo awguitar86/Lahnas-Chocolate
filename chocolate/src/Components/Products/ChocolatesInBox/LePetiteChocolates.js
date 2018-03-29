@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import '../LePetite/lePetite.css';
+import './lePetiteChocolates.css';
+
+import SeaSalt from '../../../images/SeaSaltCaramel.jpg';
+import Truffle from '../../../images/Truffle.jpg';
+import Coconut from '../../../images/CoconutRough.jpg';
+import Turtle from '../../../images/Turtle.jpg';
 
 class LePetiteChocolates extends Component {
     render(){
@@ -13,43 +18,39 @@ class LePetiteChocolates extends Component {
                         yourself with a box of these amazing chocolates, make sure to enjoy every single bite, and then come back for more!
                     </p>
                 </div>
-                <div className='le-chocolates'>
-                    <div className='top-chocolates'>
-                        <div className='chocolates'>
-                            <img />
+                <div className='le-chocolates-wrap'>
+                        <div className='le-chocolates'>
+                            <img src={SeaSalt}/>
                             <h3>Sea Salt Caramel</h3>
                             <p>
                                 Perfect caramel hand dipped in milk chocolate with a sprinkle of sea salt.
                                 Balanced perfection of sweet ’n salty!
                             </p>
                         </div>
-                        <div className='chocolates'>
-                            <img />
+                        <div className='le-chocolates'>
+                            <img src={Truffle}/>
                             <h3>Mint Truffle</h3>
                             <p>
                                 The creamiest smooth chocolate mint centers dipped in pure milk chocolate.
                                 These may change life as you know it.
                             </p>
                         </div>
-                    </div>
-                    <div className='bottom-chocolates'>
-                        <div className='chocolates'>
-                            <img />
+                        <div className='le-chocolates'>
+                            <img src={Coconut}/>
                             <h3>Coconut Rough</h3>
                             <p>
                                 Pure milk chocolate poured over pure coconut topped
                                 with a sprinkle of roasted coconut. A pure and lasting favorite.
                             </p>
                         </div>
-                        <div className='chocolates'>
-                            <img />
+                        <div className='le-chocolates'>
+                            <img src={Turtle}/>
                             <h3>Pecan Turtle</h3>
                             <p>
                                 Pecans + caramel + chocolate = love!
                                 The ideal formula for yumminess.
                             </p>
                         </div>
-                    </div>
                 </div>
             </div>
         )

@@ -1,11 +1,11 @@
-.lePetite-wrap {
+.wrapper {
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column; }
 
-.le-body {
+.product-body {
   width: 1000px;
   display: flex;
   align-items: center;
@@ -14,43 +14,28 @@
   margin-top: 40px;
   margin-bottom: 40px; }
 
-.le-box {
+.product-info {
   width: 1000px;
   height: 500px;
   display: flex; }
 
-.le-description {
+.product-description {
   width: 500px; }
-  .le-description h1 {
+  .product-description h1 {
     font-family: Baskerville;
-    font-weight: normal; }
-  .le-description p {
+    font-weight: normal;
+    color: #4E2E71; }
+  .product-description p {
     font-size: 14pt;
     font-family: Baskerville;
     color: #4E2E71; }
 
-.le-ingredients {
-  width: 500px;
-  height: 140px;
-  margin-top: 40px; }
-  .le-ingredients h3 {
-    font-size: 16pt;
-    font-family: Baskerville;
-    font-weight: normal;
-    color: #4E2E71;
-    margin-top: 0px; }
-  .le-ingredients p {
-    font-size: 14pt;
-    font-family: Baskerville;
-    color: #4E2E71;
-    margin-top: -15px; }
-
-.le-add {
+.product-add {
   width: 260px;
   display: flex;
   justify-content: space-between;
   align-items: center; }
-  .le-add button {
+  .product-add button {
     width: 125px;
     height: 40px;
     background: #907AD6;
@@ -58,8 +43,15 @@
     font-family: Baskerville;
     font-size: 14pt;
     border: none;
-    border-radius: 5px; }
-  .le-add input {
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer; }
+  .product-add button:hover {
+    color: #4E2E71; }
+  .product-add button:active {
+    color: white;
+    background: #603813; }
+  .product-add input {
     width: 45px;
     height: 40px;
     border: solid #907AD6 1px;
@@ -68,28 +60,35 @@
     color: #4E2E71;
     text-align: center;
     outline: none; }
-  .le-add input:focus {
+  .product-add input:focus {
     border: solid #907AD6 2px; }
-  .le-add h3 {
+  .product-add h3 {
     font-size: 16pt;
     font-family: Baskerville;
     color: #4E2E71;
     font-weight: normal; }
 
-.le-picture {
+.product-ingredients {
+  width: 500px;
+  height: 140px;
+  margin-top: 40px; }
+  .product-ingredients h3 {
+    font-size: 16pt;
+    font-family: Baskerville;
+    font-weight: normal;
+    color: #4E2E71;
+    margin-top: 0px; }
+  .product-ingredients p {
+    font-size: 14pt;
+    font-family: Baskerville;
+    color: #4E2E71;
+    margin-top: -15px; }
+
+.product-picture {
   width: 525px;
   display: flex;
   justify-content: center;
   align-items: center; }
-  .le-picture img {
+  .product-picture img {
     width: 300px;
     height: auto; }
-
-.le-chocolates-in-box {
-  width: 920px;
-  height: 720px;
-  background: #EAE6F7;
-  padding: 40px; }
-
-.le-chocolates-description {
-  width: 800px; }

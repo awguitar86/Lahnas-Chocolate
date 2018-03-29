@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
-import LePetiteChocolates from '../ChocolatesInBox/LePetiteChocolates';
 
-import LePetiteBox from '../../../images/lePetite.jpg';
+import RockyRoadPic from '../../../images/rockyRoad.jpg';
 import '../chocolates.css';
 
-class LePetite extends Component {
+class RockyRoad extends Component {
     render(){
         return(
             <div className='wrapper'>
@@ -14,32 +13,31 @@ class LePetite extends Component {
                 <div className='product-body'>
                     <div className='product-info'>
                         <div className='product-description'>
-                            <h1>Le Petite Box</h1>
+                            <h1>Rocky Road</h1>
                             <div className='product-add'>
                                 <button>Add To Cart</button>
                                 <input placeholder='1'/>
-                                <h3>$4.95</h3>
+                                <h3>$3.75</h3>
                             </div>
                             <p>
-                                Lahna’s Le Petite box of chocolates are the very best little gift to give to someone.
-                                It is the perfect amount of chocolate to help someone feel comfortaed and loved.
-                                This box conatins one piece each of the Sea Salt Caramel, Mint Truffle, Coconut Rough,
-                                and Pecan Turle.
+                                Lahna’s Rocky Road is one of the very best chocolate confections out there.
+                                A delicious 3-ounce brick of marshmallow, chocolate, coconut, and roasted
+                                pecans will give you a sugar high that will put your kids sugar high to shame.
+                                Just don’t tell your husband, and you should be fine.
                             </p>
                             <div className='product-ingredients'>
                                 <h3>Ingredients</h3>
                                 <p>
-                                    Love, joy, sweat, tears, marshmollow, chocolate, sometimes blood, roasted pecans, snot
-                                    from grandkids, and coconut. Contains lots of sugar, milk, nuts, a the taste of
-                                    guilt-free self indulgence. Gluten-free.
+                                    Love, joy, sweat, tears, marshmollow, chocolate, sometimes blood,
+                                    roasted pecans, snot from grandkids, and coconut. Contains lots of
+                                    sugar, milk, nuts, a the taste of guilt-free self indulgence. Gluten-free.
                                 </p>
                             </div>
                         </div>
                         <div className='product-picture'>
-                            <img src={LePetiteBox} alt='box of chocolates'/>
+                            <img src={RockyRoadPic} alt='rocky road'/>
                         </div>
                     </div>
-                    <LePetiteChocolates />
                 </div>
                 <Footer />
             </div>
@@ -47,4 +45,4 @@ class LePetite extends Component {
     }
 }
 
-export default LePetite;
+export default RockyRoad;

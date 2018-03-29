@@ -1,0 +1,35 @@
+.le-chocolates-in-box {
+  width: 940px;
+  height: 720px;
+  background: #EAE6F7;
+  padding: 20px 20px 40px 40px; }
+
+.le-chocolates-description {
+  width: 800px;
+  font-family: Baskerville;
+  color: #4E2E71; }
+  .le-chocolates-description h1 {
+    font-weight: normal; }
+  .le-chocolates-description p {
+    margin-top: -15px; }
+
+.le-chocolates-wrap {
+  width: 800px;
+  display: grid;
+  grid-row-gap: 50px;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 40px; }
+
+.le-chocolates {
+  width: 300px;
+  height: 250px;
+  font-family: Baskerville;
+  color: #4E2E71; }
+  .le-chocolates h3 {
+    font-weight: normal;
+    font-size: 15pt; }
+  .le-chocolates img {
+    width: 150px;
+    height: auto; }
+  .le-chocolates p {
+    margin-top: -15px; }
