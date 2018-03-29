@@ -11,39 +11,148 @@
 
 .product-body {
     width: 100vw;
+    margin-top: 40px;
+    margin-bottom: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    font-family: Baskerville;
+    color: $dark-purple;
 }
 
 .boxes-wrap {
-    width: 70vw;
+    width: 900px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
+
+    h1 {
+        font-weight: normal;
+    }
+    p{
+        margin-top: -10px;
+        font-size: 14pt;
+    }
+}
+
+.boxes {
+    width: 900px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .boxes-pictures {
+    // width: 200px;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: $dark-purple;
+    // border: solid red;
 
     img {
         width: 150px;
         height: auto;
     }
+
+    h3 {
+        font-weight: normal;
+        text-align: center;
+    }
+}
+
+.boxes-pictures:hover {
+    color: $purple;
+}
+
+.confections-wrap {
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 40px;
+
+    h1 {
+        font-weight: normal;
+    }
+    p{
+        margin-top: -10px;
+        font-size: 14pt;
+    }
+}
+
+.confections-top {
+    width: 700px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .confections-top-pictures {
+     // width: 200px;
+     height: 240px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: space-between;
+     text-decoration: none;
+     color: $dark-purple;
+     // border: solid red;
 
     img {
         width: 150px;
         height: auto;
+    }
+    h3 {
+        font-weight: normal;
+        text-align: center;
     }
 }
 
+.confections-top-pictures:hover {
+    color: $purple;
+}
+
+.confections-bottom {
+    width: 925px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // border: solid red;
+}
+
 .confections-bottom-pictures{
+     width: 225px;
+    //  height: 230px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: space-between;
+     text-decoration: none;
+     color: $dark-purple;
+    //  border: solid red;
 
     img {
         width: 150px;
         height: auto;
+        // border: solid;
     }
+    h3 {
+        font-weight: normal;
+        text-align: center;
+        // border: solid blue;
+    }
+}
+
+.confections-bottom-pictures:hover {
+    color: $purple;
 }

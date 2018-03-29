@@ -10,8 +10,8 @@
 }
 
 .body {
-    width: 1160px;
-    height: 1710px;
+    width: 100vw;
+    // height: 1710px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,7 +22,7 @@
 }
 
 .hero {
-    width: 1160px;
+    width: 1050px;
     height: 510px;
     background-image: url('../../images/BoxOfChocolates.jpg');
     background-position: center center;
@@ -31,18 +31,20 @@
     justify-content: flex-end;
     align-items: flex-end;
     background-repeat: no-repeat;
+    margin-bottom: 20px;
 
     a {
         // width: 150px;
         // border-bottom: solid 1px;
         // border: solid red;
-        padding: 450px 20px 25px 1020px;
+        padding: 450px 30px 30px 923px;
         display: block;
         // margin-right: 30px;
         // margin-bottom: 25px;
         color: white;
         font-family: Baskerville;
         font-size: 16pt;
+        font-weight: normal;
         // text-decoration: none;
     }
     a:hover {
@@ -51,16 +53,16 @@
 }
 
 .body-content {
-    width: 1160px;
+    width: 1050px;
     // height: 420px;
     display: grid;
-    grid-gap: 40px;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(336px, 1fr));
     // border: solid;
 
     img {
-        width: 360px;
-        height: 360px;
+        width: 336px;
+        height: auto;
     }
 }
 

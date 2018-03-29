@@ -7,25 +7,111 @@
 
 .product-body {
   width: 100vw;
+  margin-top: 40px;
+  margin-bottom: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around; }
+  justify-content: space-between;
+  font-family: Baskerville;
+  color: #4E2E71; }
 
 .boxes-wrap {
-  width: 70vw;
+  width: 900px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around; }
+  justify-content: space-around;
+  align-items: center; }
+  .boxes-wrap h1 {
+    font-weight: normal; }
+  .boxes-wrap p {
+    margin-top: -10px;
+    font-size: 14pt; }
 
-.boxes-pictures img {
-  width: 150px;
-  height: auto; }
+.boxes {
+  width: 900px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
 
-.confections-top-pictures img {
-  width: 150px;
-  height: auto; }
+.boxes-pictures {
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #4E2E71; }
+  .boxes-pictures img {
+    width: 150px;
+    height: auto; }
+  .boxes-pictures h3 {
+    font-weight: normal;
+    text-align: center; }
 
-.confections-bottom-pictures img {
-  width: 150px;
-  height: auto; }
+.boxes-pictures:hover {
+  color: #907AD6; }
+
+.confections-wrap {
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 40px; }
+  .confections-wrap h1 {
+    font-weight: normal; }
+  .confections-wrap p {
+    margin-top: -10px;
+    font-size: 14pt; }
+
+.confections-top {
+  width: 700px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+
+.confections-top-pictures {
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #4E2E71; }
+  .confections-top-pictures img {
+    width: 150px;
+    height: auto; }
+  .confections-top-pictures h3 {
+    font-weight: normal;
+    text-align: center; }
+
+.confections-top-pictures:hover {
+  color: #907AD6; }
+
+.confections-bottom {
+  width: 925px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.confections-bottom-pictures {
+  width: 225px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #4E2E71; }
+  .confections-bottom-pictures img {
+    width: 150px;
+    height: auto; }
+  .confections-bottom-pictures h3 {
+    font-weight: normal;
+    text-align: center; }
+
+.confections-bottom-pictures:hover {
+  color: #907AD6; }

@@ -6,31 +6,28 @@
   justify-content: center; }
 
 .header {
-  width: 80vw;
+  width: 1050px;
   height: 80px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center; }
 
 .logo {
-  width: 390px;
+  width: 350px;
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: flex-start; }
   .logo img {
     width: 130px;
-    height: auto;
-    margin-left: 50px; }
+    height: auto; }
 
 .nav {
   width: 350px;
   height: 80px;
   display: flex;
   justify-content: space-around;
-  align-items: flex-end;
-  padding-left: 20px;
-  padding-right: 20px; }
+  align-items: flex-end; }
   .nav a {
     color: white;
     font-family: Baskerville;
@@ -41,7 +38,7 @@
     color: #BD9466; }
 
 .login-register-wrap {
-  width: 390px;
+  width: 350px;
   height: 80px;
   display: flex;
   justify-content: flex-end;
@@ -49,7 +46,6 @@
   .login-register-wrap img {
     width: 23px;
     height: 29px;
-    margin-right: 60px;
     margin-bottom: 17px; }
 
 .login-regi {

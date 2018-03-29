@@ -14,14 +14,14 @@ class Header extends Component {
                     <Link to="/"><img src={logo} alt="Lahna's Chocolate Logo"/></Link>
                 </div>
                 <div className="nav">
-                    <Link to="/api/products">Products</Link>
-                    <a href="">About</a>
-                    <a href="">Contact</a>
+                    <Link to="/products"> Products </Link>
+                    <Link to="/about"> About </Link>
+                    <Link to="/contact"> Contact </Link>
                 </div>
                 <div className="login-register-wrap">
                     <div className="login-regi">
-                        <a href="">Login</a>
-                        <a href="">Register</a>
+                        <Link to="/login"> Login </Link>
+                        <Link to="/register"> Register </Link>
                     </div>
                     <img src={shoppingBag} alt="shopping bag"/>
                 </div>
