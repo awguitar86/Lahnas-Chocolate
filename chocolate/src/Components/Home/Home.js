@@ -21,18 +21,18 @@ class Home extends Component {
             <Header />
             <div className="body">
                 <div className="hero">
-                    <a href="">Shop Now</a>
+                    <Link to='/products'>Shop Now</Link>
                 </div>
                 <div className="body-content">
-                    <img src={LePetite} alt='small box of chocolates'/>
-                    <img src={HalfPound} alt='half pound box of chocolates'/>
-                    <img src={OnePound} alt='one pound box of chocolates'/>
-                    <img src={RockyRoad} alt='rocky road'/>
-                    <img src={PretzelRod} alt='pretzel rod'/>
-                    <img src={LahnaBar} alt='lahna bar'/>
-                    <img src={Lollipop} alt='chocolate lollipop'/>
-                    <img src={Oreos} alt='oreos'/>
-                    <img src={Caramels} alt='caramels'/>
+                    <Link to='/lepetite'><img src={LePetite} alt='small box of chocolates'/></Link>
+                    <Link to='/halfpound'><img src={HalfPound} alt='half pound box of chocolates'/></Link>
+                    <Link to='/onepound'><img src={OnePound} alt='one pound box of chocolates'/></Link>
+                    <Link to='/rockyroad'><img src={RockyRoad} alt='rocky road'/></Link>
+                    <Link to='/pretzelrod'><img src={PretzelRod} alt='pretzel rod'/></Link>
+                    <Link to='/lahnabar'><img src={LahnaBar} alt='lahna bar'/></Link>
+                    <Link to='/lollipop'><img src={Lollipop} alt='chocolate lollipop'/></Link>
+                    <Link to='/oreos'><img src={Oreos} alt='oreos'/></Link>
+                    <Link to='/caramels'><img src={Caramels} alt='caramels'/></Link>
                 </div>
             </div>
             <Footer />

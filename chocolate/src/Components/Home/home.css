@@ -43,3 +43,6 @@
   .body-content img {
     width: 336px;
     height: auto; }
+  .body-content img:hover {
+    width: 332px;
+    border: solid 2px #907AD6; }

@@ -64,5 +64,10 @@
         width: 336px;
         height: auto;
     }
+
+    img:hover {
+        width: 332px;
+        border: solid 2px $purple;
+    }
 }
 
