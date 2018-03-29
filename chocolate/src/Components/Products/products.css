@@ -51,7 +51,13 @@
     text-align: center; }
 
 .boxes-pictures:hover {
-  color: #907AD6; }
+  height: 236px;
+  color: #907AD6;
+  border: solid 2px #907AD6;
+  border-radius: 5px; }
+  .boxes-pictures:hover img {
+    width: 146px;
+    height: auto; }
 
 .confections-wrap {
   width: 900px;
@@ -89,7 +95,13 @@
     text-align: center; }
 
 .confections-top-pictures:hover {
-  color: #907AD6; }
+  height: 236px;
+  color: #907AD6;
+  border: solid 2px #907AD6;
+  border-radius: 5px; }
+  .confections-top-pictures:hover img {
+    width: 146px;
+    height: auto; }
 
 .confections-bottom {
   width: 925px;
@@ -114,4 +126,10 @@
     text-align: center; }
 
 .confections-bottom-pictures:hover {
-  color: #907AD6; }
+  width: 221px;
+  color: #907AD6;
+  border: solid 2px #907AD6;
+  border-radius: 5px; }
+  .confections-bottom-pictures:hover img {
+    width: 146px;
+    height: auto; }

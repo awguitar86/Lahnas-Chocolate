@@ -68,7 +68,15 @@
 }
 
 .boxes-pictures:hover {
+    height: 236px;
     color: $purple;
+    border: solid 2px $purple;
+    border-radius: 5px;
+
+    img {
+        width: 146px;
+        height: auto;
+    }
 }
 
 .confections-wrap {
@@ -118,7 +126,15 @@
 }
 
 .confections-top-pictures:hover {
+    height: 236px;
     color: $purple;
+    border: solid 2px $purple;
+    border-radius: 5px;
+
+    img {
+        width: 146px;
+        height: auto;
+    }
 }
 
 .confections-bottom {
@@ -154,5 +170,13 @@
 }
 
 .confections-bottom-pictures:hover {
+    width: 221px;
     color: $purple;
+    border: solid 2px $purple;
+    border-radius: 5px;
+
+    img {
+        width: 146px;
+        height: auto;
+    }
 }

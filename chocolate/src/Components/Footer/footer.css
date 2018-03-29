@@ -2,8 +2,7 @@
   width: 100vw;
   height: 300px;
   display: flex;
-  flex-direction: column;
-}
+  flex-direction: column; }
 
 .footer {
   width: 100vw;
