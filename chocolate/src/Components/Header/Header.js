@@ -23,7 +23,7 @@ class Header extends Component {
                         <Link to="/login"> Login </Link>
                         <Link to="/register"> Register </Link>
                     </div>
-                    <img src={shoppingBag} alt="shopping bag"/>
+                    <Link to='/bag' className='bag'><img src={shoppingBag} alt="shopping bag"/></Link>
                 </div>
             </div>
         </div>

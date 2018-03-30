@@ -1,14 +1,118 @@
 @import '../_colors.scss';
 
+.contact-wrap {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.contact-body {
+    width: 1050px;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-family: Baskerville;
+    color: $dark-purple;
 
+    h1 {
+        font-weight: normal;
+    }
+    p {
+        margin-top: -15px;
+        font-size: 14pt;
+    }
+}
 
+.contact-form {
+    width: 1050px;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-form-left {
+    width: 505px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    input {
+        height: 40px;
+        font-size: 12pt;
+        font-family: Baskerville;
+        color: $dark-purple;
+        padding-left: 10px;
+        outline: none;
+        border: solid 1px $dark-purple;
+        border-radius: 5px;
+    }
+    input:focus {
+        height: 38px;
+        border: solid 2px $purple;
+    }
+}
+
+.contact-form-right {
+    width: 505px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+
+    textarea {
+        height: 255px;
+        margin-top: 15px;
+        font-size: 12pt;
+        font-family: Baskerville;
+        color: $dark-purple;
+        padding-top: 10px;
+        padding-left: 10px;
+        outline: none;
+        border: solid 1px $dark-purple;
+        border-radius: 5px;
+    }
+    textarea:focus {
+        height: 253px;
+        border: solid 2px $purple;
+    }
+}
+
+.contact-button {
+    width: 1050px;
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+        width: 100px;
+        height: 30px;
+        background: $purple;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        cursor: pointer;
+    }
+    button:hover {
+        color: $dark-purple;
+        transition: 0.3s;
+    }
+    button:active {
+        border: solid white 2px;
+    }
+}
 
 .contact-images {
     width: 1050px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
 
     img {
-        width: 500px;
+        width: 505px;
         height: auto;
     }
 }

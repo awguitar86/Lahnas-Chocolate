@@ -27,6 +27,9 @@ class Contact extends Component {
                             <textarea placeholder='Message'/>
                         </div>
                     </div>
+                    <div className='contact-button'>
+                        <button>SUBMIT</button>
+                    </div>
                     <div className='contact-images'>
                         <img src={Nuts} alt='nuts in chocolate'/>
                         <img src={BoxOfChocolate} alt='box of chocolates'/>

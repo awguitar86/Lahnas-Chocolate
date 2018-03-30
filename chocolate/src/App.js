@@ -3,6 +3,10 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import Home from './Components/Home/Home';
 import Products from './Components/Products/Products';
+import About from './Components/About/About';
+import Contact from './Components/Contact/Contact';
+import Login from './Components/Login/Login';
+import Register from './Components/Register/Register';
 import LePetite from './Components/Products/LePetite/LePetite';
 import HalfPound from './Components/Products/HalfPound/HalfPound';
 import OnePound from './Components/Products/OnePound/OnePound';
@@ -14,8 +18,6 @@ import Lollipop from './Components/Products/Lollipop/Lollipop';
 import Oreos from './Components/Products/Oreos/Oreos';
 import Caramels from './Components/Products/Caramels/Caramels';
 import Licorice from './Components/Products/Licorice/Licorice';
-import About from './Components/About/About';
-import Contact from './Components/Contact/Contact';
 
 class App extends Component {
   render() {
@@ -23,6 +25,10 @@ class App extends Component {
       <div className="App">
         <Route exact path='/' component={Home} />
         <Route path='/products' component={Products} />
+        <Route path='/about' component={About} />
+        <Route path='/contact' component={Contact} />
+        <Route path='/login' component={Login} />
+        <Route path='/register' component={Register} />
         <Route path='/lepetite' component={LePetite} />
         <Route path='/halfpound' component={HalfPound} />
         <Route path='/onepound' component={OnePound} />
@@ -34,8 +40,6 @@ class App extends Component {
         <Route path='/oreos' component={Oreos} />
         <Route path='/caramels' component={Caramels} />
         <Route path='/licorice' component={Licorice} />
-        <Route path='/about' component={About} />
-        <Route path='/contact' component={Contact} />
 
       </div>
     );
