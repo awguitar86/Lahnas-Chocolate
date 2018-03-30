@@ -14,6 +14,8 @@ import Lollipop from './Components/Products/Lollipop/Lollipop';
 import Oreos from './Components/Products/Oreos/Oreos';
 import Caramels from './Components/Products/Caramels/Caramels';
 import Licorice from './Components/Products/Licorice/Licorice';
+import About from './Components/About/About';
+import Contact from './Components/Contact/Contact';
 
 class App extends Component {
   render() {
@@ -32,6 +34,9 @@ class App extends Component {
         <Route path='/oreos' component={Oreos} />
         <Route path='/caramels' component={Caramels} />
         <Route path='/licorice' component={Licorice} />
+        <Route path='/about' component={About} />
+        <Route path='/contact' component={Contact} />
+
       </div>
     );
   }
