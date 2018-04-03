@@ -27,7 +27,7 @@ class Register extends Component {
                     </div>
                     <div className='register-buttons'>
                         <button className='register-btn'>REGISTER</button>
-                        <button className='regi-cancel-btn'>CANCEL</button>
+                        <Link to='/'><button className='regi-cancel-btn'>CANCEL</button></Link>
                     </div>
                 </div>
                 <Footer />

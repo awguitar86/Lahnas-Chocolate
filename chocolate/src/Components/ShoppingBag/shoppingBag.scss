@@ -1,0 +1,39 @@
+@import '../_colors.scss';
+
+.shopping-wrap {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.shopping-body {
+    width: 1050px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-family: Baskerville;
+
+    h1 {
+        width: 1050px;
+        border-bottom: solid 3px $dark-purple;
+        font-weight: normal;
+        padding-bottom: 5px;
+        color: $dark-purple;
+    }
+}
+
+.shopping-bag-items {
+    width: 950px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16pt;
+    font-family: Baskerville;
+    color: $dark-purple;
+}

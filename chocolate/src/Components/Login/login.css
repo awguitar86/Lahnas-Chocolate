@@ -45,7 +45,7 @@
     display: flex;
     justify-content: center;
     padding-top: 5px;
-    font-size: 12pt;
+    font-size: 10pt;
     font-family: Baskerville;
     border: none;
     outline: none;
@@ -57,12 +57,16 @@
   background: #907AD6;
   border-radius: 5px;
   color: white; }
-  .login-btn :hover {
-    color: #4E2E71; }
-  .login-btn :active {
+  .login-btn:hover {
+    color: #4E2E71;
+    transition: 0.3s ease-in-out; }
+  .login-btn:active {
     background: #4E2E71; }
 
 .cancel-btn {
   background: #EAE6F7;
   border-radius: 5px;
   color: #4E2E71; }
+  .cancel-btn:hover {
+    background: lightgray;
+    transition: 0.3s ease-in-out; }

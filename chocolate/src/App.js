@@ -7,6 +7,8 @@ import About from './Components/About/About';
 import Contact from './Components/Contact/Contact';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
+import ShoppingBag from './Components/ShoppingBag/ShoppingBag';
+import Checkout from './Components/Checkout/Checkout';
 import LePetite from './Components/Products/LePetite/LePetite';
 import HalfPound from './Components/Products/HalfPound/HalfPound';
 import OnePound from './Components/Products/OnePound/OnePound';
@@ -29,6 +31,8 @@ class App extends Component {
         <Route path='/contact' component={Contact} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
+        <Route path='/shoppingbag' component={ShoppingBag} />
+        <Route path='/checkout' component={Checkout} />
         <Route path='/lepetite' component={LePetite} />
         <Route path='/halfpound' component={HalfPound} />
         <Route path='/onepound' component={OnePound} />

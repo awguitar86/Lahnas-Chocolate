@@ -97,10 +97,10 @@
     }
     button:hover {
         color: $dark-purple;
-        transition: 0.3s;
+        transition: 0.3s ease-in-out;
     }
     button:active {
-        border: solid white 2px;
+        background: $dark-purple;
     }
 }
 

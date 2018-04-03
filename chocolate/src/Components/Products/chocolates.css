@@ -47,10 +47,10 @@
     outline: none;
     cursor: pointer; }
   .product-add button:hover {
-    color: #4E2E71; }
+    color: #4E2E71;
+    transition: 0.3s ease-in-out; }
   .product-add button:active {
-    color: white;
-    background: #603813; }
+    background: #4E2E71; }
   .product-add input {
     width: 45px;
     height: 40px;

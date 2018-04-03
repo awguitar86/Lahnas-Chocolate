@@ -78,9 +78,9 @@
     cursor: pointer; }
   .contact-button button:hover {
     color: #4E2E71;
-    transition: 0.3s; }
+    transition: 0.3s ease-in-out; }
   .contact-button button:active {
-    border: solid white 2px; }
+    background: #4E2E71; }
 
 .contact-images {
   width: 1050px;

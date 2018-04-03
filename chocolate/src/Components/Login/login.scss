@@ -59,7 +59,7 @@
         display: flex;
         justify-content: center;
         padding-top: 5px;
-        font-size: 12pt;
+        font-size: 10pt;
         font-family: Baskerville;
         border: none;
         outline: none;
@@ -76,10 +76,11 @@
     border-radius: 5px;
     color: white;
 
-    :hover {
+    &:hover {
         color: $dark-purple;
+        transition: 0.3s ease-in-out;
     }
-    :active {
+    &:active {
         background: $dark-purple;
     }
 }
@@ -88,5 +89,10 @@
     background: $light-purple;
     border-radius: 5px;
     color: $dark-purple;
+
+    &:hover {
+        background: lightgray;
+        transition: 0.3s ease-in-out;
+    }
 }
 

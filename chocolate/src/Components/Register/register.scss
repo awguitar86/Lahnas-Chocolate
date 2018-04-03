@@ -41,6 +41,10 @@
         font-family: Baskerville;
         outline: none;
     }
+
+    input:focus {
+        border: solid 2px $purple;
+    }
 }
 
 .firstName {
@@ -101,9 +105,22 @@
     background: $purple;
     color: white;
     margin-right: 20px;
+
+    &:hover {
+        color: $dark-purple;
+        transition: 0.3s ease-in-out;
+    }
+    &:active {
+        background: $dark-purple;
+    }
 }
 
 .regi-cancel-btn {
     background: $light-purple;
     color: $dark-purple;
+    &:hover {
+        background: lightgray;
+        transition: 0.3s ease-in-out;
+    }
 }
+
