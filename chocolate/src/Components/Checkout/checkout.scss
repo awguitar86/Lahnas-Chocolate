@@ -1,0 +1,249 @@
+@import '../_colors.scss';
+
+.checkout-wrap {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checkout-body {
+    width: 1050px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-family: $font;
+    color: $dark-purple;
+
+    h1 {
+        font-weight: normal;
+        padding-bottom: 5px;
+        color: $dark-purple;
+    }
+}
+
+.checkout-form {
+    width: 600px;
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(7, 40px);
+    margin-bottom: 20px;
+
+    input {
+        padding-left: 10px;
+        border: solid 1px $dark-purple;
+        border-radius: 5px;
+        font-size: 12pt;
+        font-family: Baskerville;
+        outline: none;
+    }
+
+    input:focus {
+        border: solid 2px $purple;
+    }
+}
+
+.checkout-first {
+    grid-column: span 3;
+}
+.checkout-last {
+    grid-column: span 3;
+}
+.checkout-company {
+    grid-column: span 6;
+}
+.checkout-address {
+    grid-column: span 6;
+}
+.checkout-city {
+    grid-column: span 6;
+}
+.checkout-state {
+    grid-column: span 2;
+}
+.checkout-zip {
+    grid-column: span 2;
+}
+.checkout-phone {
+    grid-column: span 2;
+}
+.checkout-email {
+    grid-column: span 6;
+}
+.checkout-reTypeEmail {
+    grid-column: span 6;
+}
+
+.payment-method {
+    width: 575px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+
+    p {
+        margin-right: 20px;
+        font-size: 14pt;
+    }
+
+    input {
+        margin-right: 8px;
+        color: $dark-purple;
+    }
+
+    label {
+        margin-right: 20px;
+    }
+}
+
+.shipping-method{
+    width: 575px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+
+    p {
+        margin-right: 20px;
+        font-size: 14pt;
+    }
+
+    input {
+        margin-right: 8px;
+        color: $dark-purple;
+    }
+
+    label {
+        margin-right: 20px;
+    }
+}
+
+.total-price {
+    width: 600px;
+    // height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    border-top: solid 1px $dark-purple;
+    border-bottom: solid 1px $dark-purple;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.subtotal-shipping-tax {
+    width: 600px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    // border: solid 1px;
+}
+
+.subtotal {
+    width: 600px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -10px;
+
+    h3 {
+        font-weight: normal;
+        margin-right: 28px;
+    }
+
+    p {
+        font-size: 14pt;
+    }
+}
+
+.shipping {
+    width: 600px;
+    display: flex;
+    justify-content: flex-end;
+
+    h3 {
+        font-weight: normal;
+        margin-right: 28px;
+    }
+
+    p {
+        font-size: 14pt;
+    }
+}
+
+.tax {
+    width: 600px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 5px;
+
+    h3 {
+        font-weight: normal;
+        margin-right: 28px;
+    }
+
+    p {
+        font-size: 14pt;
+    }
+}
+
+.price-divider {
+    width: 200px;
+    border-bottom: solid 1px $dark-purple;
+
+    h3 {
+        font-weight: normal;
+        margin-right: 28px;
+    }
+
+    p {
+        font-size: 14pt;
+    }
+}
+
+.total {
+    width: 600px;
+    display: flex;
+    justify-content: flex-end;
+    // margin-top: -10px;
+
+    h2 {
+        font-weight: normal;
+        margin-right: 20px;
+    }
+
+    p {
+        font-size: 16pt;
+    }
+}
+
+.checkout-button {
+    width: 600px;
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+        background: $purple;
+        color: white;
+        width: 140px;
+        height: 40px;
+        border: none;
+        border-radius: 5px;
+        font-size: 10pt;
+        font-family: $font;
+        cursor: pointer;
+        outline: none;
+
+        &:hover {
+            color: $dark-purple;
+            transition: 0.3s ease-in-out;
+        }
+        &:active {
+            background: $dark-purple;
+        }
+    }
+}

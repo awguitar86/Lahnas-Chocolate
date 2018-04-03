@@ -20,6 +20,22 @@
     font-weight: normal;
     padding-bottom: 5px;
     color: #4E2E71; }
+  .shopping-body button {
+    background: #907AD6;
+    color: white;
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    font-size: 10pt;
+    font-family: Baskerville;
+    cursor: pointer;
+    outline: none; }
+    .shopping-body button:hover {
+      color: #4E2E71;
+      transition: 0.3s ease-in-out; }
+    .shopping-body button:active {
+      background: #4E2E71; }
 
 .shopping-bag-items {
   width: 950px;
