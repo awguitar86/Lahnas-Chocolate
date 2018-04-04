@@ -2,14 +2,23 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './header.css';
 
+import HamDropdown from '../HamDropDown/HamDropDown';
 import logo from '../../images/LCLogo.svg';
 import shoppingBag from '../../images/bag-icon.svg';
+import hamMenu from '../../images/hamMenu.png';
 
 class Header extends Component {
   render() {
     return (
         <div className="header-wrap">
             <div className="header">
+                <HamDropdown key="dropdown-ham-menu" className="ham-menu" img={hamMenu} options={[
+                        {text: 'Products', to:'/products'},
+                        {text: 'About', to:'/about'},
+                        {text: 'Contact', to:'/contact'},
+                        {text: 'Login', to: '/login'},
+                        {text: 'Register', to: '/register'},
+                ]}/>
                 <div className="logo">
                     <Link to="/"><img src={logo} alt="Lahna's Chocolate Logo"/></Link>
                 </div>

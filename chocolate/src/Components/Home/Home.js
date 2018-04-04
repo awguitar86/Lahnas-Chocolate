@@ -20,9 +20,11 @@ class Home extends Component {
         <div className="home-wrap">
             <Header />
             <div className="body">
-                <div className="hero">
-                    <Link to='/products'>Shop Now</Link>
-                </div>
+                <Link to='/products'>
+                    <div className="hero">
+                        <Link to='/products'>Shop Now</Link>
+                    </div>
+                </Link>
                 <div className="body-content">
                     <Link to='/lepetite'><img src={LePetite} alt='small box of chocolates'/></Link>
                     <Link to='/halfpound'><img src={HalfPound} alt='half pound box of chocolates'/></Link>
@@ -32,7 +34,7 @@ class Home extends Component {
                     <Link to='/lahnabar'><img src={LahnaBar} alt='lahna bar'/></Link>
                     <Link to='/lollipop'><img src={Lollipop} alt='chocolate lollipop'/></Link>
                     <Link to='/oreos'><img src={Oreos} alt='oreos'/></Link>
-                    <Link to='/caramels'><img src={Caramels} alt='caramels'/></Link>
+                    <Link to='/caramels'><img src={Caramels} alt='caramels' className='caramels'/></Link>
                 </div>
             </div>
             <Footer />
