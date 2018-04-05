@@ -34,11 +34,11 @@
 
 @media only screen and (max-width: 1100px) {
   .le-chocolates-in-box {
-    width: 70vw; } }
+    width: 85vw; }
+  .le-chocolates-description {
+    width: 85vw; } }
 
 @media only screen and (max-width: 950px) {
-  .le-chocolates-description {
-    width: 70vw; }
   .le-chocolates {
     width: 30vw; }
     .le-chocolates img {
@@ -47,8 +47,12 @@
     width: 70vw; } }
 
 @media only screen and (max-width: 690px) {
-  .le-chocolates-description h1 {
-    font-size: 20pt; } }
+  .le-chocolates-in-box {
+    width: 80vw; }
+  .le-chocolates-description {
+    width: 80vw; }
+    .le-chocolates-description h1 {
+      font-size: 20pt; } }
 
 @media only screen and (max-width: 500px) {
   .le-chocolates-wrap {
