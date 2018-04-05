@@ -57,34 +57,32 @@ class Products extends Component {
                         Or if you just want to be selfish you can buy them for yourself too! Just be sure to wipe your
                         face off when you’re done.
                     </p>
-                    <div className='confections-top'>
-                            <Link to='/rockyroad' className='confections-top-pictures'>
+                    <div className='confections'>
+                            <Link to='/rockyroad' className='confections-pictures'>
                                 <img src={RockyRoad} alt='rocky road'/>
                                 <h3> Rocky Road <br/> $3.75 </h3>
                             </Link>
-                            <Link to='/pretzelrod' className='confections-top-pictures'>
+                            <Link to='/pretzelrod' className='confections-pictures'>
                                 <img src={PretzelRod} alt='pretzel rod'/>
                                 <h3> Pretzel Rod <br/> $2.49 </h3>
                             </Link>
-                            <Link to='/lahnabar' className='confections-top-pictures'>
+                            <Link to='/lahnabar' className='confections-pictures'>
                                 <img src={LahnaBar} alt='lahna bar'/>
                                 <h3> Lahna Bar <br/> $2.49 </h3>
                             </Link>
-                    </div>
-                    <div className='confections-bottom'>
-                            <Link to='/lollipop' className='confections-bottom-pictures'>
+                            <Link to='/lollipop' className='confections-pictures'>
                                 <img src={Lollipop} alt='chocolate lollipop'/>
                                 <h3> Caramel Lollipop <br/> $1.75 </h3>
                             </Link>
-                            <Link to='/oreos' className='confections-bottom-pictures'>
+                            <Link to='/oreos' className='confections-pictures'>
                                 <img src={Oreos} alt='oreos'/>
                                 <h3> Chocolate Dipped Oreos <br/> $0.60 </h3>
                             </Link>
-                            <Link to='/caramels' className='confections-bottom-pictures'>
+                            <Link to='/caramels' className='confections-pictures'>
                                 <img src={Caramels} alt='caramels'/>
                                 <h3> Grandma’s Carmels <br/> $0.60 </h3>
                             </Link>
-                            <Link to='/licorice' className='confections-bottom-pictures'>
+                            <Link to='/licorice' className='confections-pictures'>
                                 <img src={Licorice} alt='licorice'/>
                                 <h3> Grandma’s Licorice Carmels <br/> $0.60 </h3>
                             </Link>

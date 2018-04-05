@@ -1,6 +1,5 @@
 .le-chocolates-in-box {
   width: 940px;
-  height: 720px;
   background: #EAE6F7;
   padding: 20px 20px 40px 40px; }
 
@@ -22,7 +21,6 @@
 
 .le-chocolates {
   width: 300px;
-  height: 250px;
   font-family: Baskerville;
   color: #4E2E71; }
   .le-chocolates h3 {
@@ -33,3 +31,36 @@
     height: auto; }
   .le-chocolates p {
     margin-top: -15px; }
+
+@media only screen and (max-width: 1100px) {
+  .le-chocolates-in-box {
+    width: 70vw; } }
+
+@media only screen and (max-width: 950px) {
+  .le-chocolates-description {
+    width: 70vw; }
+  .le-chocolates {
+    width: 30vw; }
+    .le-chocolates img {
+      width: 15vw; }
+  .le-chocolates-wrap {
+    width: 70vw; } }
+
+@media only screen and (max-width: 690px) {
+  .le-chocolates-description h1 {
+    font-size: 20pt; } }
+
+@media only screen and (max-width: 500px) {
+  .le-chocolates-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .le-chocolates {
+    width: 70vw;
+    margin-bottom: 20px; }
+    .le-chocolates img {
+      width: 50vw; } }
+
+@media only screen and (max-width: 400px) {
+  .le-chocolates-description h1 {
+    font-size: 17pt; } }

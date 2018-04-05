@@ -9,7 +9,7 @@
 }
 
 .product-body {
-    width: 1000px;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -20,8 +20,9 @@
 
 .product-info {
     width: 1000px;
-    height: 500px;
+    // height: 500px;
     display: flex;
+    margin-bottom: 40px;
 }
 
 .product-description {
@@ -69,9 +70,10 @@
     }
 
     input {
-        width: 45px;
-        height: 40px;
+        width: 40px;
+        height: 30px;
         border: solid $purple 1px;
+        border-radius: 3px;
         font-size: 14pt;
         font-family: Baskerville;
         color: $dark-purple;
@@ -93,7 +95,7 @@
 
 .product-ingredients {
     width: 500px;
-    height: 140px;
+    // height: 140px;
     margin-top: 40px;
     // border: solid;
 
@@ -127,5 +129,68 @@
         width: 300px;
         height: auto;
         // margin-bottom: 100px;
+    }
+}
+
+@media only screen and (max-width: 1100px){
+    .product-info {
+        width: 90vw;
+    }
+}
+
+@media only screen and (max-width: 950px){
+    .product-body {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .product-description {
+        width: 50vw;
+    }
+    .product-add {
+        button:hover {
+            color: white;
+        }
+    }
+    .product-ingredients {
+        width: 50vw;
+    }
+    .product-picture {
+        width: 50vw;
+        img {
+            width: 30vw;
+        }
+    }
+}
+
+@media only screen and (max-width: 690px){
+    .product-body {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .product-info {
+        flex-direction: column;
+    }
+    .product-description {
+        width: 90vw;
+    }
+    .product-add {
+        width: 260px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        button {
+            font-size: 13pt;
+        }
+    }
+    .product-ingredients {
+        width: 90vw;
+    }
+    .product-picture {
+        width: 90vw;
+        margin-top: 20px;
+        img {
+            width: 50vw;
+        }
     }
 }
