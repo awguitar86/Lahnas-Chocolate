@@ -26,17 +26,21 @@ class Checkout extends Component {
 
                     <div className='payment-method'>
                         <p>Payment Method:</p>
-                        <input type='radio' name='payment'/>
-                        <label for='paymentChoice1'>On Delivery</label>
-                        <input type='radio' name='payment'/>
-                        <label for='paymentChoice2'>Mail</label>
-                        <input type='radio' name='payment'/>
-                        <label for='paymentChoice3'>PayPal</label>
+                        <div className='payment-method-inputs'>
+                            <input type='radio' name='payment'/>
+                            <label for='paymentChoice1'>On Delivery</label>
+                            <input type='radio' name='payment'/>
+                            <label for='paymentChoice2'>Mail</label>
+                            <input type='radio' name='payment'/>
+                            <label for='paymentChoice3'>PayPal</label>
+                        </div>
                     </div>
                     <div className='shipping-method'>
                         <p>Shipping Method:</p>
-                        <input type='radio' name='shipping' value='' checked='checked'/>
-                        <label for='shippingChoice1'>Delivery Only</label>
+                        <div className='shipping-method-input'>
+                            <input type='radio' name='shipping' value='' checked='checked'/>
+                            <label for='shippingChoice1'>Delivery Only</label>
+                        </div>
                     </div>
 
                     <div className='total-price'>

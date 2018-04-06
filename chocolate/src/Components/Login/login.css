@@ -70,3 +70,17 @@
   .cancel-btn:hover {
     background: lightgray;
     transition: 0.3s ease-in-out; }
+
+@media only screen and (max-width: 600px) {
+  .login-body {
+    width: 70vw;
+    height: 270px;
+    margin-top: -40px; }
+    .login-body h1 {
+      margin-bottom: 10px; }
+    .login-body input {
+      width: 70vw; }
+  .login-buttons {
+    width: 72vw; }
+    .login-buttons button {
+      width: 33vw; } }

@@ -96,3 +96,25 @@
     }
 }
 
+@media only screen and (max-width: 600px){
+    .login-body {
+        width: 70vw;
+        height: 270px;
+        margin-top: -40px;
+        h1 {
+            margin-bottom: 10px;
+        }
+        input {
+            width: 70vw;
+        }
+    }
+    .login-buttons {
+        width: 72vw;
+        // border: solid;
+        button {
+            width: 33vw;
+        }
+    }
+
+}
+

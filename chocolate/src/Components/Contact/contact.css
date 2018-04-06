@@ -20,7 +20,6 @@
 
 .contact-form {
   width: 1050px;
-  height: 300px;
   display: flex;
   justify-content: space-between; }
 
@@ -91,3 +90,42 @@
   .contact-images img {
     width: 505px;
     height: auto; }
+
+@media only screen and (max-width: 1100px) {
+  .contact-body {
+    width: 90vw;
+    margin-top: 10px;
+    margin-bottom: 30px; }
+  .contact-form {
+    width: 90vw; }
+  .contact-form-left {
+    width: 43vw; }
+  .contact-form-right {
+    width: 43vw; }
+  .contact-button {
+    width: 90vw; }
+  .contact-images {
+    width: 90vw; }
+    .contact-images img {
+      width: 43vw; } }
+
+@media only screen and (max-width: 770px) {
+  .contact-body h1 {
+    font-size: 20pt; }
+  .contact-body p {
+    font-size: 12pt; } }
+
+@media only screen and (max-width: 500px) {
+  .contact-form {
+    flex-direction: column; }
+  .contact-form-left {
+    width: 90vw; }
+  .contact-form-right {
+    width: 90vw; }
+  .contact-button button {
+    width: 90vw;
+    height: 40px; }
+  .contact-images img {
+    width: 90vw; }
+  .BoxOfChocolates {
+    display: none; } }

@@ -32,7 +32,7 @@ class Contact extends Component {
                     </div>
                     <div className='contact-images'>
                         <img src={Nuts} alt='nuts in chocolate'/>
-                        <img src={BoxOfChocolate} alt='box of chocolates'/>
+                        <img src={BoxOfChocolate} alt='box of chocolates' className='BoxOfChocolates'/>
                     </div>
                 </div>
                 <Footer />

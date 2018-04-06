@@ -46,3 +46,23 @@
   font-size: 16pt;
   font-family: Baskerville;
   color: #4E2E71; }
+
+@media only screen and (max-width: 1100px) {
+  .shopping-body {
+    width: 90vw; }
+    .shopping-body h1 {
+      width: 90vw; }
+  .shopping-bag-items {
+    width: 80vw; } }
+
+@media only screen and (max-width: 800px) {
+  .shopping-body h1 {
+    font-size: 20pt; } }
+
+@media only screen and (max-width: 450px) {
+  .shopping-bag-items {
+    font-size: 12pt; } }
+
+@media only screen and (max-width: 330px) {
+  .shopping-bag-items {
+    font-size: 11pt; } }

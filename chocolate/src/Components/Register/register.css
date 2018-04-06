@@ -7,7 +7,6 @@
 
 .register-body {
   width: 550px;
-  height: 580px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -102,3 +101,26 @@
   .regi-cancel-btn:hover {
     background: lightgray;
     transition: 0.3s ease-in-out; }
+
+@media only screen and (max-width: 670px) {
+  .register-body {
+    width: 90vw;
+    margin-top: 10px;
+    margin-bottom: 30px; }
+    .register-body h1 {
+      font-size: 20pt; }
+  .regi-inputs {
+    width: 90vw; }
+  .register-buttons {
+    width: 90vw; } }
+
+@media only screen and (max-width: 500px) {
+  .regi-inputs {
+    grid-template-rows: repeat(12, 50px); }
+    .regi-inputs input {
+      grid-column: span 6; }
+  .register-buttons {
+    justify-content: space-between; }
+    .register-buttons button {
+      width: 43vw;
+      height: 50px; } }
