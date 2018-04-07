@@ -18,6 +18,7 @@ class Header extends Component {
                         {text: 'Contact', to:'/contact'},
                         {text: 'Login', to: '/login'},
                         {text: 'Register', to: '/register'},
+                        {text: 'Account', to: '/dashboard'},
                 ]}/>
                 <div className="logo">
                     <Link to="/"><img src={logo} alt="Lahna's Chocolate Logo"/></Link>
