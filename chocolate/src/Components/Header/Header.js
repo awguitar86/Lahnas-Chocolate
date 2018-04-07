@@ -9,6 +9,7 @@ import hamMenu from '../../images/hamMenu.png';
 
 class Header extends Component {
   render() {
+    const baseURL = '/api/users';
     return (
         <div className="header-wrap">
             <div className="header">
@@ -17,7 +18,7 @@ class Header extends Component {
                         {text: 'About', to:'/about'},
                         {text: 'Contact', to:'/contact'},
                         {text: 'Login', to: '/login'},
-                        {text: 'Register', to: '/register'},
+                        {text: 'Register', to: 'register'},
                         {text: 'Account', to: '/dashboard'},
                 ]}/>
                 <div className="logo">
@@ -31,7 +32,7 @@ class Header extends Component {
                 <div className="login-register-wrap">
                     <div className="login-regi">
                         <Link to="/login"> Login </Link>
-                        <Link to="/register"> Register </Link>
+                        <Link to= '/register'> Register </Link>
                     </div>
                     <Link to='/shoppingbag' className='bag'><img src={shoppingBag} alt="shopping bag"/></Link>
                 </div>
