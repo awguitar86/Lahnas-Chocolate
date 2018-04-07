@@ -29,8 +29,8 @@ class Dashboard extends Component {
                             <li className='dash-user6'>{email}</li>
                         </ul>
                         <ul className='dash-links'>
-                            <Link to='/changeinfo'><li>Change Account Info</li></Link>
-                            <Link to='/orderhistory'><li>Order History</li></Link>
+                            <Link to='/changeinfo'><button>Change Account Info</button></Link>
+                            <Link to='/orderhistory'><button>Order History</button></Link>
                         </ul>
                     </div>
                 </div>
