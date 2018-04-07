@@ -52,6 +52,7 @@
     text-align: center; }
 
 .boxes-pictures:hover {
+  width: 196px;
   height: 236px;
   color: #907AD6;
   border: solid 2px #907AD6;
