@@ -134,3 +134,7 @@
     margin-top: 20px; }
     .product-picture img {
       width: 50vw; } }
+
+@media only screen and (max-width: 415px) {
+  .product-picture img {
+    width: 80vw; } }

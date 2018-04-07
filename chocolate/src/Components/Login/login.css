@@ -81,6 +81,8 @@
     .login-body input {
       width: 70vw; }
   .login-buttons {
-    width: 72vw; }
+    width: 75vw; }
     .login-buttons button {
-      width: 33vw; } }
+      width: 35vw;
+      height: 45px;
+      font-size: 11pt; } }

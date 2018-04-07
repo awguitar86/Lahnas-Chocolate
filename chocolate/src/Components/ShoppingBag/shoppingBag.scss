@@ -79,6 +79,15 @@
     }
 }
 
+@media only screen and (max-width: 500px){
+    .shopping-body {
+        button {
+            width: 90vw;
+            height: 50px;
+        }
+    }
+}
+
 @media only screen and (max-width: 450px){
     .shopping-bag-items {
         font-size: 12pt;

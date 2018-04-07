@@ -214,4 +214,7 @@
   .shipping-method {
     flex-direction: column; }
     .shipping-method p {
-      margin-bottom: 5px; } }
+      margin-bottom: 5px; }
+  .checkout-button button {
+    width: 90vw;
+    height: 50px; } }

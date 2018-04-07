@@ -153,7 +153,7 @@
         // border: solid;
         img {
             width: 300px;
-            height: 190px;
+            height: 200px;
         }
         p {
             width: 80vw;
@@ -163,7 +163,7 @@
     }
 }
 
-@media only screen and (max-width: 375px){
+@media only screen and (max-width: 350px){
     .about-bottom {
         img {
             width: 250px;

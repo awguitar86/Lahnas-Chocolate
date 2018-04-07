@@ -65,7 +65,7 @@ class Checkout extends Component {
                         </div>
                     </div>
                     <div className='checkout-button'>
-                        <Link to='/checkout'><button>REVIEW ORDER</button></Link>
+                        <Link to='/orderreview'><button>REVIEW ORDER</button></Link>
                     </div>
                 </div>
                 <Footer />

@@ -39,7 +39,7 @@
         border: solid 1px $dark-purple;
         border-radius: 5px;
         font-size: 12pt;
-        font-family: Baskerville;
+        font-family: $font;
         outline: none;
     }
 
@@ -291,6 +291,12 @@
         flex-direction: column;
         p {
             margin-bottom: 5px;
+        }
+    }
+    .checkout-button {
+        button {
+            width: 90vw;
+            height: 50px;
         }
     }
 }

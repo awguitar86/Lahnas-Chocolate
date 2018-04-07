@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './chocolates.css';
+import './chocolatesInBox.css';
 
 import SeaSalt from '../../../images/SeaSaltCaramel.jpg';
 import Truffle from '../../../images/Truffle.jpg';

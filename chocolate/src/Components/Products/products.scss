@@ -178,6 +178,9 @@
 @media only screen and (max-width: 800px) {
     .boxes-wrap {
         width: 85vw;
+        h1 {
+            font-size: 22pt;
+        }
     }
     .boxes {
         width: 85vw;;
@@ -191,6 +194,9 @@
     }
     .confections-wrap {
         width: 85vw;
+        h1 {
+            font-size: 22pt;
+        }
     }
 }
 
@@ -208,14 +214,15 @@
 
 }
 
-// @media only screen and (max-width: 471px){
-//     .boxes-pictures {
-//         width: 50vw;
-//         height: 185px;
-//         margin-bottom: 30px;
-//         // border: solid;
-//         img {
-//             width: 30vw;
-//         }
-//     }
-// }
+@media only screen and (max-width: 400px){
+    .boxes-wrap {
+        h1 {
+            font-size: 20pt;
+        }
+    }
+    .confections-wrap {
+        h1 {
+            font-size: 20pt;
+        }
+    }
+}

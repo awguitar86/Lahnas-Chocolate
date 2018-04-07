@@ -44,8 +44,7 @@
   .footer-wrap {
     height: 210px; }
   .footer {
-    height: 60px;
-    font-size: 12pt; }
+    height: 60px; }
   .social {
     height: 150px; }
   .social-media {
@@ -59,7 +58,7 @@
 
 @media only screen and (max-width: 575px) {
   .footer {
-    font-size: 12pt; }
+    font-size: 3.5vw; }
   .social p {
     font-size: 11pt;
     margin-bottom: 30px; }
@@ -73,15 +72,5 @@
       height: 30px; } }
 
 @media only screen and (max-width: 400px) {
-  .footer {
-    font-size: 11pt; }
   .social p {
     font-size: 10pt; } }
-
-@media only screen and (max-width: 360px) {
-  .footer {
-    font-size: 10pt; } }
-
-@media only screen and (max-width: 330px) {
-  .footer {
-    font-size: 9pt; } }
