@@ -6,7 +6,7 @@ const usersRouter = express.Router();
 usersRouter.get('/:id', (req, res) => {
     const id = req.params.id;
     const db = getDb();
-    db.get_user( [id] )
+    db.get_user([ id ])
         .then( user => res.status(200).send(user))
         .catch( err => res.status(500).send(err))
 });

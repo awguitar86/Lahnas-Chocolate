@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './footer.css';
 import facebook from '../../images/facebook.png';
 import twitter from '../../images/twitter.png';
@@ -15,8 +15,8 @@ class Footer extends Component {
             <div className="social-media">
                 <a href=""><img src={facebook} alt="facebook logo"/></a>
                 <a href=""><img src={twitter} alt="twitter logo"/></a>
-                <a href="https://www.instagram.com/lahnaschocolates/?hl=af" target="_blank"><img src={instagram} alt="instagram logo"/></a>
-                <a href="https://www.pinterest.com/lahnascandy/" target="_blank"><img src={pinterist} alt="pinterist logo"/></a>
+                <a href="https://www.instagram.com/lahnaschocolates/?hl=af" target="_blank" rel='noopener noreferrer'><img src={instagram} alt="instagram logo"/></a>
+                <a href="https://www.pinterest.com/lahnascandy/" target="_blank" rel='noopener noreferrer'><img src={pinterist} alt="pinterist logo"/></a>
             </div>
             <p>© 2018 Lahna’s Chocolates - All Rights Reserved</p>
         </div>

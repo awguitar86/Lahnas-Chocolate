@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import './App.css';
 
 import Home from './Components/Home/Home';
@@ -32,6 +33,13 @@ import Caramels from './Components/Products/Caramels/Caramels';
 import Licorice from './Components/Products/Licorice/Licorice';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -41,7 +49,7 @@ class App extends Component {
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
 
-        <Route path='/dashboard' component={Dashboard} />
+        <Route path='/dashboard/:id' component={Dashboard} />
         <Route path='/changeinfo' component={ChangeInfo} />
         <Route path='/orderhistory' component={OrderHistory} />
         <Route path='/singleorder' component={SingleOrder} />
@@ -68,4 +76,8 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateTpProps(state){
+  return state;
+}
+
+export default withRouter( connect( mapStateTpProps ) (App) );

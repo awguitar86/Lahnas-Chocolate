@@ -10,12 +10,14 @@ class Login extends Component {
             <div className='login-wrap'>
                 <Header />
                 <div className='login-body'>
-                    <h1>Login</h1>
-                    <input placeholder='Email'/>
-                    <input placeholder='Password' type='password'/>
-                    <div className='login-buttons'>
-                        <button className='login-btn'>LOGIN</button>
-                        <Link to='/'><button className='cancel-btn'>CANCEL</button></Link>
+                    <div className='login'>
+                        <h1>Login</h1>
+                        <input placeholder='Email'/>
+                        <input placeholder='Password' type='password'/>
+                        <div className='login-buttons'>
+                            <button className='login-btn'>LOGIN</button>
+                            <Link to='/'><button className='cancel-btn'>CANCEL</button></Link>
+                        </div>
                     </div>
                 </div>
                 <Footer />

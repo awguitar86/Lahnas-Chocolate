@@ -36,7 +36,7 @@ export default class HamDropdown extends Component {
             <div className='ham-wrap'>
 
                 <div onClick={this.handleClick.bind(this)} className={this.props.className}>
-                    <img src={this.props.img} />
+                    <img src={this.props.img} alt=''/>
                 </div>
                     <div className={'backdrop ' + (this.state.open ? 'open' : '')} onClick={this.handleClick.bind(this)}/>
                     {this.state.open &&

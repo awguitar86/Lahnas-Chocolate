@@ -3,7 +3,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import './about.css';
 import Florence from '../../images/florenceprows.jpg';
-import LahnaFamily from '../../images/LahnasFamily.JPG';
+import LahnaFamily from '../../images/LahnasFamily.jpg';
 
 class About extends Component {
     render(){
@@ -28,10 +28,10 @@ class About extends Component {
                             newfound treasure should be spent, Grandma offered to take some of the money and purchase ingredients
                             to make candy to sell. Miraculously, her confections helped the Prows family get through very difficult times.
                         </p>
-                        <img src={Florence} alt='picture of grandma florence'/>
+                        <img src={Florence} alt='grandma florence'/>
                     </div>
                     <div className='about-bottom'>
-                        <img src={LahnaFamily} alt='picture of family'/>
+                        <img src={LahnaFamily} alt='family'/>
                         <p>
                             In tribute to this great woman, I carry on the tradition of helping care for family and friends
                             by creating handcrafted, high-quality confections, just as she would have done.

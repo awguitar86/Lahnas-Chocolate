@@ -9,7 +9,7 @@ import hamMenu from '../../images/hamMenu.png';
 
 class Header extends Component {
   render() {
-    const baseURL = '/api/users';
+    // const baseURL = '/api/users';
     return (
         <div className="header-wrap">
             <div className="header">

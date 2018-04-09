@@ -23,7 +23,7 @@ class Chocolates extends Component {
 
                     <div className='top-chocolates'>
                         <div className='chocolates'>
-                            <img src={SeaSalt}/>
+                            <img src={SeaSalt} alt ='sea salt caramel' />
                             <h3>Sea Salt Caramel</h3>
                             <p>
                                 Perfect caramel hand dipped in milk chocolate with a sprinkle of sea salt.
@@ -31,7 +31,7 @@ class Chocolates extends Component {
                             </p>
                         </div>
                         <div className='chocolates'>
-                            <img src={Truffle}/>
+                            <img src={Truffle} alt ='chocolate truffle'/>
                             <h3>Mint Truffle</h3>
                             <p>
                                 The creamiest smooth chocolate mint centers dipped in pure milk chocolate.
@@ -42,7 +42,7 @@ class Chocolates extends Component {
 
                     <div className='bottom-chocolates'>
                         <div className='chocolates'>
-                            <img src={Coconut}/>
+                            <img src={Coconut} alt ='coconut in chocolate'/>
                             <h3>Coconut Rough</h3>
                             <p>
                                 Pure milk chocolate poured over pure coconut topped
@@ -50,7 +50,7 @@ class Chocolates extends Component {
                             </p>
                         </div>
                         <div className='chocolates'>
-                            <img src={Turtle}/>
+                            <img src={Turtle} alt ='chocolate turtle'/>
                             <h3>Pecan Turtle</h3>
                             <p>
                                 Pecans + caramel + chocolate = love!
@@ -58,7 +58,7 @@ class Chocolates extends Component {
                             </p>
                         </div>
                         <div className='chocolates'>
-                            <img src={Almond}/>
+                            <img src={Almond} alt ='almonds in chocolate'/>
                             <h3>Almond Cluster</h3>
                             <p>
                                 Oven roasted almonds bathed in smoooooth

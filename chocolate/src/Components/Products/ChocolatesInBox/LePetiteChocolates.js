@@ -20,7 +20,7 @@ class LePetiteChocolates extends Component {
                 </div>
                 <div className='le-chocolates-wrap'>
                         <div className='le-chocolates'>
-                            <img src={SeaSalt}/>
+                            <img src={SeaSalt} alt='sea salt caramel in chocolate'/>
                             <h3>Sea Salt Caramel</h3>
                             <p>
                                 Perfect caramel hand dipped in milk chocolate with a sprinkle of sea salt.
@@ -28,7 +28,7 @@ class LePetiteChocolates extends Component {
                             </p>
                         </div>
                         <div className='le-chocolates'>
-                            <img src={Truffle}/>
+                            <img src={Truffle} alt='chocolate truffle'/>
                             <h3>Mint Truffle</h3>
                             <p>
                                 The creamiest smooth chocolate mint centers dipped in pure milk chocolate.
@@ -36,7 +36,7 @@ class LePetiteChocolates extends Component {
                             </p>
                         </div>
                         <div className='le-chocolates'>
-                            <img src={Coconut}/>
+                            <img src={Coconut} alt='coconut in chocolate'/>
                             <h3>Coconut Rough</h3>
                             <p>
                                 Pure milk chocolate poured over pure coconut topped
@@ -44,7 +44,7 @@ class LePetiteChocolates extends Component {
                             </p>
                         </div>
                         <div className='le-chocolates'>
-                            <img src={Turtle}/>
+                            <img src={Turtle} alt='chocolate turtle'/>
                             <h3>Pecan Turtle</h3>
                             <p>
                                 Pecans + caramel + chocolate = love!
