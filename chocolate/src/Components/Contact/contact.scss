@@ -94,6 +94,8 @@
         border-radius: 5px;
         outline: none;
         cursor: pointer;
+        font-family: $font;
+        font-size: 10pt;
     }
     button:hover {
         color: $dark-purple;
