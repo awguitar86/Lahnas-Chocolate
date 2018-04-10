@@ -33,13 +33,6 @@ import Caramels from './Components/Products/Caramels/Caramels';
 import Licorice from './Components/Products/Licorice/Licorice';
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state = {
-
-    }
-  }
-
   render() {
     return (
       <div className="App">
@@ -50,7 +43,7 @@ class App extends Component {
         <Route path='/register' component={Register} />
 
         <Route path='/dashboard/:id' component={Dashboard} />
-        <Route path='/changeinfo' component={ChangeInfo} />
+        <Route path='/changeinfo/:id' component={ChangeInfo} />
         <Route path='/orderhistory' component={OrderHistory} />
         <Route path='/singleorder' component={SingleOrder} />
 

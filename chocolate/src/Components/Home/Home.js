@@ -20,9 +20,9 @@ class Home extends Component {
         <div className="home-wrap">
             <Header />
             <div className="body">
-                <Link to='/products'>
+                <Link to='/products' className='hero-link'>
                     <div className="hero">
-                        <Link to='/products'>Shop Now</Link>
+                        <p>Shop Now</p>
                     </div>
                 </Link>
                 <div className="body-content">

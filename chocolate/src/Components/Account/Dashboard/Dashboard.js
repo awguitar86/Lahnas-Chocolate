@@ -22,36 +22,41 @@ class Dashboard extends Component {
             phone: '',
             email: '',
         }
-        // this.handleGetUser = this.handleGetUser.bind(this);
+        this.pullFromBackend = this.pullFromBackend.bind(this);
     }
 
     componentDidMount(){
         const id = this.props.match.params.id;
-        findUserInfo(id)
-        .then(res => {
+        this.pullFromBackend( id );
+    }
+
+    pullFromBackend( id ){
+        findUserInfo( id )
+          .then( res => {
             if (res.status !== 200) {
-                alert(res);
+              console.log(res);
             }
             else {
-                this.setState({
-                    id: res.data[0].id,
-                    first_name: res.data[0].first_name,
-                    last_name: res.data[0].last_name,
-                    company: res.data[0].company,
-                    address: res.data[0].address,
-                    city: res.data[0].city,
-                    state: res.data[0].state,
-                    zip_code: res.data[0].zip_code,
-                    phone: res.data[0].phone,
-                    email: res.data[0].email,
-                })
+              this.setState({
+                id: res.data[0].id,
+                first_name: res.data[0].first_name,
+                last_name: res.data[0].last_name,
+                company: res.data[0].company,
+                address: res.data[0].address,
+                city: res.data[0].city,
+                state: res.data[0].state,
+                zip_code: res.data[0].zip_code,
+                phone: res.data[0].phone,
+                email: res.data[0].email,
+              })
             }
-        })
-        .catch( err => {throw err} )
-    }
+          })
+          .catch(err => {throw err});
+      }
 
     render(){
         // const userInfo = this.props.userInfo;
+        let id = this.state.id;
         let firstName = this.state.first_name;
         let lastName = this.state.last_name;
         let company = this.state.company;
@@ -79,7 +84,7 @@ class Dashboard extends Component {
                             <li className='dash-user6'>{email}</li>
                         </ul>
                         <ul className='dash-links'>
-                            <Link to='/changeinfo'><button>Change Account Info</button></Link>
+                            <Link to={`/changeinfo/${id}`}><button>Change Account Info</button></Link>
                             <Link to='/orderhistory'><button>Order History</button></Link>
                         </ul>
                     </div>

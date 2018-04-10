@@ -8,6 +8,7 @@ import shoppingBag from '../../images/bag-icon.svg';
 import hamMenu from '../../images/hamMenu.png';
 
 class Header extends Component {
+
   render() {
     // const baseURL = '/api/users';
     return (
@@ -19,7 +20,7 @@ class Header extends Component {
                         {text: 'Contact', to:'/contact'},
                         {text: 'Login', to: '/login'},
                         {text: 'Register', to: 'register'},
-                        {text: 'Account', to: '/dashboard'},
+                        {text: 'Account', to: `/dashboard/:id`},
                 ]}/>
                 <div className="logo">
                     <Link to="/"><img src={logo} alt="Lahna's Chocolate Logo"/></Link>
