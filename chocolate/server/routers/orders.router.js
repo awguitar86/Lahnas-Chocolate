@@ -3,19 +3,22 @@ const getDb = require('../database/bootstrap.database');
 
 const ordersRouter = express.Router();
 
-ordersRouter.get('/:userid', (req, res) => { //get orders based on userid
+// get all orders
+ordersRouter.get('/:id', (req, res) => { //get orders based on userid
     const db = getDb();
     const userid = req.params.userid;
+    console.log(userid);
     db.get_orders( [userid] )
-        .then( order => res.status(200).send(order) )
+        .then( orders => res.status(200).send(orders) )
         .catch( err => res.status(500).send(err) )
 });
 
-ordersRouter.get('/:userid/:id', (req, res) => { //get order based on userid and order id
+// get one order
+ordersRouter.get('/:id', (req, res) => { //get order based on userid and order id
     const db = getDb();
     const id = req.params.id;
-    const userid = req.params.userid;
-    db.get_order( [ userid, id] )
+    const orderid = req.params.order_id;
+    db.get_order( [ orderid] )
         .then( order => res.status(200).send(order) )
         .catch( err => res.status(500).send(err) )
 });

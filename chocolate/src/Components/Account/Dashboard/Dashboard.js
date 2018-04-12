@@ -10,62 +10,21 @@ import { connect } from 'react-redux';
 class Dashboard extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            id: '',
-            first_name: '',
-            last_name: '',
-            company: '',
-            address: '',
-            city: '',
-            state: '',
-            zip_code: '',
-            phone: '',
-            email: '',
-        }
-        this.pullFromBackend = this.pullFromBackend.bind(this);
+        this.state = {}
     }
-
-    componentDidMount(){
-        const id = this.props.match.params.id;
-        this.pullFromBackend( id );
-    }
-
-    pullFromBackend( id ){
-        findUserInfo( id )
-          .then( res => {
-            if (res.status !== 200) {
-              console.log(res);
-            }
-            else {
-              this.setState({
-                id: res.data[0].id,
-                first_name: res.data[0].first_name,
-                last_name: res.data[0].last_name,
-                company: res.data[0].company,
-                address: res.data[0].address,
-                city: res.data[0].city,
-                state: res.data[0].state,
-                zip_code: res.data[0].zip_code,
-                phone: res.data[0].phone,
-                email: res.data[0].email,
-              })
-            }
-          })
-          .catch(err => {throw err});
-      }
 
     render(){
         // const userInfo = this.props.userInfo;
-        let id = this.state.id;
-        let firstName = this.state.first_name;
-        let lastName = this.state.last_name;
-        let company = this.state.company;
-        let address = this.state.address;
-        let city = this.state.city;
-        let state = this.state.state;
-        let zipCode = this.state.zip_code;
-        let phone = this.state.phone;
-        let email = this.state.email;
+        let id = this.props.userInfo.id;
+        let firstName = this.props.userInfo.first_name;
+        let lastName = this.props.userInfo.last_name;
+        let company = this.props.userInfo.company;
+        let address = this.props.userInfo.address;
+        let city = this.props.userInfo.city;
+        let usState = this.props.userInfo.state;
+        let zipCode = this.props.userInfo.zip_code;
+        let phone = this.props.userInfo.phone;
+        let email = this.props.userInfo.email;
         console.log(this.props.match.params.id);
         return(
             <div className='dash-wrap'>
@@ -79,13 +38,13 @@ class Dashboard extends Component {
                             <li className='dash-user1'>{firstName} {lastName}</li>
                             <li className='dash-user2'>{company}</li>
                             <li className='dash-user3'>{address}</li>
-                            <li className='dash-user4'>{city}, {state} {zipCode}</li>
+                            <li className='dash-user4'>{city}, {usState} {zipCode}</li>
                             <li className='dash-user5'>{phone}</li>
                             <li className='dash-user6'>{email}</li>
                         </ul>
                         <ul className='dash-links'>
                             <Link to={`/changeinfo/${id}`}><button>Change Account Info</button></Link>
-                            <Link to='/orderhistory'><button>Order History</button></Link>
+                            <Link to={`/orderhistory/${id}`}><button>Order History</button></Link>
                         </ul>
                     </div>
                 </div>

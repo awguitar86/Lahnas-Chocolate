@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS products, users, orders, order_items CASCADE;
+DROP TABLE IF EXISTS products, users, orders;
 
 CREATE TABLE products (
     id SERIAL PRIMARY KEY,
@@ -24,13 +24,9 @@ CREATE TABLE users (
 CREATE TABLE orders (
     id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users (id),
-    order_date BIGINT
-);
-
-CREATE TABLE order_items (
-    id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES orders (id),
     product_id INT REFERENCES products (id),
+    order_number BIGINT,
+    order_date BIGINT,
     quantity INT,
     price FLOAT,
     sales_tax FLOAT,
@@ -59,21 +55,9 @@ INSERT INTO users (first_name, last_name, company, address, city, state, zip_cod
         ('Lahna', 'Prows', 'Lahna''s Chocolates', '10 Chocolate Lane', 'Bountiful', 'UT', 84123, 8011234567, 'lahnaschocolates@gmail.com', 'chocolate')
 ;
 
-INSERT INTO orders (user_id, order_date)
+INSERT INTO orders (user_id, product_id, order_number, order_date, quantity, price, sales_tax, total, payment_type)
     VALUES
-        (1, 3222018),
-        (1, 4032018),
-        (2, 3272018)
+        (1, 1, 12345, 3222018, 1, 3.75, 0.24, 3.99, 'PayPal'),
+        (1, 8, 12345, 3222018, 2, 14.95, 1.94, 31.84, 'PayPal'),
+        (2, 2, 12345, 3222018, 3, 2.49, 0.48, 7.95, 'PayPal')
 ;
-
-INSERT INTO order_items (order_id, product_id, quantity, price, sales_tax, total, payment_type)
-    VALUES
-        (1, 1, 1, 3.75, 0.24, 3.99, 'PayPal'),
-        (2, 8, 2, 14.95, 1.94, 31.84, 'PayPal'),
-        (3, 2, 3, 2.49, 0.48, 7.95, 'PayPal'),
-        (3, 3, 1, 2.49, 0.51, 3.00, 'PayPal'),
-        (3, 2, 3, 2.49, 0.48, 7.95, 'PayPal'),
-        (3, 2, 3, 2.49, 0.48, 7.95, 'PayPal'),
-        (3, 2, 3, 2.49, 0.48, 7.95, 'PayPal')
-;
-
