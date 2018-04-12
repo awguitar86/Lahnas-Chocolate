@@ -3,6 +3,7 @@
 // const UPDATE_PROJECT = "UPDATE_PROJECT";
 const UPDATE_AUTH = "UPDATE_AUTH";
 const UPDATE_USER = "UPDATE_USER";
+const UPDATE_ORDER = "UPDATE_ORDER";
 
 export function updateAuth(boolean){
     return {
@@ -15,6 +16,13 @@ export function updateUser(user){
     return {
         type: UPDATE_USER,
         payload: user
+    }
+}
+
+export function updateOrder(order){
+    return {
+        type: UPDATE_ORDER,
+        payload: order
     }
 }
 

@@ -59,7 +59,7 @@ class App extends Component {
 
         <Route path='/dashboard/:id' component={Dashboard} />
         <Route path='/changeinfo/:id' component={ChangeInfo} />
-        <Route path='/orderhistory/:id' component={OrderHistory} />
+        <Route path='/orderhistory/:userid' component={OrderHistory} />
         <Route path='/singleorder' component={SingleOrder} />
 
         <Route path='/shoppingbag' component={ShoppingBag} />

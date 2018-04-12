@@ -5,6 +5,8 @@ import Footer from '../../Footer/Footer';
 import Order from './Order/Order';
 import { getOrders } from '../../../services/order.services';
 import './orderHistory.css';
+import { updateUser } from '../../../actions/actionCreators';
+import { connect } from 'react-redux';
 
 class OrderHistory extends Component {
     constructor(props) {
@@ -15,11 +17,6 @@ class OrderHistory extends Component {
         this.pullFromBackend = this.pullFromBackend.bind(this);
     }
 
-    componentDidMount(){
-        const id = this.props.match.params.userid;
-        this.pullFromBackend( id );
-    }
-
     pullFromBackend( userid ){
         getOrders( userid )
           .then( res => {
@@ -28,10 +25,16 @@ class OrderHistory extends Component {
             }
             else {
               this.setState({orders: res.data})
+              console.log(res.data);
             }
           })
           .catch(err => {throw err});
       }
+
+    componentDidMount(){
+        const userid = this.props.userInfo.id;
+        this.pullFromBackend( userid );
+    }
 
 
 
@@ -57,4 +60,9 @@ class OrderHistory extends Component {
     }
 }
 
-export default OrderHistory;
+function mapStateToProps(state){
+    return state;
+}
+
+
+export default connect(mapStateToProps, {updateUser}) (OrderHistory);

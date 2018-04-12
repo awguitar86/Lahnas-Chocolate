@@ -61,3 +61,9 @@ INSERT INTO orders (user_id, product_id, order_number, order_date, quantity, pri
         (1, 8, 12345, 3222018, 2, 14.95, 1.94, 31.84, 'PayPal'),
         (2, 2, 12345, 3222018, 3, 2.49, 0.48, 7.95, 'PayPal')
 ;
+
+/* get_order.sql */
+--SELECT * FROM orders
+--    WHERE user_id = $1
+--    AND order_number = $2
+--    ORDER BY id;

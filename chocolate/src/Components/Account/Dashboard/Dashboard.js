@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
-import { findUserInfo } from '../../../services/account.services';
+// import { findUserInfo } from '../../../services/account.services';
 import './dashboard.css';
 import { updateUser } from '../../../actions/actionCreators';
 import { connect } from 'react-redux';
@@ -44,7 +44,7 @@ class Dashboard extends Component {
                         </ul>
                         <ul className='dash-links'>
                             <Link to={`/changeinfo/${id}`}><button>Change Account Info</button></Link>
-                            <Link to={`/orderhistory/${id}`}><button>Order History</button></Link>
+                            <Link to={`/orderhistory/:userid`}><button>Order History</button></Link>
                         </ul>
                     </div>
                 </div>

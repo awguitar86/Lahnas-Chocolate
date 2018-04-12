@@ -1,4 +1,4 @@
-var initialState = {
+let initialState = {
     id: '',
     first_name: '',
     last_name: '',
@@ -10,6 +10,8 @@ var initialState = {
     phone: '',
     email: '',
 }
+
+
 
 function userInfo( state = initialState, action ){
     switch( action.type ) {

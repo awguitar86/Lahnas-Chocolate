@@ -4,7 +4,7 @@ CREATE TABLE products (
     id SERIAL PRIMARY KEY,
     name TEXT,
     description TEXT,
-    price FLOAT
+    price DECIMAL
 );
 
 CREATE TABLE users (
@@ -29,12 +29,13 @@ CREATE TABLE orders (
 
 CREATE TABLE order_items (
     id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users (id),
     order_id INT REFERENCES orders (id),
     product_id INT REFERENCES products (id),
     quantity INT,
-    price FLOAT,
-    sales_tax FLOAT,
-    total FLOAT,
+    price DECIMAL,
+    sales_tax DECIMAL,
+    total DECIMAL,
     payment_type TEXT
 );
 
@@ -66,14 +67,14 @@ INSERT INTO orders (user_id, order_date)
         (2, 3272018)
 ;
 
-INSERT INTO order_items (order_id, product_id, quantity, price, sales_tax, total, payment_type)
+INSERT INTO order_items (user_id, order_id, product_id, quantity, price, sales_tax, total, payment_type)
     VALUES
-        (1, 1, 1, 3.75, 0.24, 3.99, 'PayPal'),
-        (2, 8, 2, 14.95, 1.94, 31.84, 'PayPal'),
-        (3, 2, 3, 2.49, 0.48, 7.95, 'PayPal'),
-        (3, 3, 1, 2.49, 0.51, 3.00, 'PayPal'),
-        (3, 2, 3, 2.49, 0.48, 7.95, 'PayPal'),
-        (3, 2, 3, 2.49, 0.48, 7.95, 'PayPal'),
-        (3, 2, 3, 2.49, 0.48, 7.95, 'PayPal')
+        ( 1, 1, 1, 1, 3.75, 0.24, 3.99, 'PayPal' ),
+        ( 1, 2, 8, 2, 4.95, 0.64, 5.59, 'Mail' ),
+        ( 2, 3, 2, 3, 2.49, 0.48, 7.95, 'On Delivery' ),
+        ( 2, 3, 3, 1, 2.49, 0.16, 2.65, 'On Delivery' ),
+        ( 2, 3, 5, 5, 0.60, 0.20, 3.20, 'On Delivery' ),
+        ( 2, 3, 6, 5, 0.60, 0.20, 3.20, 'On Delivery' ),
+        ( 2, 3, 8, 1, 4.95, 0.32, 5.27, 'On Delivery' )
 ;
 
