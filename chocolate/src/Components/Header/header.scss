@@ -196,14 +196,14 @@
     }
 
     .ham-dropdown-menu {
-        position: absolute;
-        top: 60px;
+        position: fixed;
+        // top: 60px;
         left: 0px;
         background-color: $dark-purple;
         // border-radius: 0px 0px 50px 50px;
         // padding: 10px;
         width: 100vw;
-        height: 360px;
+        height: 100vh;
         z-index: 3;
       }
 

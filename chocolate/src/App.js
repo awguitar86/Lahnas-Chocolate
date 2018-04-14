@@ -35,12 +35,15 @@ import Caramels from './Components/Products/Caramels/Caramels';
 import Licorice from './Components/Products/Licorice/Licorice';
 
 class App extends Component {
-  // constructor(props){
-  //   super(props);
-  // }
+  constructor(props){
+    super(props);
+    this.state = {
+      loading: true
+    }
+  }
 
   componentWillMount(){
-    findUserInfo(2)
+    findUserInfo(1)
       .then( res => {
         let newUserInfo = res.data[0];
         this.props.updateUser(newUserInfo);

@@ -38,7 +38,7 @@ class SingleOrderItem extends Component {
         const displayProducts = products.map( product => {
             const index = products.indexOf(product);
             return (
-                <h3 key={`product-${index}`} value={product.name}>{product.name}</h3>
+                <h4 key={`product-${index}`} value={product.name}>{product.name}</h4>
             )
         })
         return(

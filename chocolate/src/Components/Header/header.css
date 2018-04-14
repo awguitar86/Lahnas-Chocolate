@@ -92,12 +92,11 @@
       height: 40px;
       margin-top: 5px; }
   .ham-dropdown-menu {
-    position: absolute;
-    top: 60px;
+    position: fixed;
     left: 0px;
     background-color: #4E2E71;
     width: 100vw;
-    height: 360px;
+    height: 100vh;
     z-index: 3; }
   .ham-dropdown-menu-content-box {
     width: 100vw;

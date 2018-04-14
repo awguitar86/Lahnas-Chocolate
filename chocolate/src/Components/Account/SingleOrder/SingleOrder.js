@@ -47,7 +47,6 @@ class SingleOrder extends Component {
     render(){
         let orderNumber = this.props.match.params.orderid;
         let orderPrice = this.state.sum['sum'];
-        let id = this.props.userInfo.id;
         let firstName = this.props.userInfo.first_name;
         let lastName = this.props.userInfo.last_name;
         let company = this.props.userInfo.company;
@@ -57,6 +56,8 @@ class SingleOrder extends Component {
         let zipCode = this.props.userInfo.zip_code;
         let phone = this.props.userInfo.phone;
         let email = this.props.userInfo.email;
+        let paymentMethod = this.state.orderItems[0];
+        console.log(paymentMethod);
         console.log(this.state);
         const orderItems = this.state.orderItems;
         const displayOrderItems = orderItems.map( orderItem => {
@@ -76,7 +77,7 @@ class SingleOrder extends Component {
             <div className='single-wrap'>
                 <Header />
                 <div className='single-body'>
-                    <h1>Order {orderNumber}</h1>
+                    <h1>Order #{orderNumber}</h1>
                     <div className='single-customer-info'>
                         <div className='single-customer-left'>
                             <p>{firstName} {lastName}</p>
