@@ -121,6 +121,15 @@
         margin-top: 20px;
         margin-bottom: 20px;
     }
+
+    .hero {
+        height: 230px;
+        p {
+            font-size: 12pt;
+            margin-bottom: 18px;
+            margin-right: 20px;
+        }
+    }
     .body-content {
         grid-template-columns: repeat(auto-fit, minmax(161px, 1fr));
 

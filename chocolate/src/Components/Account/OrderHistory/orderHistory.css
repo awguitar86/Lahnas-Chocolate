@@ -7,9 +7,9 @@
 
 .history-body {
   width: 950px;
+  height: 60vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   margin-top: 20px;
   margin-bottom: 40px;
@@ -23,12 +23,13 @@
     color: #4E2E71; }
 
 .order-history {
-  width: 850px;
+  width: 870px;
   display: grid;
   grid-gap: 15px;
   grid-template-columns: 1fr;
-  justify-content: center;
-  margin-bottom: 20px; }
+  justify-items: center;
+  margin-bottom: 20px;
+  overflow-y: scroll; }
   .order-history a {
     text-decoration: none;
     cursor: pointer; }
@@ -61,9 +62,11 @@
     .history-body h2 {
       width: 88vw; }
   .order-history {
-    width: 78vw; }
+    width: 80vw; }
   .single-order {
-    width: 78vw; } }
+    width: 78vw; }
+    .single-order:hover {
+      width: 77.7vw; } }
 
 @media only screen and (max-width: 800px) {
   .order-num-date {
@@ -73,9 +76,13 @@
 @media only screen and (max-width: 670px) {
   .history-body {
     margin-top: 10px; }
+  .order-history {
+    width: 82vw; }
   .single-order {
     height: 80px;
     justify-content: space-around; }
+    .single-order:hover {
+      height: 78px; }
   .order-num-date {
     width: 180px;
     height: 70px;
@@ -87,8 +94,12 @@
       margin: 0; } }
 
 @media only screen and (max-width: 415px) {
+  .order-history {
+    width: 88vw; }
   .single-order {
-    width: 88vw;
+    width: 86vw;
     font-size: 12pt; }
+    .single-order:hover {
+      width: 85.8vw; }
   .order-num-date {
     width: 150px; } }

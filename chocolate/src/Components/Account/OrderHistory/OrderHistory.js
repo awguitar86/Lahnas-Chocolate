@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 import Order from './Order/Order';
 import { getOrders } from '../../../services/order.services';
 import './orderHistory.css';
-import { updateUser } from '../../../actions/actionCreators';
+import { updateUser, updateOrder } from '../../../actions/actionCreators';
 import { connect } from 'react-redux';
 
 class OrderHistory extends Component {
@@ -17,41 +17,49 @@ class OrderHistory extends Component {
         this.pullFromBackend = this.pullFromBackend.bind(this);
     }
 
+    componentWillMount(){
+        const userid = this.props.userInfo.id;
+        this.pullFromBackend(userid);
+    }
+
     pullFromBackend( userid ){
         getOrders( userid )
           .then( res => {
             if (res.status !== 200) {
-              console.log(res);
+                alert(res);
             }
             else {
-              this.setState({orders: res.data})
+              this.setState({ orders: res.data });
               console.log(res.data);
             }
           })
           .catch(err => {throw err});
-      }
-
-    componentDidMount(){
-        const userid = this.props.userInfo.id;
-        this.pullFromBackend( userid );
     }
 
-
-
     render(){
+        const userid = this.props.userInfo.id;
         const orders = this.state.orders;
+        console.log(userid);
         console.log(orders);
-        // const displayOrders = orders.map( order => {
-        //     const index = orders.indexOf(order);
-        //     return <Order key={index} index={index}
-        // })
+        const displayOrders = orders.map( (order, index) => {
+            const id = order.id;
+            return( <Order
+                        key={`orderItem${index}`}
+                        index={index}
+                        userid={userid}
+                        id={id}
+                        orderDate={order.order_date}
+                        orderPrice={order.order_price}
+                    />
+            );
+        })
         return(
             <div className='history-wrap'>
                 <Header />
                 <div className='history-body'>
                     <h2>Order Review</h2>
                     <div className='order-history'>
-
+                        {displayOrders}
                     </div>
                 </div>
                 <Footer />
@@ -65,4 +73,4 @@ function mapStateToProps(state){
 }
 
 
-export default connect(mapStateToProps, {updateUser}) (OrderHistory);
+export default connect(mapStateToProps, {updateUser, updateOrder}) (OrderHistory);

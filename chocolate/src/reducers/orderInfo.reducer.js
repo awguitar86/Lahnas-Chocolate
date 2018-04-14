@@ -1,8 +1,4 @@
-let orderState = {
-    orderid: '',
-    userid: '',
-    orderDate: ''
-}
+let orderState = {};
 
 function orderInfo( state = orderState, action ){
     switch( action.type ) {

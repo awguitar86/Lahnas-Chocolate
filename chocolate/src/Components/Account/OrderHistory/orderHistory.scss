@@ -2,6 +2,7 @@
 
 .history-wrap {
     width: 100vw;
+    // height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,9 +11,10 @@
 
 .history-body {
     width: 950px;
+    height: 60vh;;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
     margin-top: 20px;
     margin-bottom: 40px;
@@ -29,12 +31,13 @@
 }
 
 .order-history {
-    width: 850px;
+    width: 870px;
     display: grid;
     grid-gap: 15px;
     grid-template-columns: 1fr;
-    justify-content: center;
+    justify-items: center;
     margin-bottom: 20px;
+    overflow-y: scroll;
     // border: solid;
     a {
         text-decoration: none;
@@ -76,10 +79,13 @@
         }
     }
     .order-history {
-        width: 78vw;
+        width: 80vw;
     }
     .single-order {
         width: 78vw;
+        &:hover {
+            width: 77.7vw;
+        }
     }
 }
 
@@ -94,9 +100,15 @@
     .history-body {
         margin-top: 10px;
     }
+    .order-history {
+        width: 82vw;
+    }
     .single-order {
         height: 80px;
         justify-content: space-around;
+        &:hover {
+            height: 78px;
+        }
     }
     .order-num-date {
         // border: solid;
@@ -113,9 +125,15 @@
 }
 
 @media only screen and (max-width: 415px) {
-    .single-order {
+    .order-history {
         width: 88vw;
+    }
+    .single-order {
+        width: 86vw;
         font-size: 12pt;
+        &:hover {
+            width: 85.8vw;
+        }
     }
     .order-num-date {
         width: 150px;

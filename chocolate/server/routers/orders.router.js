@@ -27,21 +27,21 @@ ordersRouter.get('/:userid/:orderid', (req, res) => { //get order based on useri
     const db = getDb();
     const userid = req.params.userid;
     const orderid = req.params.orderid;
-    db.get_order_item([ userid, orderid ])
+    db.get_order_items([ userid, orderid ])
         .then( order => res.status(200).send(order) )
         .catch( err => res.status(500).send(err) )
 });
 
 ordersRouter.post('/:userid/new', (req, res) => {
-     const db = getDb();
-     const userid = req.params.userid;
-     const { user_id, order_date, order_id, product_id, quantity, price, sales_tax, total, payment_type} = req.body;
-     db.create_order([user_id, order_date])
+    const db = getDb();
+    const userid = req.params.userid;
+    const { user_id, order_date, order_id, product_id, quantity, price, sales_tax, total, payment_type} = req.body;
+    db.create_order([user_id, order_date])
         .then( () => res.status(200).send() )
         .catch( err => res.send(err) );
-    db.create_order_item([user_id, order_id, product_id, quantity, price, sales_tax, total, payment_type])
-        .then( () => res.status(200).send() )
-        .catch( err => res.send(err) );
+    // db.create_order_item([user_id, order_id, product_id, quantity, price, sales_tax, total, payment_type])
+    //     .then( () => res.status(200).send() )
+    //     .catch( err => res.send(err) );
 });
 
 ordersRouter.put('/update/:id/:userid', (req, res) => {

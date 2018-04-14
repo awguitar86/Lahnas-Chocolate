@@ -75,31 +75,12 @@
   .header {
     height: 60px; }
   .logo {
-    width: 350px;
-    height: 60px; }
+    width: 33vw;
+    height: 60px;
+    justify-content: center; }
     .logo img {
       width: 90px;
       height: auto; }
-  .nav {
-    width: 350px;
-    height: 60px; }
-    .nav a {
-      font-size: 11pt; }
-  .login-register-wrap {
-    height: 60px; }
-    .login-register-wrap img {
-      width: 16px;
-      height: 29px;
-      margin-bottom: 12px; }
-  .login-regi {
-    width: 110px;
-    display: flex;
-    justify-content: space-between;
-    margin-right: 30px; }
-    .login-regi a {
-      font-size: 11pt; } }
-
-@media only screen and (max-width: 670px) {
   .ham-wrap {
     width: 33vw; }
   .ham-menu {
@@ -136,14 +117,16 @@
     margin-left: -5px;
     text-decoration: none;
     color: white; }
-  .logo {
-    width: 33vw;
-    justify-content: center; }
   .nav {
     display: none; }
   .login-register-wrap {
-    width: 33vw; }
+    width: 33vw;
+    height: 60px; }
     .login-register-wrap a {
       margin-right: 5px; }
+    .login-register-wrap img {
+      width: 16px;
+      height: 29px;
+      margin-bottom: 12px; }
   .login-regi {
     display: none; } }

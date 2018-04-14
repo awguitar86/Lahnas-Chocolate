@@ -24,7 +24,8 @@ CREATE TABLE users (
 CREATE TABLE orders (
     id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users (id),
-    order_date BIGINT
+    order_date VARCHAR,
+    order_price DECIMAL
 );
 
 CREATE TABLE order_items (
@@ -60,11 +61,11 @@ INSERT INTO users (first_name, last_name, company, address, city, state, zip_cod
         ('Lahna', 'Prows', 'Lahna''s Chocolates', '10 Chocolate Lane', 'Bountiful', 'UT', 84123, 8011234567, 'lahnaschocolates@gmail.com', 'chocolate')
 ;
 
-INSERT INTO orders (user_id, order_date)
+INSERT INTO orders (user_id, order_date, order_price)
     VALUES
-        (1, 3222018),
-        (1, 4032018),
-        (2, 3272018)
+        (1, '03/22/2018', 3.99),
+        (1, '04/03/2018', 5.59),
+        (2, '03/27/2018', 22.27)
 ;
 
 INSERT INTO order_items (user_id, order_id, product_id, quantity, price, sales_tax, total, payment_type)

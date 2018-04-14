@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { findUserInfo } from './services/account.services';
-import { updateUser } from './actions/actionCreators';
+import { getOrders } from './services/order.services';
+import { updateUser, updateOrder } from './actions/actionCreators';
 import './App.css';
 
 import Home from './Components/Home/Home';
@@ -35,12 +36,12 @@ import Caramels from './Components/Products/Caramels/Caramels';
 import Licorice from './Components/Products/Licorice/Licorice';
 
 class App extends Component {
-  constructor(props){
-    super(props);
-  }
+  // constructor(props){
+  //   super(props);
+  // }
 
   componentWillMount(){
-    findUserInfo(1)
+    findUserInfo(2)
       .then( res => {
         let newUserInfo = res.data[0];
         this.props.updateUser(newUserInfo);
@@ -88,4 +89,4 @@ function mapStateToProps(state){
   return state;
 }
 
-export default withRouter( connect( mapStateToProps, {updateUser} ) (App) );
+export default withRouter( connect( mapStateToProps, {updateUser, updateOrder} ) (App) );

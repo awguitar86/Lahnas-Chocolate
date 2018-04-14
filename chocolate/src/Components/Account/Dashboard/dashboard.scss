@@ -2,9 +2,11 @@
 
 .dash-wrap {
     width: 100vw;
+    // height: 1024px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 }
 
 .dash-body {

@@ -15,6 +15,8 @@ class Dashboard extends Component {
 
     render(){
         // const userInfo = this.props.userInfo;
+        console.log(this.props.userInfo);
+        console.log(this.props.userInfo.id);
         let id = this.props.userInfo.id;
         let firstName = this.props.userInfo.first_name;
         let lastName = this.props.userInfo.last_name;
@@ -25,7 +27,7 @@ class Dashboard extends Component {
         let zipCode = this.props.userInfo.zip_code;
         let phone = this.props.userInfo.phone;
         let email = this.props.userInfo.email;
-        console.log(this.props.match.params.id);
+        // console.log(this.props.match.params.id);
         return(
             <div className='dash-wrap'>
                 <Header />
@@ -44,7 +46,7 @@ class Dashboard extends Component {
                         </ul>
                         <ul className='dash-links'>
                             <Link to={`/changeinfo/${id}`}><button>Change Account Info</button></Link>
-                            <Link to={`/orderhistory/:userid`}><button>Order History</button></Link>
+                            <Link to={`/orderhistory/${id}`}><button>Order History</button></Link>
                         </ul>
                     </div>
                 </div>
