@@ -7,8 +7,8 @@ productsRouter.get('/:id', (req, res) => {
     const db = getDb();
     const id = req.params.id;
     db.get_product( [id] )
-        .then( product => res.status(200).send(product))
-        .catch( err => res.status(500).send(err))
+        .then(response => res.status(200).send(response))
+        .catch(err => console.log(err))
 });
 
 productsRouter.post('/create', (req, res) => {

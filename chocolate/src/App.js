@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { findUserInfo } from './services/account.services';
-import { getOrders } from './services/order.services';
 import { updateUser, updateOrder } from './actions/actionCreators';
 import './App.css';
 
@@ -61,7 +60,7 @@ class App extends Component {
         <Route path='/dashboard/:id' component={Dashboard} />
         <Route path='/changeinfo/:id' component={ChangeInfo} />
         <Route path='/orderhistory/:userid' component={OrderHistory} />
-        <Route path='/singleorder' component={SingleOrder} />
+        <Route path='/singleorder/:userid/:orderid' component={SingleOrder} />
 
         <Route path='/shoppingbag' component={ShoppingBag} />
         <Route path='/checkout' component={Checkout} />

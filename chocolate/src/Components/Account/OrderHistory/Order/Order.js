@@ -3,34 +3,15 @@ import { Link } from 'react-router-dom';
 import '../orderHistory.css';
 import { updateUser } from '../../../../actions/actionCreators';
 import { connect } from 'react-redux';
-import { getOrderSum } from '../../../../services/order.services';
 
 class Order extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            sum: []
-        };
+        this.state = {}
     }
 
-    // componentDidMount() {
-    //     const { id } = this.props;
-    //     getOrderSum(id)
-    //     .then( res => {
-    //         if(res.status !== 200) {
-    //             console.log(res);
-    //         }
-    //         else {
-    //             this.setState({ sum: res.data});
-    //         }
-    //     })
-    //     .catch( err => {throw err})
-    // }
-
     render(){
-        // console.log(this.state);
-        // const price = this.state.
-        const { index, userid, id, orderDate, orderPrice } = this.props;
+        const { userid, id, orderDate, orderPrice } = this.props;
         return(
                 <Link to={`/singleorder/${userid}/${id}`}>
                     <div className='single-order'>

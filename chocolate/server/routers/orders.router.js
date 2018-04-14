@@ -9,8 +9,8 @@ ordersRouter.get('/:userid', (req, res) => { //get orders based on userid
     const userid = req.params.userid;
     console.log(userid);
     db.get_orders([ userid ])
-        .then( orders => res.status(200).send(orders) )
-        .catch( err => res.status(500).send(err) )
+        .then(response => res.status(200).send(response))
+        .catch(err => console.log(err))
 });
 
 // get sum of total price
@@ -18,8 +18,8 @@ ordersRouter.get('/total/:orderid', (req, res) => {
     const orderid = req.params.orderid;
     const db = getDb();
     db.get_sum_of_order_items([ orderid ])
-        .then( order => res.status(200).send(order) )
-        .catch( err => res.status(500).send(err) )
+        .then(response => res.status(200).send(response))
+        .catch(err => console.log(err))
 });
 
 // get one order
@@ -28,8 +28,8 @@ ordersRouter.get('/:userid/:orderid', (req, res) => { //get order based on useri
     const userid = req.params.userid;
     const orderid = req.params.orderid;
     db.get_order_items([ userid, orderid ])
-        .then( order => res.status(200).send(order) )
-        .catch( err => res.status(500).send(err) )
+        .then(response => res.status(200).send(response))
+        .catch(err => console.log(err))
 });
 
 ordersRouter.post('/:userid/new', (req, res) => {

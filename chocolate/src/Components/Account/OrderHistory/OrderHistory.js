@@ -45,7 +45,6 @@ class OrderHistory extends Component {
             const id = order.id;
             return( <Order
                         key={`orderItem${index}`}
-                        index={index}
                         userid={userid}
                         id={id}
                         orderDate={order.order_date}
