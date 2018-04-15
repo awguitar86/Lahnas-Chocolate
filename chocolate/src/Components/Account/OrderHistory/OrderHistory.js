@@ -17,7 +17,7 @@ class OrderHistory extends Component {
         this.pullFromBackend = this.pullFromBackend.bind(this);
     }
 
-    componentWillMount(){
+    componentDidMount(){
         const userid = this.props.userInfo.id;
         this.pullFromBackend(userid);
     }

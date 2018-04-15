@@ -47,12 +47,16 @@ class App extends Component {
       .then( res => {
         let newUserInfo = res.data[0];
         this.props.updateUser(newUserInfo);
+        this.setState({loading: false});
       })
+
   }
 
   render() {
     console.log(this.props);
+    const { loading } = this.state;
     return (
+      !loading &&
       <div className="App">
         <Route exact path='/' component={Home} />
         <Route path='/about' component={About} />
