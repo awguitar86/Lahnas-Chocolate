@@ -9,6 +9,13 @@ function getOrders(userid) {
         .catch( err => {throw err} );
 }
 
+function getOrder(id) {
+    return axios
+        .get(`${baseURL}/get/${id}`)
+        .then( res => res )
+        .catch( err => {throw err} );
+}
+
 function getOrderSum(orderid) {
     return axios
         .get(`${baseURL}/total/${orderid}`)
@@ -27,6 +34,7 @@ function getOrderItems(userid, orderid){
 
 export {
     getOrders,
+    getOrder,
     getOrderSum,
     getOrderItems
 };

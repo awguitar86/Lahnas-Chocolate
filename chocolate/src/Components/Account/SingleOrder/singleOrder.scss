@@ -125,16 +125,22 @@
     justify-content: space-between;
 }
 .single-total-payment {
-        width: 235px;
+        width: 300px;
         display: flex;
-        justify-content: space-between;
         align-items: center;
         // border: solid;
-        li {
-            list-style-type: none;
-            margin-left: -40px;
+        h4 {
+            font-weight: normal;
+            margin-right: 15px;
+            margin-top: -20px;
+            margin-bottom: -20px;
+        }
+        p {
+            margin-top: -20px;
+            margin-bottom: -20px;
         }
 }
+
 .single-total-price {
     width: 120px;
     display: flex;
@@ -230,7 +236,7 @@
     }
     .single-total-payment {
         // border: solid;
-        width: 170px;
+        width: 220px;
     }
 }
 
@@ -307,6 +313,21 @@
             width: 40vw;
         }
     }
+    .single-total-payment {
+        width: 140px;
+        // border: solid;
+        flex-direction: column;
+        justify-content: center;
+        h4 {
+            margin-right: 0px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        p {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+    }
 }
 
 @media only screen and (max-width: 410px){
@@ -322,11 +343,6 @@
     }
     .single-total {
         justify-content: space-between;
-    }
-    .single-total-payment {
-        width: 80px;
-        // border: solid;
-        flex-direction: column;
     }
 }
 

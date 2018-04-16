@@ -5,15 +5,18 @@ import Footer from '../../Footer/Footer';
 import './singleOrder.css';
 import { updateUser } from '../../../actions/actionCreators';
 import { connect } from 'react-redux';
-import { getOrderSum, getOrderItems } from '../../../services/order.services'
+import { getOrder, getOrderSum, getOrderItems } from '../../../services/order.services'
 import SingleOrderItem from './SingleOrderItem/SingleOrderItem';
 
 class SingleOrder extends Component {
     constructor(props){
         super(props);
         this.state = {
-            sum: [],
-            orderItems: []
+            order: [],
+            orderTotal: [],
+            orderItems: [],
+            subtotal: [],
+            tax: []
         }
 
     }
@@ -21,13 +24,23 @@ class SingleOrder extends Component {
         componentDidMount() {
             const orderid = this.props.match.params.orderid;
             const userid = this.props.match.params.userid;
+            getOrder( orderid )
+                .then( res => {
+                if (res.status !== 200) {
+                    alert(res);
+                }
+                else {
+                    this.setState({ order: res.data[0] });
+                    console.log(res.data);
+                }
+                })
             getOrderSum(orderid)
                 .then( res => {
                     if(res.status !== 200) {
                         console.log(res);
                     }
                     else {
-                        this.setState({ sum: res.data[0]});
+                        this.setState({ orderTotal: res.data[0] });
                         console.log(res.data);
                     }
                 })
@@ -46,7 +59,7 @@ class SingleOrder extends Component {
 
     render(){
         let orderNumber = this.props.match.params.orderid;
-        let orderPrice = this.state.sum['sum'];
+        let orderPrice = this.state.orderTotal['sum'];
         let firstName = this.props.userInfo.first_name;
         let lastName = this.props.userInfo.last_name;
         let company = this.props.userInfo.company;
@@ -56,21 +69,23 @@ class SingleOrder extends Component {
         let zipCode = this.props.userInfo.zip_code;
         let phone = this.props.userInfo.phone;
         let email = this.props.userInfo.email;
-        let paymentMethod = this.state.orderItems[0];
-        console.log(paymentMethod);
+        let date = this.state.order['order_date'];
+        let paymentType = this.state.order['payment_type'];
+        let orderTax = (orderPrice * 0.067).toFixed(2);
+        let orderTotal = (Number(orderPrice) + Number(orderTax)).toFixed(2);
         console.log(this.state);
         const orderItems = this.state.orderItems;
         const displayOrderItems = orderItems.map( orderItem => {
             const index = orderItems.indexOf(orderItem);
+            const itemTotal = (orderItem.price * orderItem.quantity).toFixed(2);
             return ( <SingleOrderItem
                         key={`orderItem${index}`}
                         index={index}
                         productid={orderItem.product_id}
                         quantity={orderItem.quantity}
                         price={orderItem.price}
-                        total={orderItem.total}
+                        total={itemTotal}
                         salesTax={orderItem.sales_tax}
-                        paymentType={orderItem.payment_type}
             />)
         })
         return(
@@ -88,7 +103,7 @@ class SingleOrder extends Component {
                         <div className='single-customer-right'>
                             <p>{phone}</p>
                             <p>{email}</p>
-                            <p>Date: 03/27/2015</p>
+                            <p>Date: {date}</p>
                         </div>
                     </div>
                     <div className='single-items'>
@@ -99,22 +114,22 @@ class SingleOrder extends Component {
                             <div className='single-price-subtotal-text'>
                                 <p>Subtotal</p>
                                 <p>Shipping</p>
-                                <p>Tax 6.5%</p>
+                                <p>Tax 6.7%</p>
                             </div>
                             <div className='single-price-subtotal-numbers'>
-                                <p>$47.41</p>
-                                <p>$5.00</p>
-                                <p>$3.08</p>
+                                <p>${orderPrice}</p>
+                                <p>$0.00</p>
+                                <p>${orderTax}</p>
                             </div>
                         </div>
                         <div className='single-total'>
-                            <ul className='single-total-payment'>
-                                <li>Payment Method:</li>
-                                <li>On Delivery</li>
-                            </ul>
+                            <div className='single-total-payment'>
+                                <h4>Payment Method:</h4>
+                                <p>{paymentType}</p>
+                            </div>
                             <ul className='single-total-price'>
                                 <li>Total</li>
-                                <li>{orderPrice}</li>
+                                <li>${orderTotal}</li>
                             </ul>
                         </div>
                     </div>

@@ -16,7 +16,7 @@ CREATE TABLE users (
     city TEXT,
     state TEXT,
     zip_code INT,
-    phone BIGINT,
+    phone VARCHAR,
     email TEXT unique,
     password TEXT
 );
@@ -25,7 +25,8 @@ CREATE TABLE orders (
     id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users (id),
     order_date VARCHAR,
-    order_price DECIMAL
+    order_price DECIMAL,
+    payment_type TEXT
 );
 
 CREATE TABLE order_items (
@@ -33,11 +34,10 @@ CREATE TABLE order_items (
     user_id INT REFERENCES users (id),
     order_id INT REFERENCES orders (id),
     product_id INT REFERENCES products (id),
-    quantity INT,
     price DECIMAL,
-    sales_tax DECIMAL,
+    quantity INT,
     total DECIMAL,
-    payment_type TEXT
+    sales_tax DECIMAL
 );
 
 INSERT INTO products (name, description, price)
@@ -57,25 +57,25 @@ INSERT INTO products (name, description, price)
 
 INSERT INTO users (first_name, last_name, company, address, city, state, zip_code, phone, email, password)
     VALUES
-        ('Austin', 'Wright', 'The Wright Company', '123 Cool Ave', 'Layton', 'UT', 84041, 8015551234, 'austin@gmail.com', 'AustinWright'),
-        ('Lahna', 'Prows', 'Lahna''s Chocolates', '10 Chocolate Lane', 'Bountiful', 'UT', 84123, 8011234567, 'lahnaschocolates@gmail.com', 'chocolate')
+        ('Austin', 'Wright', 'The Wright Company', '123 Cool Ave', 'Layton', 'UT', 84041, '(801) 555-1234', 'austin@gmail.com', 'AustinWright'),
+        ('Lahna', 'Prows', 'Lahna''s Chocolates', '10 Chocolate Lane', 'Bountiful', 'UT', 84123, '(801) 123-4567', 'lahnaschocolates@gmail.com', 'chocolate')
 ;
 
-INSERT INTO orders (user_id, order_date, order_price)
+INSERT INTO orders (user_id, order_date, order_price, payment_type)
     VALUES
-        (1, '03/22/2018', 3.99),
-        (1, '04/03/2018', 5.59),
-        (2, '03/27/2018', 22.27)
+        (1, '03/22/2018', 4.00, 'On Delivery'),
+        (1, '04/03/2018', 10.56, 'Mail'),
+        (2, '03/27/2018', 22.31, 'On Delivery')
 ;
 
-INSERT INTO order_items (user_id, order_id, product_id, quantity, price, sales_tax, total, payment_type)
+INSERT INTO order_items (user_id, order_id, product_id, price, quantity, total, sales_tax)
     VALUES
-        ( 1, 1, 1, 1, 3.75, 0.24, 3.99, 'PayPal' ),
-        ( 1, 2, 8, 2, 4.95, 0.64, 5.59, 'Mail' ),
-        ( 2, 3, 2, 3, 2.49, 0.48, 7.95, 'On Delivery' ),
-        ( 2, 3, 3, 1, 2.49, 0.16, 2.65, 'On Delivery' ),
-        ( 2, 3, 5, 5, 0.60, 0.20, 3.20, 'On Delivery' ),
-        ( 2, 3, 6, 5, 0.60, 0.20, 3.20, 'On Delivery' ),
-        ( 2, 3, 8, 1, 4.95, 0.32, 5.27, 'On Delivery' )
+        ( 1, 1, 1, 3.75, 1, 3.75, 0.24 ),
+        ( 1, 2, 8, 4.95, 2, 9.90, 0.64 ),
+        ( 2, 3, 2, 2.49, 3, 7.47, 0.48 ),
+        ( 2, 3, 3, 2.49, 1, 2.49, 0.16 ),
+        ( 2, 3, 5, 0.60, 5, 3.00, 0.20 ),
+        ( 2, 3, 6, 0.60, 5, 3.00, 0.20 ),
+        ( 2, 3, 8, 4.95, 1, 4.95, 0.32 )
 ;
 

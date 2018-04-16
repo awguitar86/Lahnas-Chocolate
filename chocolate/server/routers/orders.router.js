@@ -13,6 +13,16 @@ ordersRouter.get('/:userid', (req, res) => { //get orders based on userid
         .catch(err => console.log(err))
 });
 
+// get one order
+ordersRouter.get('/get/:id', (req, res) => { //get order based on id
+    const db = getDb();
+    const id = req.params.id;
+    console.log(id);
+    db.get_order([ id ])
+        .then(response => res.status(200).send(response))
+        .catch(err => console.log(err))
+});
+
 // get sum of total price
 ordersRouter.get('/total/:orderid', (req, res) => {
     const orderid = req.params.orderid;
@@ -22,7 +32,7 @@ ordersRouter.get('/total/:orderid', (req, res) => {
         .catch(err => console.log(err))
 });
 
-// get one order
+// get order items
 ordersRouter.get('/:userid/:orderid', (req, res) => { //get order based on userid and order id
     const db = getDb();
     const userid = req.params.userid;
@@ -31,6 +41,9 @@ ordersRouter.get('/:userid/:orderid', (req, res) => { //get order based on useri
         .then(response => res.status(200).send(response))
         .catch(err => console.log(err))
 });
+
+
+
 
 ordersRouter.post('/:userid/new', (req, res) => {
     const db = getDb();
