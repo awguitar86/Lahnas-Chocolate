@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getProducts } from '../../../../services/products.service';
+import { getProduct } from '../../../../services/products.service';
 import '../singleOrder.css';
 import { updateUser } from '../../../../actions/actionCreators';
 import { connect } from 'react-redux';
@@ -19,7 +19,7 @@ class SingleOrderItem extends Component {
     }
 
     pullFromBackend( productid ){
-        getProducts( productid )
+        getProduct( productid )
           .then( res => {
             if (res.status !== 200) {
                 alert(res);

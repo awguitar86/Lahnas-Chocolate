@@ -2,12 +2,34 @@ import React, { Component } from 'react';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 import LePetiteChocolates from '../ChocolatesInBox/LePetiteChocolates';
+import { getProduct } from '../../../services/products.service';
+import { addToCart } from '../../../actions/actionCreators';
+import { connect } from 'react-redux';
 
 import LePetiteBox from '../../../images/lePetite.jpg';
 import '../chocolates.css';
 
 class LePetite extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            productid: 8
+        }
+        this.handleAddToBag = this.handleAddToBag.bind(this);
+    }
+
+    handleAddToBag(){
+        let productid = this.state.productid;
+        getProduct(productid)
+            .then( res => {
+                let productInfo = res.data[0];
+                this.props.addToCart(productInfo);
+          })
+
+    }
+
     render(){
+        console.log(this.props.cartReducer);
         return(
             <div className='wrapper'>
                 <Header />
@@ -16,7 +38,7 @@ class LePetite extends Component {
                         <div className='product-description'>
                             <h1>Le Petite Box</h1>
                             <div className='product-add'>
-                                <button>Add To Cart</button>
+                                <button onClick={this.handleAddToBag}>Add To Cart</button>
                                 <input placeholder='1'/>
                                 <h3>$4.95</h3>
                             </div>
@@ -47,4 +69,8 @@ class LePetite extends Component {
     }
 }
 
-export default LePetite;
+function mapStateToProps(state){
+    return state;
+}
+
+export default connect(mapStateToProps, {addToCart}) (LePetite);

@@ -1,9 +1,11 @@
 // const UPDATE_PERSONAL_PROJECTS = "UPDATE_PERSONAL_PROJECTS";
 // const UPDATE_RECENT_PROJECTS = "UPDATE_RECENT_PROJECTS";
 // const UPDATE_PROJECT = "UPDATE_PROJECT";
-const UPDATE_AUTH = "UPDATE_AUTH";
-const UPDATE_USER = "UPDATE_USER";
-const UPDATE_ORDER = "UPDATE_ORDER";
+export const UPDATE_AUTH = "UPDATE_AUTH";
+export const UPDATE_USER = "UPDATE_USER";
+export const UPDATE_ORDER = "UPDATE_ORDER";
+export const ADD_TO_CART = "ADD_TO_CART";
+export const ADD_QTY = "ADD_QTY";
 
 export function updateAuth(boolean){
     return {
@@ -23,6 +25,20 @@ export function updateOrder(order){
     return {
         type: UPDATE_ORDER,
         payload: order
+    }
+}
+
+export function addToCart(product){
+    return {
+        type: ADD_TO_CART,
+        payload: product
+    }
+}
+
+export function addQty(qty){
+    return {
+        type: ADD_QTY,
+        payload: qty
     }
 }
 

@@ -53,7 +53,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     const { loading } = this.state;
     return (
       !loading &&

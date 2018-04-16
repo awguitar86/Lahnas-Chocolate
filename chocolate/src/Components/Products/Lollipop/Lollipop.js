@@ -1,12 +1,34 @@
 import React, { Component } from 'react';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
+import { getProduct } from '../../../services/products.service';
+import { addToCart } from '../../../actions/actionCreators';
+import { connect } from 'react-redux';
 
 import LollipopPic from '../../../images/lollipop.jpg';
 import '../chocolates.css';
 
 class Lollipop extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            productid: 4
+        }
+        this.handleAddToBag = this.handleAddToBag.bind(this);
+    }
+
+    handleAddToBag(){
+        let productid = this.state.productid;
+        getProduct(productid)
+            .then( res => {
+                let productInfo = res.data[0];
+                this.props.addToCart(productInfo);
+          })
+
+    }
+
     render(){
+        console.log(this.props.cartReducer);
         return(
             <div className='wrapper'>
                 <Header />
@@ -15,7 +37,7 @@ class Lollipop extends Component {
                         <div className='product-description'>
                             <h1>Caramel Lollipop</h1>
                             <div className='product-add'>
-                                <button>Add To Cart</button>
+                                <button onClick={this.handleAddToBag}>Add To Cart</button>
                                 <input placeholder='1'/>
                                 <h3>$1.75</h3>
                             </div>
@@ -46,4 +68,8 @@ class Lollipop extends Component {
     }
 }
 
-export default Lollipop;
+function mapStateToProps(state){
+    return state;
+}
+
+export default connect(mapStateToProps, {addToCart}) (Lollipop);

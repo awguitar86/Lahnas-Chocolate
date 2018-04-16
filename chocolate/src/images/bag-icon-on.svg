@@ -5,6 +5,7 @@
 <style type="text/css">
 	.st0{fill:#FFFFFF;}
 	.st1{fill:none;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+	.st2{fill:#EAE6F7;}
 </style>
 <g>
 	<path class="st0" d="M117.2,51.8v99h-99v-99H117.2 M122.2,46.8h-109v109h109V46.8L122.2,46.8z"/>
@@ -14,4 +15,5 @@
 	<line class="st1" x1="31.2" y1="51.8" x2="31.2" y2="48.8"/>
 	<line class="st1" x1="104.2" y1="51.8" x2="104.2" y2="48.8"/>
 </g>
+<circle class="st2" cx="68.2" cy="101.8" r="30"/>
 </svg>

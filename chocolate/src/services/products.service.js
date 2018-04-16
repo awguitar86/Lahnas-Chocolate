@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const baseURL = '/api/products';
 
-function getProducts(productid) {
+function getProduct(productid) {
     return axios
         .get(`${baseURL}/${productid}`)
         .then( res => res )
@@ -10,5 +10,5 @@ function getProducts(productid) {
 }
 
 export {
-    getProducts
+    getProduct
 };

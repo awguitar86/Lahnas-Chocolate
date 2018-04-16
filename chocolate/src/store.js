@@ -1,13 +1,16 @@
 import { createStore, combineReducers } from 'redux';
 import userInfo from './reducers/userInfo.reducer';
 import orderInfo from './reducers/orderInfo.reducer';
+import {cartReducer, qtyReducer} from './reducers/cart.reducer';
 // import authRouter from './ducks/auth.reducer';
 // import dashboardInfo from './ducks/dashboardInfo.reducer';
 
 
 let rootReducer = combineReducers({
     userInfo,
-    orderInfo
+    orderInfo,
+    cartReducer,
+    qtyReducer
     // authRouter,
     // dashboardInfo,
 })

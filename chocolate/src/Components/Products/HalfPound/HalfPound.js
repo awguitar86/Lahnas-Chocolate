@@ -2,12 +2,34 @@ import React, { Component } from 'react';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 import Chocolates from '../ChocolatesInBox/Chocolates';
+import { getProduct } from '../../../services/products.service';
+import { addToCart } from '../../../actions/actionCreators';
+import { connect } from 'react-redux';
 
 import HalfPoundBox from '../../../images/halfPound.jpg';
 import '../chocolates.css';
 
 class HalfPound extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            productid: 9
+        }
+        this.handleAddToBag = this.handleAddToBag.bind(this);
+    }
+
+    handleAddToBag(){
+        let productid = this.state.productid;
+        getProduct(productid)
+            .then( res => {
+                let productInfo = res.data[0];
+                this.props.addToCart(productInfo);
+          })
+
+    }
+
     render(){
+        console.log(this.props.cartReducer);
         return(
             <div className='wrapper'>
                 <Header />
@@ -16,7 +38,7 @@ class HalfPound extends Component {
                         <div className='product-description'>
                             <h1>Half Pound Box</h1>
                             <div className='product-add'>
-                                <button>Add To Cart</button>
+                                <button onClick={this.handleAddToBag}>Add To Cart</button>
                                 <input placeholder='1'/>
                                 <h3>$14.95</h3>
                             </div>
@@ -47,4 +69,8 @@ class HalfPound extends Component {
     }
 }
 
-export default HalfPound;
+function mapStateToProps(state){
+    return state;
+}
+
+export default connect(mapStateToProps, {addToCart}) (HalfPound);

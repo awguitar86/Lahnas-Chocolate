@@ -1,12 +1,34 @@
 import React, { Component } from 'react';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
+import { getProduct } from '../../../services/products.service';
+import { addToCart } from '../../../actions/actionCreators';
+import { connect } from 'react-redux';
 
 import OreosPic from '../../../images/oreos.jpg';
 import '../chocolates.css';
 
 class Oreos extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            productid: 5
+        }
+        this.handleAddToBag = this.handleAddToBag.bind(this);
+    }
+
+    handleAddToBag(){
+        let productid = this.state.productid;
+        getProduct(productid)
+            .then( res => {
+                let productInfo = res.data[0];
+                this.props.addToCart(productInfo);
+          })
+
+    }
+
     render(){
+        console.log(this.props.cartReducer);
         return(
             <div className='wrapper'>
                 <Header />
@@ -15,7 +37,7 @@ class Oreos extends Component {
                         <div className='product-description'>
                             <h1>Chocolate Dipped Oreos</h1>
                             <div className='product-add'>
-                                <button>Add To Cart</button>
+                                <button onClick={this.handleAddToBag}>Add To Cart</button>
                                 <input placeholder='1'/>
                                 <h3>$0.60</h3>
                             </div>
@@ -45,4 +67,8 @@ class Oreos extends Component {
     }
 }
 
-export default Oreos;
+function mapStateToProps(state){
+    return state;
+}
+
+export default connect(mapStateToProps, {addToCart}) (Oreos);
