@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 import { getProduct } from '../../../services/products.service';
-import { addToCart, addQty } from '../../../actions/actionCreators';
+import { addToCart } from '../../../actions/actionCreators';
 import { connect } from 'react-redux';
 
 import RockyRoadPic from '../../../images/rockyRoad.jpg';
@@ -12,35 +12,36 @@ class RockyRoad extends Component {
     constructor(props){
         super(props);
         this.state = {
-            productid: 1,
+            product: {},
             qty: 1
         }
         this.handleAddToBag = this.handleAddToBag.bind(this);
         this.handleQtyChange = this.handleQtyChange.bind(this);
     }
 
-    handleAddToBag(){
-        let productid = this.state.productid;
+    componentWillMount(){
+        let productid = this.props.match.params.productid;
         getProduct(productid)
             .then( res => {
                 let productInfo = res.data[0];
-                this.props.addToCart(productInfo);
+                this.setState({product: productInfo});
           })
-        let qtyInfo = this.state.qty;
-        this.props.addQty(qtyInfo);
+    }
+
+    handleAddToBag(){
+        this.props.addToCart(this.state);
     }
 
     handleQtyChange(e){
-        const key = e.target.name;
-        let newState = this.state[key];
+        let newState = this.state.qty;
         newState = Number(e.target.value);
-        this.setState({ [key]: newState })
+        this.setState({ qty: newState })
         console.log(e.target.value);
     }
 
     render(){
+        console.log(this.state);
         console.log(this.props.cartReducer);
-        console.log(this.props.qtyReducer);
         return(
             <div className='wrapper'>
                 <Header />
@@ -83,4 +84,4 @@ function mapStateToProps(state){
     return state;
 }
 
-export default connect(mapStateToProps, {addToCart, addQty}) (RockyRoad);
+export default connect(mapStateToProps, {addToCart}) (RockyRoad);

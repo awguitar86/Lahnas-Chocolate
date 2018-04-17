@@ -35,6 +35,7 @@ class SingleOrderItem extends Component {
     render(){
         const { price, quantity, total } = this.props;
         const products = this.state.products;
+        console.log(products);
         const displayProducts = products.map( product => {
             const index = products.indexOf(product);
             return (

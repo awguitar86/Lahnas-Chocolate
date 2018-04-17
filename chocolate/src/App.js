@@ -43,7 +43,7 @@ class App extends Component {
   }
 
   componentWillMount(){
-    findUserInfo(1)
+    findUserInfo(2)
       .then( res => {
         let newUserInfo = res.data[0];
         this.props.updateUser(newUserInfo);
@@ -75,17 +75,17 @@ class App extends Component {
         <Route path='/thanks' component={Thanks} />
 
         <Route path='/products' component={Products} />
-        <Route path='/lepetite' component={LePetite} />
-        <Route path='/halfpound' component={HalfPound} />
-        <Route path='/onepound' component={OnePound} />
-        <Route path='/twopound' component={TwoPound} />
-        <Route path='/rockyroad' component={RockyRoad} />
-        <Route path='/pretzelrod' component={PretzelRod} />
-        <Route path='/lahnabar' component={LahnaBar} />
-        <Route path='/lollipop' component={Lollipop} />
-        <Route path='/oreos' component={Oreos} />
-        <Route path='/caramels' component={Caramels} />
-        <Route path='/licorice' component={Licorice} />
+        <Route path='/lepetite/:productid' component={LePetite} />
+        <Route path='/halfpound/:productid' component={HalfPound} />
+        <Route path='/onepound/:productid' component={OnePound} />
+        <Route path='/twopound/:productid' component={TwoPound} />
+        <Route path='/rockyroad/:productid' component={RockyRoad} />
+        <Route path='/pretzelrod/:productid' component={PretzelRod} />
+        <Route path='/lahnabar/:productid' component={LahnaBar} />
+        <Route path='/lollipop/:productid' component={Lollipop} />
+        <Route path='/oreos/:productid' component={Oreos} />
+        <Route path='/caramels/:productid' component={Caramels} />
+        <Route path='/licorice/:productid' component={Licorice} />
       </div>
     );
   }

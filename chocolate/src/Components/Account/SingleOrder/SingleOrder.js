@@ -14,9 +14,7 @@ class SingleOrder extends Component {
         this.state = {
             order: [],
             orderTotal: [],
-            orderItems: [],
-            subtotal: [],
-            tax: []
+            orderItems: []
         }
 
     }

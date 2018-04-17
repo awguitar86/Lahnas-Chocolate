@@ -30,19 +30,19 @@ class Products extends Component {
                         hide them from other people. You may even lie that you have some. Just don’t hide them in your pocket.
                     </p>
                     <div className='boxes'>
-                        <Link to='/lepetite' className='boxes-pictures'>
+                        <Link to={`/lepetite/${8}`} className='boxes-pictures'>
                             <img src={LePetite} alt='small box of chocolates'/>
                             <h3> Le Petite <br/> $4.95 </h3>
                         </Link>
-                        <Link to='/halfpound' className='boxes-pictures'>
+                        <Link to={`/halfpound/${9}`} className='boxes-pictures'>
                             <img src={HalfPound} alt='half pound box of chocolates'/>
                             <h3> Half Pound <br/> $14.95 </h3>
                         </Link>
-                        <Link to='/onepound' className='boxes-pictures'>
+                        <Link to={`/onepound/${10}`} className='boxes-pictures'>
                             <img src={OnePound} alt='one pound box of chocolates'/>
                             <h3> One Pound <br/> $29.95 </h3>
                         </Link>
-                        <Link to='/twopound' className='boxes-pictures'>
+                        <Link to={`/twopound/${11}`} className='boxes-pictures'>
                             <img src={TwoPound} alt='two pound box of chocolates'/>
                             <h3> Two Pound <br/> $59.95 </h3>
                         </Link>
@@ -58,31 +58,31 @@ class Products extends Component {
                         face off when you’re done.
                     </p>
                     <div className='confections'>
-                            <Link to='/rockyroad' className='confections-pictures'>
+                            <Link to={`/rockyroad/${1}`} className='confections-pictures'>
                                 <img src={RockyRoad} alt='rocky road'/>
                                 <h3> Rocky Road <br/> $3.75 </h3>
                             </Link>
-                            <Link to='/pretzelrod' className='confections-pictures'>
+                            <Link to={`/pretzelrod/${2}`} className='confections-pictures'>
                                 <img src={PretzelRod} alt='pretzel rod'/>
                                 <h3> Pretzel Rod <br/> $2.49 </h3>
                             </Link>
-                            <Link to='/lahnabar' className='confections-pictures'>
+                            <Link to={`/lahnabar/${3}`} className='confections-pictures'>
                                 <img src={LahnaBar} alt='lahna bar'/>
                                 <h3> Lahna Bar <br/> $2.49 </h3>
                             </Link>
-                            <Link to='/lollipop' className='confections-pictures'>
+                            <Link to={`/lollipop/${4}`} className='confections-pictures'>
                                 <img src={Lollipop} alt='chocolate lollipop'/>
                                 <h3> Caramel Lollipop <br/> $1.75 </h3>
                             </Link>
-                            <Link to='/oreos' className='confections-pictures'>
+                            <Link to={`/oreos/${5}`} className='confections-pictures'>
                                 <img src={Oreos} alt='oreos'/>
                                 <h3> Chocolate Dipped Oreos <br/> $0.60 </h3>
                             </Link>
-                            <Link to='/caramels' className='confections-pictures'>
+                            <Link to={`/caramels/${6}`} className='confections-pictures'>
                                 <img src={Caramels} alt='caramels'/>
                                 <h3> Grandma’s Carmels <br/> $0.60 </h3>
                             </Link>
-                            <Link to='/licorice' className='confections-pictures'>
+                            <Link to={`/licorice/${7}`} className='confections-pictures'>
                                 <img src={Licorice} alt='licorice'/>
                                 <h3> Grandma’s Licorice Carmels <br/> $0.60 </h3>
                             </Link>

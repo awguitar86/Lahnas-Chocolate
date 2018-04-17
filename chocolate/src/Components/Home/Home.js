@@ -26,15 +26,15 @@ class Home extends Component {
                     </div>
                 </Link>
                 <div className="body-content">
-                    <Link to='/lepetite'><img src={LePetite} alt='small box of chocolates'/></Link>
-                    <Link to='/halfpound'><img src={HalfPound} alt='half pound box of chocolates'/></Link>
-                    <Link to='/onepound'><img src={OnePound} alt='one pound box of chocolates'/></Link>
-                    <Link to='/rockyroad'><img src={RockyRoad} alt='rocky road'/></Link>
-                    <Link to='/pretzelrod'><img src={PretzelRod} alt='pretzel rod'/></Link>
-                    <Link to='/lahnabar'><img src={LahnaBar} alt='lahna bar'/></Link>
-                    <Link to='/lollipop'><img src={Lollipop} alt='chocolate lollipop'/></Link>
-                    <Link to='/oreos'><img src={Oreos} alt='oreos'/></Link>
-                    <Link to='/caramels'><img src={Caramels} alt='caramels' className='caramels'/></Link>
+                    <Link to={`/lepetite/${8}`}><img src={LePetite} alt='small box of chocolates'/></Link>
+                    <Link to={`/halfpound/${9}`}><img src={HalfPound} alt='half pound box of chocolates'/></Link>
+                    <Link to={`/onepound/${10}`}><img src={OnePound} alt='one pound box of chocolates'/></Link>
+                    <Link to={`/rockyroad/${1}`}><img src={RockyRoad} alt='rocky road'/></Link>
+                    <Link to={`/pretzelrod/${2}`}><img src={PretzelRod} alt='pretzel rod'/></Link>
+                    <Link to={`/lahnabar/${3}`}><img src={LahnaBar} alt='lahna bar'/></Link>
+                    <Link to={`/lollipop/${4}`}><img src={Lollipop} alt='chocolate lollipop'/></Link>
+                    <Link to={`/oreos/${5}`}><img src={Oreos} alt='oreos'/></Link>
+                    <Link to={`/caramels/${6}`}><img src={Caramels} alt='caramels' className='caramels'/></Link>
                 </div>
             </div>
             <Footer />

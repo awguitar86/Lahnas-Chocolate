@@ -35,12 +35,12 @@ export function addToCart(product){
     }
 }
 
-export function addQty(qty){
-    return {
-        type: ADD_QTY,
-        payload: qty
-    }
-}
+// export function addQty(qty){
+//     return {
+//         type: ADD_QTY,
+//         payload: qty
+//     }
+// }
 
 // export function updatePersonalProjects(personalProjects){
 //     return {
