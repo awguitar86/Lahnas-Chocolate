@@ -12,7 +12,6 @@ let initialState = {
 }
 
 
-
 function userInfo( state = initialState, action ){
     switch( action.type ) {
         case "UPDATE_USER":

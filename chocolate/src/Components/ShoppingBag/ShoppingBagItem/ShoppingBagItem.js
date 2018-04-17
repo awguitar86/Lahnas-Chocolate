@@ -10,14 +10,13 @@ class ShoppingBagItem extends Component {
     }
 
     render(){
-        const { productid, productName, price, qty } = this.props;
-        const cartitems = this.props.cartReducer.cart;
+        const { productName, price, qty } = this.props;
         const total = (price * qty).toFixed(2);
         return(
             <div className='shopping-bag-item'>
                 <h4>{productName}</h4>
                 <div className='shopping-item-total'>
-                    <div className='item-remove'>Remove</div>
+                    <div className='item-remove'></div>
                     <div>${price}</div>
                     <div>Qty: {qty}</div>
                     <div className='item-total'>${total}</div>

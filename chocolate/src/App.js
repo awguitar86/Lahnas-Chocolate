@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { findUserInfo } from './services/account.services';
-import { updateUser, updateOrder } from './actions/actionCreators';
+import { updateUser } from './actions/actionCreators';
 import './App.css';
 
 import Home from './Components/Home/Home';
@@ -95,4 +95,4 @@ function mapStateToProps(state){
   return state;
 }
 
-export default withRouter( connect( mapStateToProps, {updateUser, updateOrder} ) (App) );
+export default withRouter( connect( mapStateToProps, {updateUser} ) (App) );
