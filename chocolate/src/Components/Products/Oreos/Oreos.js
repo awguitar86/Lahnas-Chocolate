@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 import { getProduct } from '../../../services/products.service';
-import { addToCart } from '../../../actions/actionCreators';
+import { addToCart, addQty } from '../../../actions/actionCreators';
 import { connect } from 'react-redux';
 
 import OreosPic from '../../../images/oreos.jpg';
@@ -12,9 +12,11 @@ class Oreos extends Component {
     constructor(props){
         super(props);
         this.state = {
-            productid: 5
+            productid: 5,
+            qty: 1
         }
         this.handleAddToBag = this.handleAddToBag.bind(this);
+        this.handleQtyChange = this.handleQtyChange.bind(this);
     }
 
     handleAddToBag(){
@@ -24,11 +26,21 @@ class Oreos extends Component {
                 let productInfo = res.data[0];
                 this.props.addToCart(productInfo);
           })
+        let qtyInfo = this.state.qty;
+        this.props.addQty(qtyInfo);
+      }
 
+    handleQtyChange(e){
+        const key = e.target.name;
+        let newState = this.state[key];
+        newState = Number(e.target.value);
+        this.setState({ [key]: newState })
+        console.log(e.target.value);
     }
 
     render(){
         console.log(this.props.cartReducer);
+        console.log(this.props.qtyReducer);
         return(
             <div className='wrapper'>
                 <Header />
@@ -38,7 +50,7 @@ class Oreos extends Component {
                             <h1>Chocolate Dipped Oreos</h1>
                             <div className='product-add'>
                                 <button onClick={this.handleAddToBag}>Add To Cart</button>
-                                <input placeholder='1'/>
+                                <input placeholder='1' name='qty' onChange={ e => {this.handleQtyChange(e) }}/>
                                 <h3>$0.60</h3>
                             </div>
                             <p>
@@ -71,4 +83,4 @@ function mapStateToProps(state){
     return state;
 }
 
-export default connect(mapStateToProps, {addToCart}) (Oreos);
+export default connect(mapStateToProps, {addToCart, addQty}) (Oreos);
