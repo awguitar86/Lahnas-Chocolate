@@ -1,7 +1,6 @@
 UPDATE products
     SET
         name = $2,
-        description = $3,
-        price = $4
+        price = $3
     WHERE id = $1
 ;

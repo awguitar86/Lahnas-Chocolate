@@ -35,9 +35,8 @@ ordersRouter.get('/total/:orderid', (req, res) => {
 // get order items
 ordersRouter.get('/:userid/:orderid', (req, res) => { //get order based on userid and order id
     const db = getDb();
-    const userid = req.params.userid;
     const orderid = req.params.orderid;
-    db.get_order_items([ userid, orderid ])
+    db.get_order_items([ orderid ])
         .then(response => res.status(200).send(response))
         .catch(err => console.log(err))
 });
@@ -48,8 +47,8 @@ ordersRouter.get('/:userid/:orderid', (req, res) => { //get order based on useri
 ordersRouter.post('/:userid/new', (req, res) => {
     const db = getDb();
     const userid = req.params.userid;
-    const { user_id, order_date, order_id, product_id, quantity, price, sales_tax, total, payment_type} = req.body;
-    db.create_order([user_id, order_date])
+    const { user_id, order_date, order_price, payment_type } = req.body;
+    db.create_order([user_id, order_date, order_price, payment_type])
         .then( () => res.status(200).send() )
         .catch( err => res.send(err) );
     // db.create_order_item([user_id, order_id, product_id, quantity, price, sales_tax, total, payment_type])
@@ -61,8 +60,8 @@ ordersRouter.put('/update/:id/:userid', (req, res) => {
     const db = getDb();
     const id = req.params.id;
     const userid = req.params.userid;
-    const { product_id, order_number, order_date, quantity, price, sales_tax, total, payment_type } = req.body;
-    db.update_order( [id, userid, product_id, order_number, order_date, quantity, price, sales_tax, total, payment_type] )
+    const { user_id, order_date, order_price, payment_type } = req.body;
+    db.update_order([ id, user_id, order_date, order_price, payment_type ])
         .then( promise => res.status(200).send(promise) )
         .catch( err => res.send(err) )
 });

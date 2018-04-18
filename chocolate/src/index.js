@@ -5,7 +5,6 @@ import { createBrowserHistory } from 'history';
 import './index.css';
 import App from './App';
 import ScrollToTop from './ScrollToTop';
-import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import store from './store';
 
@@ -19,4 +18,3 @@ ReactDOM.render(
     </Provider>
     ,
 document.getElementById('root'));
-registerServiceWorker();

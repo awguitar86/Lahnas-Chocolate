@@ -1,4 +1,4 @@
-INSERT INTO order_items (user_id, order_id, product_id, quantity, price, sales_tax, total, payment_type)
+INSERT INTO order_items (order_id, product_id, price, quantity)
     VALUES
-        ($1, $2, $3, $4, $5, $6, $7, $8)
+        ($1, $2, $3, $4)
 ;

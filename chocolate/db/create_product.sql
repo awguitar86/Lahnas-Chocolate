@@ -1,6 +1,6 @@
-INSERT INTO products (name, description, price)
+INSERT INTO products (name, price)
     VALUES
-        ($1, $2, $3)
+        ($1, $2)
 ;
 
 -- SELECT DISTINCT * FROM products
