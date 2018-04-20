@@ -23,14 +23,14 @@ class ShoppingBag extends Component {
         console.log(totalArr);
         const displayOrderItems = shoppingItems.map( shoppingItem => {
             const index = shoppingItems.indexOf(shoppingItem);
-            totalArr.push(Number((shoppingItem.product['price'] * shoppingItem.qty).toFixed(2)));
+            totalArr.push(Number((shoppingItem.price * shoppingItem.quantity).toFixed(2)));
             return ( <ShoppingBagItem
                         key={`orderItem${index}`}
                         index={index}
-                        productid={shoppingItem.product['id']}
-                        productName={shoppingItem.product['name']}
-                        price={shoppingItem.product['price']}
-                        qty={shoppingItem.qty}
+                        productid={shoppingItem.id}
+                        productName={shoppingItem.name}
+                        price={shoppingItem.price}
+                        qty={shoppingItem.quantity}
             />)
         })
         function totalSum(numbers){

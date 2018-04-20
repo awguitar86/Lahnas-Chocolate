@@ -20,21 +20,49 @@
     padding-bottom: 5px;
     color: #4E2E71; }
 
-.checkout-form {
+.checkout-user-info-off {
+  display: none; }
+
+.checkout-user-info-on {
+  width: 600px;
+  display: flex;
+  font-size: 14pt;
+  border-bottom: solid 1px #4E2E71;
+  border-top: solid 3px #4E2E71; }
+  .checkout-user-info-on div {
+    width: 300px; }
+  .checkout-user-info-on p {
+    margin-top: 3px;
+    margin-bottom: 3px; }
+
+.checkout-user-left {
+  margin-top: 20px;
+  margin-bottom: 20px; }
+  .checkout-user-left p {
+    margin-left: 12px; }
+
+.checkout-user-right {
+  margin-top: 20px;
+  margin-bottom: 20px; }
+
+.checkout-form-off {
+  display: none; }
+
+.checkout-form-on {
   width: 600px;
   display: grid;
   grid-gap: 15px;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(7, 40px);
   margin-bottom: 20px; }
-  .checkout-form input {
+  .checkout-form-on input {
     padding-left: 10px;
     border: solid 1px #4E2E71;
     border-radius: 5px;
     font-size: 12pt;
     font-family: Baskerville;
     outline: none; }
-  .checkout-form input:focus {
+  .checkout-form-on input:focus {
     border: solid 2px #907AD6; }
 
 .checkout-first {
@@ -100,7 +128,7 @@
   align-items: flex-end;
   justify-content: space-around;
   border-top: solid 1px #4E2E71;
-  border-bottom: solid 1px #4E2E71;
+  border-bottom: solid 3px #4E2E71;
   margin-top: 20px;
   margin-bottom: 20px; }
 
@@ -191,10 +219,18 @@
 @media only screen and (max-width: 670px) {
   .checkout-body h1 {
     font-size: 20pt; }
-  .checkout-form {
+  .checkout-user-info-on {
+    width: 90vw;
+    display: flex;
+    font-size: 14pt; }
+    .checkout-user-info-on div {
+      width: 45vw; }
+  .checkout-user-left p {
+    margin-left: 0px; }
+  .checkout-form-on {
     width: 90vw;
     grid-template-rows: repeat(10, 40px); }
-    .checkout-form input {
+    .checkout-form-on input {
       grid-column: span 6; }
   .payment-method {
     width: 90vw; }
@@ -206,6 +242,17 @@
     width: 90vw; } }
 
 @media only screen and (max-width: 500px) {
+  .checkout-user-info-on {
+    flex-direction: column;
+    font-size: 14pt; }
+    .checkout-user-info-on div {
+      width: 90vw; }
+  .checkout-user-left {
+    margin-top: 10px;
+    margin-bottom: 5px; }
+  .checkout-user-right {
+    margin-top: 0px;
+    margin-bottom: 10px; }
   .payment-method {
     flex-direction: column;
     margin-bottom: 10px; }

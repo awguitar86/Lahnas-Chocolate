@@ -3,6 +3,6 @@ UPDATE orders
         order_date = $3,
         order_price = $4,
         payment_type = $5
-    WHERE user_id = $2
+    WHERE email = $2
     AND id = $1
 ;

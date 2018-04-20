@@ -15,9 +15,8 @@ cartRouter.get('/:userid', (req, res) => {
         })
 });
 
-cartRouter.post('/new/:userid', (req, res) => {
+cartRouter.post('/post', (req, res) => {
     const db = getDb();
-    const userid = req.params.userid;
     const { user_id, product_id, quantity } = req.body;
     db.create_cart_item([ user_id, product_id, quantity ])
         .then(response => res.status(200).send(response))

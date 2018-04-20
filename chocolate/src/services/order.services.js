@@ -2,9 +2,9 @@ import axios from 'axios';
 
 const baseURL = '/api/orders';
 
-function getOrders(userid) {
+function getOrders(email) {
     return axios
-        .get(`${baseURL}/${userid}`)
+        .get(`${baseURL}/${email}`)
         .then( res => res )
         .catch( err => {throw err} );
 }
@@ -16,25 +16,24 @@ function getOrder(id) {
         .catch( err => {throw err} );
 }
 
-function getOrderSum(orderid) {
+function getOrderItems(orderid){
     return axios
-        .get(`${baseURL}/total/${orderid}`)
-        .then( res => res )
-        .catch( err => {throw err} );
-}
-
-function getOrderItems(userid, orderid){
-    return axios
-        .get(`${baseURL}/${userid}/${orderid}`)
+        .get(`${baseURL}/items/${orderid}`)
         .then( res => res)
         .catch( err => {throw err})
 }
+
+// function getOrderSum(orderid) {
+//     return axios
+//         .get(`${baseURL}/total/${orderid}`)
+//         .then( res => res )
+//         .catch( err => {throw err} );
+// }
 
 
 
 export {
     getOrders,
     getOrder,
-    getOrderSum,
     getOrderItems
 };

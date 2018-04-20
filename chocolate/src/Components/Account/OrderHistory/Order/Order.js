@@ -11,9 +11,9 @@ class Order extends Component {
     }
 
     render(){
-        const { userid, id, orderDate, orderPrice } = this.props;
+        const { id, orderDate, orderPrice } = this.props;
         return(
-                <Link to={`/singleorder/${userid}/${id}`}>
+                <Link to={`/singleorder/${id}`}>
                     <div className='single-order'>
                         <div className='order-num-date'>
                             <p>Order Number: {id}</p>

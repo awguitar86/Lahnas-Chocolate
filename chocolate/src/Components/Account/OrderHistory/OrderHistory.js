@@ -18,12 +18,12 @@ class OrderHistory extends Component {
     }
 
     componentDidMount(){
-        const userid = this.props.userInfo.id;
-        this.pullFromBackend(userid);
+        const email = this.props.userInfo.email;
+        this.pullFromBackend(email);
     }
 
-    pullFromBackend( userid ){
-        getOrders( userid )
+    pullFromBackend( email ){
+        getOrders( email )
           .then( res => {
             if (res.status !== 200) {
                 alert(res);
@@ -37,15 +37,14 @@ class OrderHistory extends Component {
     }
 
     render(){
-        const userid = this.props.userInfo.id;
+        const email = this.props.userInfo.email;
         const orders = this.state.orders;
-        console.log(userid);
+        console.log(email);
         console.log(orders);
         const displayOrders = orders.map( (order, index) => {
             const id = order.id;
             return( <Order
                         key={`orderItem${index}`}
-                        userid={userid}
                         id={id}
                         orderDate={order.order_date}
                         orderPrice={order.order_price}

@@ -9,9 +9,9 @@ function getCartItems(userid) {
         .catch( err => {throw err});
 }
 
-function createCartItems(userid, body) {
+function createCartItems(body) {
     return axios
-        .post(`${baseURL}/new/${userid}`, body)
+        .post(`${baseURL}/post`, body)
         .then( res => res )
         .catch( err => {throw err});
 }

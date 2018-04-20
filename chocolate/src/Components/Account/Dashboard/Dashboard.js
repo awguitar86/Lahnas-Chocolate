@@ -10,23 +10,50 @@ import { connect } from 'react-redux';
 class Dashboard extends Component {
     constructor(props){
         super(props);
-        this.state = {}
+        this.state = {
+            id: '',
+            first_name: '',
+            last_name: '',
+            company: '',
+            address: '',
+            city: '',
+            state: '',
+            zip_code: '',
+            phone: '',
+            email: ''
+        }
     }
+
+    componentDidMount(){
+        this.setState({
+            id: this.props.userInfo.id,
+            first_name: this.props.userInfo.first_name,
+            last_name: this.props.userInfo.last_name,
+            company: this.props.userInfo.company,
+            address: this.props.userInfo.address,
+            city: this.props.userInfo.city,
+            state: this.props.userInfo.state,
+            zip_code: this.props.userInfo.zip_code,
+            phone: this.props.userInfo.phone,
+            email: this.props.userInfo.email
+          })
+    }
+
 
     render(){
         // const userInfo = this.props.userInfo;
         console.log(this.props.userInfo);
         console.log(this.props.userInfo.id);
-        let id = this.props.userInfo.id;
-        let firstName = this.props.userInfo.first_name;
-        let lastName = this.props.userInfo.last_name;
-        let company = this.props.userInfo.company;
-        let address = this.props.userInfo.address;
-        let city = this.props.userInfo.city;
-        let usState = this.props.userInfo.state;
-        let zipCode = this.props.userInfo.zip_code;
-        let phone = this.props.userInfo.phone;
-        let email = this.props.userInfo.email;
+        let id = this.state.id;
+        let firstName = this.state.first_name;
+        let lastName = this.state.last_name;
+        let company = this.state.company;
+        let address = this.state.address;
+        let city = this.state.city;
+        let usState = this.state.state;
+        let zipCode = this.state.zip_code;
+        let phone = this.state.phone;
+        let email = this.state.email;
         // console.log(this.props.match.params.id);
         return(
             <div className='dash-wrap'>
@@ -46,7 +73,7 @@ class Dashboard extends Component {
                         </ul>
                         <ul className='dash-links'>
                             <Link to={`/changeinfo/${id}`}><button>Change Account Info</button></Link>
-                            <Link to={`/orderhistory/${id}`}><button>Order History</button></Link>
+                            <Link to={`/orderhistory`}><button>Order History</button></Link>
                         </ul>
                     </div>
                 </div>

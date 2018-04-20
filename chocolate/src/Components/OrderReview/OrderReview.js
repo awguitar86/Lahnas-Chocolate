@@ -3,8 +3,16 @@ import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import './orderReview.css';
+import { addToCart, updateCustomer, updateUser } from '../../actions/actionCreators';
+import { connect } from 'react-redux';
 
 class OrderReview extends Component {
+    constructor(props){
+        super(props);
+        this.state = {}
+    }
+
+
     render(){
         return(
             <div className='or-wrap'>
@@ -85,4 +93,8 @@ class OrderReview extends Component {
     }
 }
 
-export default OrderReview;
+function mapStateToProps(state){
+    return state;
+}
+
+export default connect(mapStateToProps, {addToCart, updateCustomer, updateUser}) (OrderReview);

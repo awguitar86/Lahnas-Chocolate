@@ -66,8 +66,8 @@ class App extends Component {
 
         <Route path='/dashboard/:id' component={Dashboard} />
         <Route path='/changeinfo/:id' component={ChangeInfo} />
-        <Route path='/orderhistory/:userid' component={OrderHistory} />
-        <Route path='/singleorder/:userid/:orderid' component={SingleOrder} />
+        <Route path='/orderhistory' component={OrderHistory} />
+        <Route path='/singleorder/:id' component={SingleOrder} />
 
         <Route path='/shoppingbag' component={ShoppingBag} />
         <Route path='/checkout' component={Checkout} />

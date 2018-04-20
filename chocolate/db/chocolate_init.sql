@@ -16,13 +16,12 @@ CREATE TABLE users (
     state TEXT,
     zip_code INT,
     phone VARCHAR,
-    email TEXT unique,
-    password TEXT
+    email TEXT UNIQUE
 );
 
 CREATE TABLE orders (
     id SERIAL PRIMARY KEY,
-    user_id INT REFERENCES users (id),
+    email TEXT REFERENCES users (email),
     order_date VARCHAR,
     order_price DECIMAL,
     payment_type TEXT
@@ -58,17 +57,17 @@ INSERT INTO products (name, price)
         ('Two Pound Box', 59.95)
 ;
 
-INSERT INTO users (first_name, last_name, company, address, city, state, zip_code, phone, email, password)
+INSERT INTO users (first_name, last_name, company, address, city, state, zip_code, phone, email)
     VALUES
-        ('Austin', 'Wright', 'The Wright Company', '123 Cool Ave', 'Layton', 'UT', 84041, '(801) 555-1234', 'austin@gmail.com', 'AustinWright'),
-        ('Lahna', 'Prows', 'Lahna''s Chocolates', '10 Chocolate Lane', 'Bountiful', 'UT', 84123, '(801) 123-4567', 'lahnaschocolates@gmail.com', 'chocolate')
+        ('Austin', 'Wright', 'The Wright Company', '123 Cool Ave', 'Layton', 'UT', 84041, '(801) 555-1234', 'austin@gmail.com'),
+        ('Timmothy', 'Burns', 'Burns Inc.', '400 Mountain St.', 'Eureka', 'UT', 84123, '(801) 123-4567', 'timburns@gmail.com')
 ;
 
-INSERT INTO orders (user_id, order_date, order_price, payment_type)
+INSERT INTO orders (email, order_date, order_price, payment_type)
     VALUES
-        (1, '03/22/2018', 4.00, 'On Delivery'),
-        (1, '04/03/2018', 10.56, 'Mail'),
-        (2, '03/27/2018', 22.31, 'On Delivery')
+        ('austin@gmail.com', '03/22/2018', 4.00, 'On Delivery'),
+        ('austin@gmail.com', '04/03/2018', 10.56, 'Mail'),
+        ('timburns@gmail.com', '03/27/2018', 22.31, 'On Delivery')
 ;
 
 INSERT INTO order_items (order_id, product_id, price, quantity)

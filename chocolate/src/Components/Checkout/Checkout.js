@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import './checkout.css';
-import { addToCart, updateCustomer } from '../../actions/actionCreators';
+import { addToCart, updateCustomer, updateUser } from '../../actions/actionCreators';
 import { connect } from 'react-redux';
 
 class Checkout extends Component {
@@ -20,13 +20,28 @@ class Checkout extends Component {
             phone: '',
             email: '',
             paymentMthd: '',
-            subtotal: 0,
-            taxes: 0,
-            total: 0
+            isUser: false
         }
 
         this.handleChange = this.handleChange.bind(this);
         this.handleUpdateCustomer = this.handleUpdateCustomer.bind(this);
+    }
+
+    componentDidMount(){
+        if(this.props.userInfo.id){
+            this.setState({
+                first_name: this.props.userInfo.first_name,
+                last_name: this.props.userInfo.last_name,
+                company: this.props.userInfo.company,
+                address: this.props.userInfo.address,
+                city: this.props.userInfo.city,
+                state: this.props.userInfo.state,
+                zip_code: this.props.userInfo.zip_code,
+                phone: this.props.userInfo.phone,
+                email: this.props.userInfo.email,
+                isUser: true
+            })
+        }
     }
 
 
@@ -42,7 +57,6 @@ class Checkout extends Component {
         this.props.updateCustomer(this.state);
       }
 
-
     render(){
         console.log(this.state);
         console.log(this.props.customerInfo);
@@ -50,7 +64,7 @@ class Checkout extends Component {
         let totalArr = [0];
         let bagSubTotal;
         shoppingItems.map( shoppingItem => {
-            totalArr.push(Number((shoppingItem.product['price'] * shoppingItem.qty).toFixed(2)));
+            return totalArr.push(Number((shoppingItem.product['price'] * shoppingItem.qty).toFixed(2)));
         })
         function totalSum(numbers){
             bagSubTotal = numbers.reduce((a,b) => {
@@ -60,12 +74,24 @@ class Checkout extends Component {
         totalSum(totalArr);
         let taxes = (bagSubTotal * 0.067).toFixed(2);
         let bagTotal = (Number(bagSubTotal) + Number(taxes)).toFixed(2);
+        let today = new Date();
+        let dd = today.getDate();
+        let mm = today.getMonth()+1;
+        let yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd;
+        }
+        if(mm<10){
+            mm='0'+mm;
+        }
+        today = mm+'/'+dd+'/'+yyyy;
+        console.log(today);
         return(
             <div className='checkout-wrap'>
                 <Header />
                 <div className='checkout-body'>
                     <h1>Contact & Shipping Info</h1>
-                    <div className='checkout-form'>
+                    <div className={'checkout-form' + (this.state.isUser ? '-off' : '-on')}>
                         <input className='checkout-first' placeholder='First Name'  name='first_name' onChange={ e => {this.handleChange(e) }}/>
                         <input className='checkout-last' placeholder='Last Name' name='last_name' onChange={ e => {this.handleChange(e) }}/>
                         <input className='checkout-company' placeholder='Company(optional)' name='company' onChange={ e => {this.handleChange(e) }}/>
@@ -76,6 +102,20 @@ class Checkout extends Component {
                         <input className='checkout-phone' placeholder='Phone Number' name='phone' onChange={ e => {this.handleChange(e) }}/>
                         <input className='checkout-email' placeholder='Email' name='email' onChange={ e => {this.handleChange(e) }}/>
                         <input className='checkout-reTypeEmail' placeholder='Re-Type Email'/>
+                    </div>
+
+                    <div className={'checkout-user-info' + (this.state.isUser ? '-on' : '-off')}>
+                        <div className='checkout-user-left'>
+                            <p>{this.state.first_name} {this.state.last_name}</p>
+                            <p>{this.state.company}</p>
+                            <p>{this.state.address}</p>
+                            <p>{this.state.city}, {this.state.state} {this.state.zip_code}</p>
+                        </div>
+                        <div className='checkout-user-right'>
+                            <p>{this.state.phone}</p>
+                            <p>{this.state.email}</p>
+                            <p>Date: {today}</p>
+                        </div>
                     </div>
 
                     <div className='payment-method'>
@@ -129,4 +169,4 @@ function mapStateToProps(state){
     return state;
 }
 
-export default connect(mapStateToProps, {addToCart, updateCustomer}) (Checkout);
+export default connect(mapStateToProps, {addToCart, updateCustomer, updateUser}) (Checkout);

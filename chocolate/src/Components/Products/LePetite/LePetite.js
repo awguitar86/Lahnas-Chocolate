@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 import LePetiteChocolates from '../ChocolatesInBox/LePetiteChocolates';
+import { createCartItems } from '../../../services/cart.services';
 import { getProduct } from '../../../services/products.service';
-import { addToCart } from '../../../actions/actionCreators';
+import { addToCart, updateUser } from '../../../actions/actionCreators';
 import { connect } from 'react-redux';
 
 import LePetiteBox from '../../../images/lePetite.jpg';
@@ -13,8 +14,10 @@ class LePetite extends Component {
     constructor(props){
         super(props);
         this.state = {
-            product: {},
-            qty: 1
+            product_id: '',
+            name: '',
+            price: '',
+            quantity: 1
         }
         this.handleAddToBag = this.handleAddToBag.bind(this);
         this.handleQtyChange = this.handleQtyChange.bind(this);
@@ -25,18 +28,31 @@ class LePetite extends Component {
         getProduct(productid)
             .then( res => {
                 let productInfo = res.data[0];
-                this.setState({product: productInfo});
+                console.log(res.data[0]);
+                this.setState({
+                    product_id: productInfo.id,
+                    name: productInfo.name,
+                    price: productInfo.price
+                });
           })
     }
 
     handleAddToBag(){
         this.props.addToCart(this.state);
+        if(this.props.userInfo.id){
+            let user_id = this.props.userInfo.id;
+            const { product_id, quantity } = this.state;
+            const reqBody = {user_id, product_id, quantity};
+            createCartItems(reqBody)
+                .then( res => res.data )
+                .catch( err => {throw err})
+        }
     }
 
     handleQtyChange(e){
         let newState = this.state.qty;
         newState = Number(e.target.value);
-        this.setState({ qty: newState })
+        this.setState({ quantity: newState })
         console.log(e.target.value);
     }
 
@@ -86,4 +102,4 @@ function mapStateToProps(state){
     return state;
 }
 
-export default connect(mapStateToProps, {addToCart}) (LePetite);
+export default connect(mapStateToProps, {addToCart, updateUser}) (LePetite);

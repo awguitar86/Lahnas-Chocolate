@@ -8,7 +8,6 @@ UPDATE users
         state = $7,
         zip_code = $8,
         phone = $9,
-        email = $10,
-        password = $11
+        email = $10
     WHERE id = $1
 ;

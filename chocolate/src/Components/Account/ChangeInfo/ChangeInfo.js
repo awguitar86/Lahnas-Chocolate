@@ -18,8 +18,7 @@ class ChangeInfo extends Component {
             state: '',
             zip_code: '',
             phone: '',
-            email: '',
-            password: ''
+            email: ''
         }
         this.pullFromBackend = this.pullFromBackend.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -48,10 +47,10 @@ class ChangeInfo extends Component {
                 state: res.data[0].state,
                 zip_code: res.data[0].zip_code,
                 phone: res.data[0].phone,
-                email: res.data[0].email,
-                password: res.data[0].password
+                email: res.data[0].email
               })
             }
+            console.log(res.data[0]);
           })
           .catch(err => {throw err});
       }
@@ -76,8 +75,7 @@ class ChangeInfo extends Component {
             state: this.state.state,
             zip_code: this.state.zip_code,
             phone: this.state.phone,
-            email: this.state.emial,
-            password: this.state.password
+            email: this.state.email
         };
         updateUserInfo( id, reqBody )
             .then( res => {
@@ -99,6 +97,7 @@ class ChangeInfo extends Component {
         let zipCode = this.state.zip_code;
         let phone = this.state.phone;
         let email = this.state.email;
+        console.log(this.state);
         return(
             <div className='change-wrap'>
                 <Header />
@@ -112,11 +111,8 @@ class ChangeInfo extends Component {
                         <input className='change-city' placeholder={city} type="text" name="city" onChange={ e => {this.handleInputChange(e) }}/>
                         <input className='change-state' placeholder={state} type="text" name="state" onChange={ e => {this.handleInputChange(e) }}/>
                         <input className='change-zip' placeholder={zipCode} type="number" name="zip_code" onChange={ e => {this.handleInputChange(e) }}/>
-                        <input className='change-phone' placeholder={phone} type="number" name="phone" onChange={ e => {this.handleInputChange(e) }}/>
-                        <input className='change-email' placeholder={email} type="text" name="emial" onChange={ e => {this.handleInputChange(e) }}/>
-                        <input className='change-reTypeEmail' placeholder='Re-Type Email' />
-                        <input className='change-password' placeholder='Password' type="text" name="password" onChange={ e => {this.handleInputChange(e) }}/>
-                        <input className='change-reTypePassword' placeholder='Re-Type Password'/>
+                        <input className='change-phone' placeholder={phone} type="text" name="phone" onChange={ e => {this.handleInputChange(e) }}/>
+                        <input className='change-email' placeholder={email} type="text" name="email" onChange={ e => {this.handleInputChange(e) }}/>
                     </div>
                     <div className='change-buttons'>
                         <Link to={`/dashboard/${id}`}><button className='change-btn' onClick={ this.handleButtonSave }>SAVE</button></Link>

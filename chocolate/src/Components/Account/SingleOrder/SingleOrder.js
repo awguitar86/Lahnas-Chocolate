@@ -5,7 +5,7 @@ import Footer from '../../Footer/Footer';
 import './singleOrder.css';
 import { updateUser } from '../../../actions/actionCreators';
 import { connect } from 'react-redux';
-import { getOrder, getOrderSum, getOrderItems } from '../../../services/order.services'
+import { getOrder, getOrderItems } from '../../../services/order.services'
 import SingleOrderItem from './SingleOrderItem/SingleOrderItem';
 
 class SingleOrder extends Component {
@@ -13,15 +13,14 @@ class SingleOrder extends Component {
         super(props);
         this.state = {
             order: [],
-            orderTotal: [],
             orderItems: []
         }
 
     }
 
         componentDidMount() {
-            const orderid = this.props.match.params.orderid;
-            const userid = this.props.match.params.userid;
+            const orderid = this.props.match.params.id;
+            console.log(orderid);
             getOrder( orderid )
                 .then( res => {
                 if (res.status !== 200) {
@@ -32,18 +31,7 @@ class SingleOrder extends Component {
                     console.log(res.data);
                 }
                 })
-            getOrderSum(orderid)
-                .then( res => {
-                    if(res.status !== 200) {
-                        console.log(res);
-                    }
-                    else {
-                        this.setState({ orderTotal: res.data[0] });
-                        console.log(res.data);
-                    }
-                })
-                .catch( err => {throw err})
-            getOrderItems(userid, orderid)
+            getOrderItems(orderid)
                 .then( res => {
                     if(res.status !== 200) {
                         console.log(res);
@@ -53,11 +41,21 @@ class SingleOrder extends Component {
                         console.log(res.data);
                     }
                 })
+            // getOrderSum(orderid)
+            //     .then( res => {
+            //         if(res.status !== 200) {
+            //             console.log(res);
+            //         }
+            //         else {
+            //             this.setState({ orderTotal: res.data[0] });
+            //             console.log(res.data);
+            //         }
+            //     })
+            //     .catch( err => {throw err})
         }
 
     render(){
         let orderNumber = this.props.match.params.orderid;
-        let orderPrice = this.state.orderTotal['sum'];
         let firstName = this.props.userInfo.first_name;
         let lastName = this.props.userInfo.last_name;
         let company = this.props.userInfo.company;
@@ -69,13 +67,14 @@ class SingleOrder extends Component {
         let email = this.props.userInfo.email;
         let date = this.state.order['order_date'];
         let paymentType = this.state.order['payment_type'];
-        let orderTax = (orderPrice * 0.067).toFixed(2);
-        let orderTotal = (Number(orderPrice) + Number(orderTax)).toFixed(2);
         console.log(this.state);
+        let totalArr = [0];
+        let bagSubtotal;
         const orderItems = this.state.orderItems;
         const displayOrderItems = orderItems.map( orderItem => {
             const index = orderItems.indexOf(orderItem);
             const itemTotal = (orderItem.price * orderItem.quantity).toFixed(2);
+            totalArr.push(Number(itemTotal));
             return ( <SingleOrderItem
                         key={`orderItem${index}`}
                         index={index}
@@ -86,6 +85,14 @@ class SingleOrder extends Component {
                         salesTax={orderItem.sales_tax}
             />)
         })
+        function totalSum(numbers){
+            bagSubtotal = numbers.reduce((a,b) => {
+                return a + b;
+            }).toFixed(2)
+        }
+        totalSum(totalArr);
+        let taxes = (bagSubtotal * 0.067).toFixed(2);
+        let bagTotal = (Number(bagSubtotal) + Number(taxes)).toFixed(2);
         return(
             <div className='single-wrap'>
                 <Header />
@@ -115,9 +122,9 @@ class SingleOrder extends Component {
                                 <p>Tax 6.7%</p>
                             </div>
                             <div className='single-price-subtotal-numbers'>
-                                <p>${orderPrice}</p>
+                                <p>${bagSubtotal}</p>
                                 <p>$0.00</p>
-                                <p>${orderTax}</p>
+                                <p>${taxes}</p>
                             </div>
                         </div>
                         <div className='single-total'>
@@ -127,7 +134,7 @@ class SingleOrder extends Component {
                             </div>
                             <ul className='single-total-price'>
                                 <li>Total</li>
-                                <li>${orderTotal}</li>
+                                <li>${bagTotal}</li>
                             </ul>
                         </div>
                     </div>
