@@ -12,5 +12,5 @@ delegateRoutes(app);
 
 const port = 7777;
 app.listen(port, () => {
-    console.log(`Server is listening on port ${port}.`);
+    console.log(`===================================\n Server is listening on port ${port}. \n===================================`);
 });

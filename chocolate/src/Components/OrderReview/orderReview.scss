@@ -65,51 +65,46 @@
     padding-bottom: 20px;
 }
 
-.or-item1 {
-   width: 950px;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   border-bottom: solid 1px $dark-purple;
-   h3 {
-       font-weight: normal;
-   }
-   div {
-       display: flex;
-       justify-content: space-between;
-       width: 300px;
-   }
+.order-review-item {
+    width: 950px;
+    // height: 350px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: $font;
+    color: $dark-purple;
+    border-bottom: solid 1px $dark-purple;
+    margin-bottom: 10px;
+    h4 {
+        font-weight: normal;
+        font-size: 18pt;
+    }
 }
-.or-item2 {
-    width: 950px;
+
+.order-review-item-total {
+    width: 440px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: solid 1px $dark-purple;
-    h3 {
-        font-weight: normal;
-    }
-    div {
+    font-size: 14pt;
+    font-family: $font;
+    color: $dark-purple;
+    // border: solid;
+    div{
+        // border: solid;
+        width: 110px;
         display: flex;
-        justify-content: space-between;
-        width: 300px;
+        justify-content: flex-end;
+        align-items: center;
     }
- }
- .or-item3 {
-    width: 950px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: solid 1px $dark-purple;
-    h3 {
-        font-weight: normal;
-    }
-    div {
-        display: flex;
-        justify-content: space-between;
-        width: 300px;
-    }
- }
+}
+.order-review-item-remove {
+    font-size: 12pt;
+    color: blue;
+}
+.order-review-item-total {
+    font-size: 16pt;
+}
 
 .or-price {
     width: 950px;
@@ -218,13 +213,7 @@
     .or-items {
         width: 80vw;
     }
-    .or-item1 {
-        width: 80vw;
-    }
-    .or-item2 {
-        width: 80vw;
-    }
-    .or-item3 {
+    .order-review-item {
         width: 80vw;
     }
     .or-price {
@@ -248,32 +237,20 @@
             font-size: 20pt;
         }
     }
-    .or-item1 {
-        h3 {
-            font-size: 16pt;
-        }
-        div{
-            // width: 38vw;
-            font-size: 12pt;
+    .order-review-item {
+        h4 {
+            font-size: 16pt
         }
     }
-    .or-item2 {
-        h3 {
-            font-size: 16pt;
-        }
-        div{
-            // width: 38vw;
-            font-size: 12pt;
-        }
+    .order-review-item-total {
+        width: 50vw;
+        font-size: 12pt;
     }
-    .or-item3 {
-        h3 {
-            font-size: 16pt;
-        }
-        div{
-            // width: 38vw;
-            font-size: 12pt;
-        }
+    .order-review-item-remove {
+        font-size: 11pt;
+    }
+    .order-review-item-total {
+        font-size: 14pt;
     }
     .or-price {
         font-size: 12pt;
@@ -294,24 +271,6 @@
     }
     .or-items {
         width: 90vw;
-    }
-    .or-item1 {
-        width: 90vw;
-        div {
-            width: 220px;
-        }
-    }
-    .or-item2 {
-        width: 90vw;
-        div {
-            width: 220px;
-        }
-    }
-    .or-item3 {
-        width: 90vw;
-        div {
-            width: 220px;
-        }
     }
     .or-price {
         width: 90vw;
@@ -353,6 +312,9 @@
             font-size: 14pt;
         }
     }
+    .order-review-item-total {
+        width: 90vw;
+    }
     .or-price {
         font-size: 12pt;
     }
@@ -370,6 +332,18 @@
     }
 }
 
+@media only screen and (max-width: 450px){
+    .order-review-item {
+        font-size: 12pt;
+        h4 {
+            font-size: 14pt;
+        }
+    }
+    .order-review-item-total {
+        font-size: 12pt;
+    }
+}
+
 @media only screen and (max-width: 410px){
     .or-customer-info {
         flex-direction: column;
@@ -381,30 +355,6 @@
     .or-customer-left {
         margin-bottom: 25px;
     }
-    .or-item1 {
-        h3 {
-            font-size: 13pt;
-        }
-        div {
-            width: 48vw;
-        }
-    }
-    .or-item2 {
-        h3 {
-            font-size: 13pt;
-        }
-        div {
-            width: 48vw;
-        }
-    }
-    .or-item3 {
-        h3 {
-            font-size: 13pt;
-        }
-        div {
-            width: 48vw;
-        }
-    }
     .or-total {
         justify-content: space-between;
     }
@@ -412,5 +362,11 @@
         width: 80px;
         // border: solid;
         flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 330px){
+    .order-review-items {
+        font-size: 11pt;
     }
 }

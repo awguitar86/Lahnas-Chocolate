@@ -25,10 +25,10 @@
 
 .contact-form-left {
   width: 505px;
-  height: 300px;
+  height: 280px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around; }
+  justify-content: space-between; }
   .contact-form-left input {
     height: 40px;
     font-size: 12pt;
@@ -44,12 +44,24 @@
 
 .contact-form-right {
   width: 505px;
-  height: 300px;
+  height: 280px;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  justify-content: space-between; }
+  .contact-form-right input {
+    height: 40px;
+    font-size: 12pt;
+    font-family: Baskerville;
+    color: #4E2E71;
+    padding-left: 10px;
+    outline: none;
+    border: solid 1px #4E2E71;
+    border-radius: 5px; }
+  .contact-form-right input:focus {
+    height: 38px;
+    border: solid 2px #907AD6; }
   .contact-form-right textarea {
-    height: 255px;
-    margin-top: 15px;
+    height: 200px;
     font-size: 12pt;
     font-family: Baskerville;
     color: #4E2E71;
@@ -59,13 +71,14 @@
     border: solid 1px #4E2E71;
     border-radius: 5px; }
   .contact-form-right textarea:focus {
-    height: 253px;
+    height: 198px;
     border: solid 2px #907AD6; }
 
 .contact-button {
   width: 1050px;
   display: flex;
-  justify-content: flex-end; }
+  justify-content: flex-end;
+  margin-top: 20px; }
   .contact-button button {
     width: 100px;
     height: 30px;
@@ -123,7 +136,8 @@
   .contact-form-left {
     width: 90vw; }
   .contact-form-right {
-    width: 90vw; }
+    width: 90vw;
+    margin-top: 20px; }
   .contact-button button {
     width: 90vw;
     height: 40px; }

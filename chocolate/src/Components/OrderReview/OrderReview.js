@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import OrderReviewItem from './OrderReviewItem/OrderReviewItem';
+import { orderMailer } from '../../services/nodemailer.services';
 import './orderReview.css';
 import { addToCart, updateCustomer, updateUser } from '../../actions/actionCreators';
 import { connect } from 'react-redux';
@@ -9,11 +11,113 @@ import { connect } from 'react-redux';
 class OrderReview extends Component {
     constructor(props){
         super(props);
-        this.state = {}
+        this.state = {
+            first_name: '',
+            last_name: '',
+            company: '',
+            address: '',
+            city: '',
+            usState: '',
+            zip_code: '',
+            phone: '',
+            email: '',
+            paymentType: '',
+            date: '',
+            subtotal: '',
+            tax: '',
+            total: '',
+            productName: [],
+            productPrice: [],
+            productQty: [],
+            productTotal: []
+        }
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount(){
+        const reviewItems = this.props.cartReducer.cart;
+        let productNameArr = [];
+        let productPriceArr = [];
+        let productQtyArr = [];
+        let productTotalArr = [];
+        let totalArr = [0];
+        let bagSubTotal;
+        const displayOrderItems = reviewItems.map( reviewItem => {
+            totalArr.push(Number((reviewItem.price * reviewItem.quantity).toFixed(2)));
+            productNameArr.push(reviewItem.name);
+            productPriceArr.push(Number(reviewItem.price));
+            productQtyArr.push(Number(reviewItem.quantity));
+            productTotalArr.push(Number((reviewItem.price * reviewItem.quantity).toFixed(2)));
+        })
+        function totalSum(numbers){
+            bagSubTotal = numbers.reduce((a,b) => {
+                return a + b;
+            }).toFixed(2)
+        }
+        totalSum(totalArr);
+        let taxes = (bagSubTotal * 0.067).toFixed(2);
+        let bagTotal = (Number(bagSubTotal) + Number(taxes)).toFixed(2);
+        let today = new Date();
+        let dd = today.getDate();
+        let mm = today.getMonth()+1;
+        let yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd;
+        }
+        if(mm<10){
+            mm='0'+mm;
+        }
+        today = mm+'/'+dd+'/'+yyyy;
+        console.log(today);
+        this.setState({
+            first_name: this.props.userInfo.first_name,
+            last_name: this.props.userInfo.last_name,
+            company: this.props.userInfo.company,
+            address: this.props.userInfo.address,
+            city: this.props.userInfo.city,
+            usState: this.props.userInfo.state,
+            zip_code: this.props.userInfo.zip_code,
+            phone: this.props.userInfo.phone,
+            email: this.props.userInfo.email,
+            paymentType: this.props.customerInfo.paymentMthd,
+            date: today,
+            subtotal: bagSubTotal,
+            tax: taxes,
+            total: bagTotal,
+            productName: productNameArr,
+            productPrice: productPriceArr,
+            productQty: productQtyArr,
+            productTotal: productTotalArr
+        })
+    }
+
+    handleSubmit(){
+        console.log('register button fired!')
+        console.log(this.state);
+        const { first_name, last_name, company, address, city, usState, zip_code, phone, email, paymentType, date, subtotal, tax, total, productName, productPrice, productQty, productTotal } = this.state;
+        const reqBody = { first_name, last_name, company, address, city, usState, zip_code, phone, email, paymentType, date, subtotal, tax, total, productName, productPrice, productQty, productTotal };
+        orderMailer(reqBody)
+            .then( res => res.data )
+            .catch( err => {throw err});
     }
 
 
     render(){
+        console.log(this.state);
+        console.log(this.props.customerInfo);
+        const reviewItems = this.props.cartReducer.cart;
+        console.log(reviewItems);
+        const displayOrderItems = reviewItems.map( reviewItem => {
+            const index = reviewItems.indexOf(reviewItem);
+            return ( <OrderReviewItem
+                        key={`orderItem${index}`}
+                        index={index}
+                        productid={reviewItem.id}
+                        productName={reviewItem.name}
+                        price={reviewItem.price}
+                        qty={reviewItem.quantity}
+            />)
+        })
         return(
             <div className='or-wrap'>
                 <Header />
@@ -21,65 +125,42 @@ class OrderReview extends Component {
                     <h1>Order Review</h1>
                     <div className='or-customer-info'>
                         <div className='or-customer-left'>
-                            <p>Timmothy Burn</p>
-                            <p>Tim Burn Company</p>
-                            <p>1234 Cool Ave.</p>
-                            <p>Layton, UT 84041</p>
+                            <p>{this.state.first_name} {this.state.last_name}</p>
+                            <p>{this.state.company}</p>
+                            <p>{this.state.address}</p>
+                            <p>{this.state.city}, {this.state.usState} {this.state.zip_code}</p>
                         </div>
                         <div className='or-customer-right'>
-                            <p>(801) 555-1234</p>
-                            <p>timburn@gmail.com</p>
-                            <p>Date: 03/27/2015</p>
+                            <p>{this.state.phone}</p>
+                            <p>{this.state.email}</p>
+                            <p>Date: {this.state.date}</p>
                             <p>Shipping Method: Delivery</p>
                         </div>
                     </div>
                     <div className='or-items'>
-                        <div className='or-item1'>
-                            <h3>One Pound Box</h3>
-                            <div className='or-price-qty'>
-                                <p>$29.95</p>
-                                <p>Qty: 1</p>
-                                <p>$29.95</p>
-                            </div>
-                        </div>
-                        <div className='or-item2'>
-                            <h3>Rocky Road</h3>
-                            <div className='or-price-qty'>
-                                <p>$3.75</p>
-                                <p>Qty: 2</p>
-                                <p>$7.50</p>
-                            </div>
-                        </div>
-                        <div className='or-item3'>
-                            <h3>Pretzel Rod</h3>
-                            <div className='or-price-qty'>
-                                <p>$2.49</p>
-                                <p>Qty: 4</p>
-                                <p>$9.96</p>
-                            </div>
-                        </div>
+                    {displayOrderItems}
                     </div>
                     <div className='or-price'>
                         <div className='or-price-subtotal'>
                             <div className='or-price-subtotal-text'>
                                 <p>Subtotal</p>
                                 <p>Shipping</p>
-                                <p>Tax 6.5%</p>
+                                <p>Tax 6.7%</p>
                             </div>
                             <div className='or-price-subtotal-numbers'>
-                                <p>$47.41</p>
-                                <p>$5.00</p>
-                                <p>$3.08</p>
+                                <p>${this.state.subtotal}</p>
+                                <p>$0.00</p>
+                                <p>${this.state.tax}</p>
                             </div>
                         </div>
                         <div className='or-total'>
                             <ul className='or-total-payment'>
                                 <li>Payment Method:</li>
-                                <li>On Delivery</li>
+                                <li>{this.state.paymentType}</li>
                             </ul>
                             <ul className='or-total-price'>
                                 <li>Total</li>
-                                <li>$55.49</li>
+                                <li>${this.state.total}</li>
                             </ul>
                         </div>
                     </div>

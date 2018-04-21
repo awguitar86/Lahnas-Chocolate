@@ -64,7 +64,7 @@ class Checkout extends Component {
         let totalArr = [0];
         let bagSubTotal;
         shoppingItems.map( shoppingItem => {
-            return totalArr.push(Number((shoppingItem.product['price'] * shoppingItem.qty).toFixed(2)));
+            return totalArr.push(Number((shoppingItem.price * shoppingItem.quantity).toFixed(2)));
         })
         function totalSum(numbers){
             bagSubTotal = numbers.reduce((a,b) => {
