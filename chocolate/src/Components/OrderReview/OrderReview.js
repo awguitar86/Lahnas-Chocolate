@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import OrderReviewItem from './OrderReviewItem/OrderReviewItem';
@@ -57,18 +58,7 @@ class OrderReview extends Component {
         totalSum(totalArr);
         let taxes = (bagSubTotal * 0.067).toFixed(2);
         let bagTotal = (Number(bagSubTotal) + Number(taxes)).toFixed(2);
-        let today = new Date();
-        let dd = today.getDate();
-        let mm = today.getMonth()+1;
-        let yyyy = today.getFullYear();
-        if(dd<10){
-            dd='0'+dd;
-        }
-        if(mm<10){
-            mm='0'+mm;
-        }
-        today = mm+'/'+dd+'/'+yyyy;
-        console.log(today);
+        let today = moment().format('MMMM DD, YYYY');
         this.setState({
             first_name: this.props.userInfo.first_name,
             last_name: this.props.userInfo.last_name,

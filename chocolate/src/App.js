@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { findUserInfo } from './services/account.services';
+// import { findUserInfo } from './services/account.services';
 import { updateUser } from './actions/actionCreators';
 import './App.css';
 
 import Home from './Components/Home/Home';
 import About from './Components/About/About';
 import Contact from './Components/Contact/Contact';
-import Login from './Components/Login/Login';
+// import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 
 import Dashboard from './Components/Account/Dashboard/Dashboard';
@@ -38,33 +38,32 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      loading: true
+
     }
   }
 
-  componentWillMount(){
-    findUserInfo(2)
-      .then( res => {
-        let newUserInfo = res.data[0];
-        this.props.updateUser(newUserInfo);
-        this.setState({loading: false});
-      })
+  // componentWillMount(){
 
-  }
+  //   findUserInfo(2)
+  //     .then( res => {
+  //       let newUserInfo = res.data[0];
+  //       this.props.updateUser(newUserInfo);
+  //       this.setState({loading: false});
+  //     })
+
+  // }
 
   render() {
     // console.log(this.props);
-    const { loading } = this.state;
     return (
-      !loading &&
+      //!loading &&
       <div className="App">
         <Route exact path='/' component={Home} />
         <Route path='/about' component={About} />
         <Route path='/contact' component={Contact} />
-        <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
 
-        <Route path='/dashboard/:id' component={Dashboard} />
+        <Route path='/dashboard' component={Dashboard} />
         <Route path='/changeinfo/:id' component={ChangeInfo} />
         <Route path='/orderhistory' component={OrderHistory} />
         <Route path='/singleorder/:id' component={SingleOrder} />

@@ -5,6 +5,15 @@ import Footer from '../Footer/Footer';
 import './login.css';
 
 class Login extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+
+        }
+    }
+
+
+
     render(){
         return(
             <div className='login-wrap'>

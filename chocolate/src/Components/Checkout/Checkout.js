@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import { getCartItems } from '../../services/cart.services';
 import './checkout.css';
 import { addToCart, updateCustomer, updateUser } from '../../actions/actionCreators';
 import { connect } from 'react-redux';
@@ -10,6 +12,7 @@ class Checkout extends Component {
     constructor(props){
         super(props);
         this.state = {
+            cart: [],
             first_name: '',
             last_name: '',
             company: '',
@@ -29,18 +32,32 @@ class Checkout extends Component {
 
     componentDidMount(){
         if(this.props.userInfo.id){
-            this.setState({
-                first_name: this.props.userInfo.first_name,
-                last_name: this.props.userInfo.last_name,
-                company: this.props.userInfo.company,
-                address: this.props.userInfo.address,
-                city: this.props.userInfo.city,
-                state: this.props.userInfo.state,
-                zip_code: this.props.userInfo.zip_code,
-                phone: this.props.userInfo.phone,
-                email: this.props.userInfo.email,
-                isUser: true
-            })
+            let userid = this.props.userInfo.id;
+            getCartItems(userid)
+            .then(res => {
+                if (res.status !== 200){
+                  alert(res);
+                }
+                else {
+                  this.setState({
+                      cart: res.data,
+                      first_name: this.props.userInfo.first_name,
+                      last_name: this.props.userInfo.last_name,
+                      company: this.props.userInfo.company,
+                      address: this.props.userInfo.address,
+                      city: this.props.userInfo.city,
+                      state: this.props.userInfo.state,
+                      zip_code: this.props.userInfo.zip_code,
+                      phone: this.props.userInfo.phone,
+                      email: this.props.userInfo.email,
+                      isUser: true
+                    });
+                  console.log(res.data);
+                }
+              })
+        }
+        else {
+            this.setState({ cart: this.props.cartReducer.cart});
         }
     }
 
@@ -60,7 +77,7 @@ class Checkout extends Component {
     render(){
         console.log(this.state);
         console.log(this.props.customerInfo);
-        const shoppingItems = this.props.cartReducer.cart;
+        const shoppingItems = this.state.cart;
         let totalArr = [0];
         let bagSubTotal;
         shoppingItems.map( shoppingItem => {
@@ -74,18 +91,7 @@ class Checkout extends Component {
         totalSum(totalArr);
         let taxes = (bagSubTotal * 0.067).toFixed(2);
         let bagTotal = (Number(bagSubTotal) + Number(taxes)).toFixed(2);
-        let today = new Date();
-        let dd = today.getDate();
-        let mm = today.getMonth()+1;
-        let yyyy = today.getFullYear();
-        if(dd<10){
-            dd='0'+dd;
-        }
-        if(mm<10){
-            mm='0'+mm;
-        }
-        today = mm+'/'+dd+'/'+yyyy;
-        console.log(today);
+        let today = moment().format('MMM DD, YYYY');
         return(
             <div className='checkout-wrap'>
                 <Header />

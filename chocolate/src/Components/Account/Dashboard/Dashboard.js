@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
-// import { findUserInfo } from '../../../services/account.services';
+import { findUserInfo, getUserFromEmail } from '../../../services/account.services';
 import './dashboard.css';
 import { updateUser } from '../../../actions/actionCreators';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 class Dashboard extends Component {
     constructor(props){
@@ -20,30 +21,50 @@ class Dashboard extends Component {
             state: '',
             zip_code: '',
             phone: '',
-            email: ''
+            email: '',
+            user: {}
         }
     }
 
     componentDidMount(){
-        this.setState({
-            id: this.props.userInfo.id,
-            first_name: this.props.userInfo.first_name,
-            last_name: this.props.userInfo.last_name,
-            company: this.props.userInfo.company,
-            address: this.props.userInfo.address,
-            city: this.props.userInfo.city,
-            state: this.props.userInfo.state,
-            zip_code: this.props.userInfo.zip_code,
-            phone: this.props.userInfo.phone,
-            email: this.props.userInfo.email
-          })
+        // let email;
+        // let userid;
+        axios.get('/check').then(resp => {
+            this.setState({ user: resp.data })
+            console.log(resp.data.email);
+        })
+        // getUserFromEmail(email)
+        //     .then( res => {
+        //         userid = res.data[0].id;
+        //         console.log(res.data[0]);
+        //     })
+        // findUserInfo(userid)
+        //     .then( res => {
+        //         let newUserInfo = res.data[0];
+        //         this.props.updateUser(newUserInfo);
+        // })
+        // this.setState({
+        //     id: this.props.userInfo.id,
+        //     first_name: this.props.userInfo.first_name,
+        //     last_name: this.props.userInfo.last_name,
+        //     company: this.props.userInfo.company,
+        //     address: this.props.userInfo.address,
+        //     city: this.props.userInfo.city,
+        //     state: this.props.userInfo.state,
+        //     zip_code: this.props.userInfo.zip_code,
+        //     phone: this.props.userInfo.phone,
+        //     email: this.props.userInfo.email
+        //   })
+        // console.log(email);
+        // console.log(userid);
     }
 
 
     render(){
         // const userInfo = this.props.userInfo;
-        console.log(this.props.userInfo);
-        console.log(this.props.userInfo.id);
+        // console.log(this.props.userInfo);
+        // console.log(this.props.userInfo.id);
+        console.log(this.state);
         let id = this.state.id;
         let firstName = this.state.first_name;
         let lastName = this.state.last_name;

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import { addToCart } from '../../actions/actionCreators';
+import { addToCart, updateUser } from '../../actions/actionCreators';
+import { getCartItems } from '../../services/cart.services';
 import { connect } from 'react-redux';
 import ShoppingBagItem from './ShoppingBagItem/ShoppingBagItem';
 import './shoppingBag.css';
@@ -11,12 +12,31 @@ class ShoppingBag extends Component {
     constructor(props){
         super(props);
         this.state = {
+            cart: []
+        }
+    }
 
+    componentDidMount(){
+        if(this.props.userInfo.id){
+            let userid = this.props.userInfo.id;
+            getCartItems(userid)
+            .then(res => {
+                if (res.status !== 200){
+                  alert(res);
+                }
+                else {
+                  this.setState({ cart: res.data });
+                  console.log(res.data);
+                }
+              })
+        }
+        else {
+            this.setState({ cart: this.props.cartReducer.cart});
         }
     }
 
     render(){
-        const shoppingItems = this.props.cartReducer.cart;
+        const shoppingItems = this.state.cart;
         console.log(shoppingItems);
         let totalArr = [0];
         let bagSubTotal;
@@ -79,4 +99,4 @@ function mapStateToProps(state){
     return state;
 }
 
-export default connect(mapStateToProps, {addToCart}) (ShoppingBag);
+export default connect(mapStateToProps, {addToCart, updateUser}) (ShoppingBag);

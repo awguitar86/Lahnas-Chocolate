@@ -4,6 +4,7 @@ const ordersRouter = require('./orders.router');
 const cartRouter = require('./cart.router');
 const contactMailer = require('./contact.router');
 const orderMailer = require('./orderMailer.router');
+const authRouter = require('./auth.router');
 
 function delegateRoutesFor(app) {
     app.use('/api/products', productsRouter);
@@ -12,6 +13,7 @@ function delegateRoutesFor(app) {
     app.use('/api/cart', cartRouter);
     app.use('/api/mail', contactMailer);
     app.use('/api/mail', orderMailer);
+    // app.use(authRouter);
 
     app.all('*', (req, res) => {
         res.status(404).send({message: "Cannot access any resources at " + req.originalUrl });
