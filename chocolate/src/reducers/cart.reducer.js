@@ -10,28 +10,7 @@ export function cartReducer( state = {
             }
         }
 
-        // case DELETE_FROM_CART: {
-        //     return {
-        //         ...state,
-        //         cart: state.cart.filter(item => item.product !== action.payload.product)
-        //     }
-        // }
-
     default:
     return state;
     }
 }
-
-// export function qtyReducer( state = {
-//         qty: []
-//     }, action ){
-//     switch( action.type ) {
-//         case ADD_QTY:
-//             return {
-//                 qty: [...state.qty, action.payload]
-//             }
-//             break;
-//         default:
-//     }
-//     return state;
-// }

@@ -7,8 +7,4 @@ function decorate(app){
     return app;
 }
 
-function checkForSession(req, res, next) {
-
-    }
-
-module.exports = decorate, checkForSession;
+module.exports = decorate;

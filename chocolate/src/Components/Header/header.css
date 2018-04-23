@@ -48,6 +48,18 @@
     height: 29px;
     margin-bottom: 17px; }
 
+.bag-count {
+  width: 23px;
+  height: 29px;
+  margin-bottom: 17px;
+  position: absolute;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2px;
+  font-size: 8pt; }
+
 .login-regi {
   width: 130px;
   display: flex;

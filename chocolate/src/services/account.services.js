@@ -16,9 +16,9 @@ function findUserInfo(id) {
         .catch( err => {throw err});
 }
 
-function getUserFromEmail(email) {
+function getUserFromEmail(body) {
     return axios
-        .get(`${baseURL}/${email}`)
+        .get(`${baseURL}`, body)
         .then( res => res )
         .catch( err => {throw err} );
 }

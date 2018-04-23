@@ -12,9 +12,9 @@ usersRouter.get('/:id', (req, res) => {
 });
 
 //get user from email
-usersRouter.get('/:email', (req, res) => {
-    const email = req.params.id;
+usersRouter.get('/', (req, res) => {
     const db = getDb();
+    const {email} = req.body;
     db.get_user_email( [email] )
         .then( user => res.status(200).send(user))
         .catch( err => res.status(500).send(err))

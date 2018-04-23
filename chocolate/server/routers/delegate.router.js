@@ -4,7 +4,7 @@ const ordersRouter = require('./orders.router');
 const cartRouter = require('./cart.router');
 const contactMailer = require('./contact.router');
 const orderMailer = require('./orderMailer.router');
-const authRouter = require('./auth.router');
+// const authRouter = require('./auth.router');
 
 function delegateRoutesFor(app) {
     app.use('/api/products', productsRouter);

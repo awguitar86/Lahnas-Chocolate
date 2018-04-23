@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './header.css';
-import { addToCart, updateUser } from '../../actions/actionCreators';
+import { addToCart, updateUser, getCartItem } from '../../actions/actionCreators';
+import { getCartItems } from '../../services/cart.services';
 import { connect } from 'react-redux';
 import HamDropdown from '../HamDropDown/HamDropDown';
 import logo from '../../images/LCLogo.svg';
 import shoppingBag from '../../images/bag-icon.svg';
 import shoppingBagOn from '../../images/bag-icon-on.svg';
 import hamMenu from '../../images/hamMenu.png';
-import { getCartItems } from '../../services/cart.services';
+// import { getCartItems } from '../../services/cart.services';
 
 class Header extends Component {
     constructor(props){
@@ -19,42 +20,40 @@ class Header extends Component {
         }
     }
 
-    componentWillMount() {
-        let userid = this.props.userInfo.id;
-        let productBag = this.props.cartReducer['cart'];
-        let cartObj = {};
-        getCartItems(userid)
-            .then(res => {
-                if (res.status !== 200){
-                alert(res);
-                }
-                else {
-                cartObj[res.data];
-                console.log(res.data);
-                }
-            });
-        if(cartObj.hasOwnProperty()){
-            this.setState({bag: true});
-            console.log(cartObj.length);
+    componentWillMount(){
+        if(this.props.userInfo.id){
+            let userid = this.props.userInfo.id;
+            getCartItems(userid)
+                .then( res => {
+                    console.log(res.data);
+                    this.props.getCartItem(res.data);
+                })
         }
-        if(productBag.length > 0){
-            this.setState({bag: true});
-            console.log(productBag.length);
-        }
-        console.log(cartObj);
     }
 
-    logout() {
-        console.log('loggin out...')
-        axios.get('/logout').then(_ => {
-            this.props.history.push('/')
-        });
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.userInfo.id){
+            if(nextProps.cartItem.length > 0){
+                this.setState({bag: true});
+            }
+        }
+        else {
+            if(nextProps.cartReducer.cart.length > 0){
+                this.setState({bag: true});
+            }
+        }
     }
+    // logout() {
+    //     console.log('loggin out...')
+    //     axios.get('/logout').then(_ => {
+    //         this.props.history.push('/')
+    //     });
+    // }
 
 
   render() {
     // const baseURL = '/api/users';
-    console.log(this.state);
+    // console.log(this.state);
     return (
         <div className="header-wrap">
             <div className="header">
@@ -79,7 +78,10 @@ class Header extends Component {
                         <a href="http://localhost:7777/login"> Login </a>
                         <Link to= '/register'> Register </Link>
                     </div>
-                    <Link to='/shoppingbag' className='bag'><img src={this.state.bag ? shoppingBagOn : shoppingBag} alt="shopping bag"/></Link>
+                    <Link to='/shoppingbag' className='bag'>
+                        <div className='bag-count'>4</div>
+                        <img src={this.state.bag ? shoppingBagOn : shoppingBag} alt="shopping bag"/>
+                    </Link>
                 </div>
             </div>
         </div>
@@ -91,4 +93,4 @@ function mapStateToProps(state){
     return state;
 }
 
-export default connect(mapStateToProps, {addToCart, updateUser}) (Header);
+export default connect(mapStateToProps, {addToCart, updateUser, getCartItem}) (Header);

@@ -1,20 +1,21 @@
 const express = require('express');
-const addMiddlewareTo = require('./middleware/decorate.middleware');
+const bodyParser = require('body-parser');
+// const addMiddlewareTo = require('./middleware/decorate.middleware');
 const delegateRoutes = require('./routers/delegate.router');
 require('dotenv').config()
 const session = require('express-session')
 const passport = require('passport')
 const Auth0Strategy = require('passport-auth0')
-const authRoute = require('./routers/auth.router');
-
+const port = process.env.SERVER_PORT || 7777;
+const getDb = require('./database/bootstrap.database');
+// const authRoute = require('./routers/auth.router');
 
 const app = express();
 
-addMiddlewareTo(app);
-
+app.use(bodyParser.json());
 
 app.use(session({
-    secret: 'asdfASDFasdfASDF',
+    secret: process.env.SESSION_SECRET,
     resave: true,
     saveUninitialized: false
 }))
@@ -50,18 +51,7 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(function (user, done) {
 //from database this would be app.db.get_all_users or whatever it would be.
     console.log('deserializing user: ', user);
-    // find user by id
-    // const match = users.find((e) => e.auth_id === user.auth_id)
-    // if (match){
-    //     console.log('found matching user');
-    //     return done(null, match)
-    // }else{
-    //     //db.addUser([match])
-    //     users.push(user)
-    //     console.log('users db: ', users)
-    //     done(null, user)
-    // }
-    // no user found; create user
+    done(null, user)
 })
 
 // ENDPOINTS
@@ -71,17 +61,31 @@ app.get('/login', passport.authenticate('auth0', {
     failureRedirect: "/"
 }))
 // check for logged in user
-app.get('/check', authRoute.checkLoggedIn)
+app.get('/check', function (req, res) {
+    console.log('checking for logged in user')
+    //check if user has logged in
+    if (req.session.passport) {
+        const db = getDb();
+        console.log(req.session.passport.user.email);
+        const { email } = req.session.passport.user;
+        db.get_user_email([email])
+            .then( user => res.status(200).send(user))
+            .catch( err => res.status(500).send(err));
+        // console.log(req.user.email);
+        // res.status(200).send(req.session.passport.user)
+    } else res.status(401).send('unauthorized')
+})
 //logout
-// app.get('/logout', function (req, res) {
-//     //req.logout()
-//     console.log('loggin out')
-//     req.session.destroy(function () { res.send(200) })
-// })
+app.get('/logout', function (req, res) {
+    //req.logout()
+    console.log('loggin out')
+    req.session.destroy(function () { res.send(200) })
+})
+
 delegateRoutes(app);
 
 
-const port = 7777;
-app.listen(port, () => {
-    console.log(`===================================\n Server is listening on port ${port}. \n===================================`);
-});
+
+app.listen(port, () =>
+    console.log(`===================================\n Server is listening on port ${port}.\n===================================`
+));
