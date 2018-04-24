@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 import { getProduct } from '../../../services/products.service';
-import { createCartItems } from '../../../services/cart.services';
-import { updateUser, addToCart } from '../../../actions/actionCreators';
+import { createCartItems, getCartItems } from '../../../services/cart.services';
+import { updateUser, addToCart, getCartItem } from '../../../actions/actionCreators';
 import { connect } from 'react-redux';
 
 import CaramelPic from '../../../images/caramels.jpg';
@@ -37,14 +37,22 @@ class Caramels extends Component {
     }
 
     handleAddToBag(){
-        this.props.addToCart(this.state);
         if(this.props.userInfo.id){
             let user_id = this.props.userInfo.id;
             const { product_id, quantity } = this.state;
             const reqBody = {user_id, product_id, quantity};
             createCartItems(reqBody)
-                .then( res => res.data )
+                .then( res => {
+                    getCartItems(user_id)
+                        .then( res => {
+                            console.log(res.data);
+                            this.props.getCartItem(res.data);
+                        })
+                })
                 .catch( err => {throw err})
+        }
+        else {
+            this.props.addToCart(this.state);
         }
     }
 
@@ -58,6 +66,7 @@ class Caramels extends Component {
     render(){
         console.log(this.state);
         console.log(this.props.cartReducer);
+        console.log(this.props.cartItem);
         return(
             <div className='wrapper'>
                 <Header />
@@ -101,4 +110,4 @@ function mapStateToProps(state){
     return state;
 }
 
-export default connect(mapStateToProps, {updateUser, addToCart}) (Caramels);
+export default connect(mapStateToProps, {updateUser, addToCart, getCartItem}) (Caramels);

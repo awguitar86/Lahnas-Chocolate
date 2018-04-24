@@ -13,6 +13,7 @@ class OrderReview extends Component {
     constructor(props){
         super(props);
         this.state = {
+            cart: [],
             first_name: '',
             last_name: '',
             company: '',
@@ -26,66 +27,56 @@ class OrderReview extends Component {
             date: '',
             subtotal: '',
             tax: '',
-            total: '',
-            productName: [],
-            productPrice: [],
-            productQty: [],
-            productTotal: []
+            total: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount(){
-        const reviewItems = this.props.cartReducer.cart;
-        let productNameArr = [];
-        let productPriceArr = [];
-        let productQtyArr = [];
-        let productTotalArr = [];
-        let totalArr = [0];
-        let bagSubTotal;
-        const displayOrderItems = reviewItems.map( reviewItem => {
-            totalArr.push(Number((reviewItem.price * reviewItem.quantity).toFixed(2)));
-            productNameArr.push(reviewItem.name);
-            productPriceArr.push(Number(reviewItem.price));
-            productQtyArr.push(Number(reviewItem.quantity));
-            productTotalArr.push(Number((reviewItem.price * reviewItem.quantity).toFixed(2)));
-        })
-        function totalSum(numbers){
-            bagSubTotal = numbers.reduce((a,b) => {
-                return a + b;
-            }).toFixed(2)
+        if(this.props.userInfo.id){
+
         }
-        totalSum(totalArr);
-        let taxes = (bagSubTotal * 0.067).toFixed(2);
-        let bagTotal = (Number(bagSubTotal) + Number(taxes)).toFixed(2);
-        let today = moment().format('MMMM DD, YYYY');
-        this.setState({
-            first_name: this.props.userInfo.first_name,
-            last_name: this.props.userInfo.last_name,
-            company: this.props.userInfo.company,
-            address: this.props.userInfo.address,
-            city: this.props.userInfo.city,
-            usState: this.props.userInfo.state,
-            zip_code: this.props.userInfo.zip_code,
-            phone: this.props.userInfo.phone,
-            email: this.props.userInfo.email,
-            paymentType: this.props.customerInfo.paymentMthd,
-            date: today,
-            subtotal: bagSubTotal,
-            tax: taxes,
-            total: bagTotal,
-            productName: productNameArr,
-            productPrice: productPriceArr,
-            productQty: productQtyArr,
-            productTotal: productTotalArr
-        })
+        else {
+            const reviewItems = this.props.cartReducer.cart;
+            let totalArr = [0];
+            let bagSubTotal;
+            const displayOrderItems = reviewItems.map( reviewItem => {
+                totalArr.push(Number((reviewItem.price * reviewItem.quantity).toFixed(2)));
+            })
+            function totalSum(numbers){
+                bagSubTotal = numbers.reduce((a,b) => {
+                    return a + b;
+                }).toFixed(2)
+            }
+            totalSum(totalArr);
+            let taxes = (bagSubTotal * 0.067).toFixed(2);
+            let bagTotal = (Number(bagSubTotal) + Number(taxes)).toFixed(2);
+            let today = moment().format('MMMM DD, YYYY');
+            this.setState({
+                cart: this.props.customerInfo.cart,
+                first_name: this.props.customerInfo.first_name,
+                last_name: this.props.customerInfo.last_name,
+                company: this.props.customerInfo.company,
+                address: this.props.customerInfo.address,
+                city: this.props.customerInfo.city,
+                usState: this.props.customerInfo.state,
+                zip_code: this.props.customerInfo.zip_code,
+                phone: this.props.customerInfo.phone,
+                email: this.props.customerInfo.email,
+                paymentType: this.props.customerInfo.paymentMthd,
+                date: today,
+                subtotal: bagSubTotal,
+                tax: taxes,
+                total: bagTotal
+            })
+        }
     }
 
     handleSubmit(){
         console.log('register button fired!')
         console.log(this.state);
-        const { first_name, last_name, company, address, city, usState, zip_code, phone, email, paymentType, date, subtotal, tax, total, productName, productPrice, productQty, productTotal } = this.state;
-        const reqBody = { first_name, last_name, company, address, city, usState, zip_code, phone, email, paymentType, date, subtotal, tax, total, productName, productPrice, productQty, productTotal };
+        const { first_name, last_name, company, address, city, usState, zip_code, phone, email, paymentType, date, subtotal, tax, total } = this.state;
+        const reqBody = { first_name, last_name, company, address, city, usState, zip_code, phone, email, paymentType, date, subtotal, tax, total };
         orderMailer(reqBody)
             .then( res => res.data )
             .catch( err => {throw err});
