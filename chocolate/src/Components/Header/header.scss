@@ -84,7 +84,7 @@
     font-size: 8pt;
 }
 
-.login-regi{
+.login-regi-true{
     width: 130px;
     display: flex;
     justify-content: space-between;
@@ -101,6 +101,32 @@
     a:hover {
         color: $brown;
     }
+}
+.login-regi-false {
+    display: none;
+}
+
+.logout-account-true {
+    width: 130px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 30px;
+
+    a {
+        color: white;
+        font-family: Baskerville;
+        font-size: 13pt;
+        margin-bottom: 20px;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: $brown;
+    }
+}
+
+.logout-account-false {
+    display: none;
 }
 
 .ham-menu {
@@ -220,6 +246,24 @@
         z-index: 3;
       }
 
+    .ham-menu-items {
+        width: 100vw;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.132);
+        }
+        &:active {
+            background-color: rgba(255, 255, 255, 0.132);
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    }
+
     .ham-dropdown-menu-content-box {
         width: 100vw;
         height: 60px;
@@ -245,6 +289,46 @@
         color: white;
       }
 
+    .ham-false {
+        display: none;
+    }
+
+    .ham-true {
+        width: 100vw;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.132);
+        }
+        &:active {
+            background-color: rgba(255, 255, 255, 0.132);
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    }
+
+    .ham-account-true{
+        width: 100vw;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.132);
+        }
+        &:active {
+            background-color: rgba(255, 255, 255, 0.132);
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    }
+
     // .ham-dropdown-menu-content img {
     //     width: 220px;
     //     height: auto;
@@ -263,14 +347,20 @@
             margin-right: 5px;
         }
         img {
-            width: 16px;
-            height: 29px;
-            // margin-right: 60px;
             margin-bottom: 12px;
         }
     }
 
-    .login-regi {
+    .login-regi-true {
+        display: none;
+    }
+    .login-regi-false {
+        display: none;
+    }
+    .logout-account-true {
+        display: none;
+    }
+    .logout-account-false {
         display: none;
     }
 }

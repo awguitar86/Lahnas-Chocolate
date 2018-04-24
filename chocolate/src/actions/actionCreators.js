@@ -1,5 +1,3 @@
-import axios from 'axios';
-const baseURL = '/api/cart';
 
 export const UPDATE_AUTH = "UPDATE_AUTH";
 export const UPDATE_USER = "UPDATE_USER";
@@ -60,6 +58,10 @@ export function addToCart(product){
 // }
 
 export function getCartItem(item){
+    return {
+        type: CREATE_CART_ITEM,
+        payload: item
+    }
     // const request = axios.get(`${baseURL}/${userid}`)
     //             .then( res => {
     //                 let item = res.data;
@@ -67,10 +69,6 @@ export function getCartItem(item){
 
     //                 return item;
     //             })
-    return {
-        type: CREATE_CART_ITEM,
-        payload: item
-    }
 }
 
 // export function deleteFromCart(product) {
