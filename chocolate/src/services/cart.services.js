@@ -25,5 +25,6 @@ function deleteCartItems(userid) {
 
 export {
     getCartItems,
-    createCartItems
+    createCartItems,
+    deleteCartItems
 }

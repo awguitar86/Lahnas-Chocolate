@@ -5,8 +5,9 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import OrderReviewItem from './OrderReviewItem/OrderReviewItem';
 import { orderMailer } from '../../services/nodemailer.services';
+import { getCartItems, deleteCartItems } from '../../services/cart.services';
 import './orderReview.css';
-import { addToCart, updateCustomer, updateUser } from '../../actions/actionCreators';
+import { addToCart, updateCustomer, updateUser, getCartItem } from '../../actions/actionCreators';
 import { connect } from 'react-redux';
 
 class OrderReview extends Component {
@@ -33,13 +34,42 @@ class OrderReview extends Component {
     }
 
     componentDidMount(){
+        let totalArr = [0];
+        let bagSubTotal;
         if(this.props.userInfo.id){
-
+            const userItems = this.props.cartItem;
+            const displayOrderItems = userItems.map( userItem => {
+                totalArr.push(Number((userItem.price * userItem.quantity).toFixed(2)));
+            })
+            function totalSum(numbers){
+                bagSubTotal = numbers.reduce((a,b) => {
+                    return a + b;
+                }).toFixed(2)
+            }
+            totalSum(totalArr);
+            let taxes = (bagSubTotal * 0.067).toFixed(2);
+            let bagTotal = (Number(bagSubTotal) + Number(taxes)).toFixed(2);
+            let today = moment().format('MMMM DD, YYYY');
+            this.setState({
+                cart: this.props.cartItem,
+                first_name: this.props.userInfo.first_name,
+                last_name: this.props.userInfo.last_name,
+                company: this.props.userInfo.company,
+                address: this.props.userInfo.address,
+                city: this.props.userInfo.city,
+                usState: this.props.userInfo.state,
+                zip_code: this.props.userInfo.zip_code,
+                phone: this.props.userInfo.phone,
+                email: this.props.userInfo.email,
+                paymentType: this.props.userInfo.paymentMthd,
+                date: today,
+                subtotal: bagSubTotal,
+                tax: taxes,
+                total: bagTotal
+            })
         }
         else {
             const reviewItems = this.props.cartReducer.cart;
-            let totalArr = [0];
-            let bagSubTotal;
             const displayOrderItems = reviewItems.map( reviewItem => {
                 totalArr.push(Number((reviewItem.price * reviewItem.quantity).toFixed(2)));
             })
@@ -86,17 +116,18 @@ class OrderReview extends Component {
     render(){
         console.log(this.state);
         console.log(this.props.customerInfo);
-        const reviewItems = this.props.cartReducer.cart;
-        console.log(reviewItems);
-        const displayOrderItems = reviewItems.map( reviewItem => {
-            const index = reviewItems.indexOf(reviewItem);
+        console.log(this.props.cartItem);
+        const orderCartItems = this.state.cart;
+        console.log(orderCartItems);
+        const displayOrderItems = orderCartItems.map( orderCartItem => {
+            const index = orderCartItems.indexOf(orderCartItem);
             return ( <OrderReviewItem
                         key={`orderItem${index}`}
                         index={index}
-                        productid={reviewItem.id}
-                        productName={reviewItem.name}
-                        price={reviewItem.price}
-                        qty={reviewItem.quantity}
+                        productid={orderCartItem.id}
+                        productName={orderCartItem.name}
+                        price={orderCartItem.price}
+                        qty={orderCartItem.quantity}
             />)
         })
         return(
@@ -159,4 +190,4 @@ function mapStateToProps(state){
     return state;
 }
 
-export default connect(mapStateToProps, {addToCart, updateCustomer, updateUser}) (OrderReview);
+export default connect(mapStateToProps, {addToCart, updateCustomer, updateUser, getCartItem}) (OrderReview);

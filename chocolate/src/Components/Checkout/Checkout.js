@@ -71,7 +71,9 @@ class Checkout extends Component {
     }
 
     handleUpdateCustomer(){
-        this.props.updateCustomer(this.state);
+        if(!this.props.userInfo.id){
+            this.props.updateCustomer(this.state);
+        }
       }
 
     render(){
