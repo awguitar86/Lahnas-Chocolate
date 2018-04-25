@@ -2,6 +2,13 @@ import axios from 'axios';
 
 const baseURL = '/api/orders';
 
+function getAllOrders() {
+    return axios
+        .get(`${baseURL}/all`)
+        .then( res => res )
+        .catch( err => {throw err} );
+}
+
 function getOrders(email) {
     return axios
         .get(`${baseURL}/${email}`)
@@ -23,6 +30,20 @@ function getOrderItems(orderid){
         .catch( err => {throw err})
 }
 
+function createOrder(body){
+    return axios
+        .post(`${baseURL}/newOrder`, body)
+        .then( res => res)
+        .catch( err => {throw err})
+}
+
+function createOrderItem(body){
+    return axios
+        .post(`${baseURL}/newOrderItem`, body)
+        .then( res => res)
+        .catch( err => {throw err})
+}
+
 // function getOrderSum(orderid) {
 //     return axios
 //         .get(`${baseURL}/total/${orderid}`)
@@ -33,7 +54,10 @@ function getOrderItems(orderid){
 
 
 export {
+    getAllOrders,
     getOrders,
     getOrder,
-    getOrderItems
+    getOrderItems,
+    createOrder,
+    createOrderItem
 };

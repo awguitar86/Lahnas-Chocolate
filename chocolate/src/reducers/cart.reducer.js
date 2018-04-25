@@ -9,6 +9,11 @@ export function cartReducer( state = {
                 cart: [...state.cart, action.payload]
             }
         }
+        // case EMPTY_CART: {
+        //     return {
+        //         cart: [...state.cart.]
+        //     }
+        // }
 
     default:
     return state;

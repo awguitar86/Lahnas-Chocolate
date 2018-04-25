@@ -60,14 +60,14 @@ INSERT INTO products (name, price)
 INSERT INTO users (first_name, last_name, company, address, city, state, zip_code, phone, email)
     VALUES
         ('Austin', 'Wright', 'The Wright Company', '123 Cool Ave', 'Layton', 'UT', 84041, '(801) 555-1234', 'wright2896@gmail.com'),
-        ('Timmothy', 'Burns', 'Burns Inc.', '400 Mountain St.', 'Eureka', 'UT', 84123, '(801) 123-4567', 'awguitar86@gmail.com')
+        ('Timmothy', 'Burns', 'Burns Inc.', '400 Mountain St.', 'Eureka', 'UT', 84123, '(801) 123-4567', 'swdesign17@gmail.com')
 ;
 
 INSERT INTO orders (email, order_date, order_price, payment_type)
     VALUES
         ('wright2896@gmail.com', '03/22/2018', 4.00, 'On Delivery'),
         ('wright2896@gmail.com', '04/03/2018', 10.56, 'Mail'),
-        ('awguitar86@gmail.com', '03/27/2018', 22.31, 'On Delivery')
+        ('swdesign17@gmail.com', '03/27/2018', 22.31, 'On Delivery')
 ;
 
 INSERT INTO order_items (order_id, product_id, price, quantity)

@@ -17,8 +17,7 @@ class Register extends Component {
             state: '',
             zip_code: '',
             phone: '',
-            email: '',
-            password: ''
+            email: ''
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleButtonRegister = this.handleButtonRegister.bind(this);
@@ -35,8 +34,8 @@ class Register extends Component {
     handleButtonRegister() {
         console.log('register button fired!')
         console.log(this.state);
-        const { first_name, last_name, company, address, city, state, zip_code, phone, email, password } = this.state;
-        const reqBody = { first_name, last_name, company, address, city, state, zip_code, phone, email, password };
+        const { first_name, last_name, company, address, city, state, zip_code, phone, email } = this.state;
+        const reqBody = { first_name, last_name, company, address, city, state, zip_code, phone, email };
         register(reqBody)
             .then( res => res.data )
             .catch( err => {throw err})
@@ -67,11 +66,9 @@ class Register extends Component {
                         <input className='phone' placeholder='Phone Number'type="text" name="phone" onChange={ e => {this.handleInputChange(e) }}/>
                         <input className='email' placeholder='Email'type="text" name="email" onChange={ e => {this.handleInputChange(e) }}/>
                         <input className='reTypeEmail' placeholder='Re-Type Email' />
-                        <input className='password' placeholder='Password' type="text" name="password" onChange={ e => {this.handleInputChange(e) }}/>
-                        <input className='reTypePassword' placeholder='Re-Type Password' />
                     </div>
                     <div className='register-buttons'>
-                        <button className='register-btn'onClick={this.handleButtonRegister}>REGISTER</button>
+                        <a href="http://localhost:7777/login"><button className='register-btn'onClick={this.handleButtonRegister}>REGISTER</button></a>
                         <Link to='/'><button className='regi-cancel-btn'>CANCEL</button></Link>
                     </div>
                 </div>

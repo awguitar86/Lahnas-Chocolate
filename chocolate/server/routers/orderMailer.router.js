@@ -5,7 +5,7 @@ let smtpTransport = require('nodemailer-smtp-transport');
 require('dotenv').config()
 
 orderMailer.post('/ordermailer', (req, res, next) => {
-    let { cart, first_name, last_name, company, address, city, usState, zip_code, phone, email, paymentType, date, subtotal, tax, total } = req.body;
+    let { orderNum, cart, first_name, last_name, company, address, city, usState, zip_code, phone, email, paymentType, date, subtotal, tax, total } = req.body;
 
     let cartItems = cart.map(item => {
         `<div style="display:inline;">
@@ -30,7 +30,7 @@ orderMailer.post('/ordermailer', (req, res, next) => {
         to: `wright2896@gmail.com, ${email}`,
         subject: `Lahna's Chocolates Order`,
         html:`
-            <div>Lahna's Chocolates</div>
+            <div>Lahna's Chocolates Order #${orderNum}</div>
             <div style="display:inline-block;">
                     <div style="margin-right:20px;">
                         <p>${first_name} ${last_name}</p>

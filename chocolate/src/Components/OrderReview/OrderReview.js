@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import { getAllOrders, createOrder, createOrderItem } from '../../services/order.services';
 import OrderReviewItem from './OrderReviewItem/OrderReviewItem';
 import { orderMailer } from '../../services/nodemailer.services';
-import { getCartItems, deleteCartItems } from '../../services/cart.services';
+import { deleteCartItems } from '../../services/cart.services';
 import './orderReview.css';
 import { addToCart, updateCustomer, updateUser, getCartItem } from '../../actions/actionCreators';
 import { connect } from 'react-redux';
@@ -14,6 +15,7 @@ class OrderReview extends Component {
     constructor(props){
         super(props);
         this.state = {
+            orderNum: '',
             cart: [],
             first_name: '',
             last_name: '',
@@ -38,8 +40,8 @@ class OrderReview extends Component {
         let bagSubTotal;
         if(this.props.userInfo.id){
             const userItems = this.props.cartItem;
-            const displayOrderItems = userItems.map( userItem => {
-                totalArr.push(Number((userItem.price * userItem.quantity).toFixed(2)));
+            userItems.map( userItem => {
+                return totalArr.push(Number((userItem.price * userItem.quantity).toFixed(2)));
             })
             function totalSum(numbers){
                 bagSubTotal = numbers.reduce((a,b) => {
@@ -70,8 +72,8 @@ class OrderReview extends Component {
         }
         else {
             const reviewItems = this.props.cartReducer.cart;
-            const displayOrderItems = reviewItems.map( reviewItem => {
-                totalArr.push(Number((reviewItem.price * reviewItem.quantity).toFixed(2)));
+            reviewItems.map( reviewItem => {
+                return totalArr.push(Number((reviewItem.price * reviewItem.quantity).toFixed(2)));
             })
             function totalSum(numbers){
                 bagSubTotal = numbers.reduce((a,b) => {
@@ -100,16 +102,57 @@ class OrderReview extends Component {
                 total: bagTotal
             })
         }
+        getAllOrders()
+            .then( res => {
+                this.setState({orderNum: res.data.length + 1});
+            })
     }
 
     handleSubmit(){
         console.log('register button fired!')
         console.log(this.state);
-        const { cart, first_name, last_name, company, address, city, usState, zip_code, phone, email, paymentType, date, subtotal, tax, total } = this.state;
-        const reqBody = { cart, first_name, last_name, company, address, city, usState, zip_code, phone, email, paymentType, date, subtotal, tax, total };
+        const { orderNum, cart, first_name, last_name, company, address, city, usState, zip_code, phone, email, paymentType, date, subtotal, tax, total } = this.state;
+        const reqBody = { orderNum, cart, first_name, last_name, company, address, city, usState, zip_code, phone, email, paymentType, date, subtotal, tax, total };
+        const order = {email, date, total, paymentType};
         orderMailer(reqBody)
             .then( res => res.data )
             .catch( err => {throw err});
+        createOrder(order)
+            .then( res => res.data)
+            .catch( err => {throw err} );
+        // const cartItems = cart.map(item => {
+        //     console.log(item);
+        //     let productId = item.product_id;
+        //     let productPrice = item.price;
+        //     let productQty = item.quantity;
+        //     console.log(productId);
+        //     console.log(productPrice);
+        //     console.log(productQty);
+        //     console.log(orderNum);
+        //     const orderItem = {orderNum, productId, productPrice, productQty };
+        //     createOrderItem(orderItem)
+        //         .then( res => res.data )
+        //         .catch( err => {throw err} );
+        // });
+        cart.forEach((item) => {
+            console.log(item);
+            let productId = item['product_id'];
+            let productPrice = item['price'];
+            let productQty = item['quantity'];
+            createOrderItem({orderNum, productId, productPrice, productQty})
+                .then( res => res.data )
+                .catch( err => {throw err} );
+        })
+        this.props.updateCustomer({});
+        if(this.props.userInfo.id){
+            deleteCartItems(this.props.userInfo.id)
+                .then( res => res.data )
+                .catch( err => {throw err} );
+            this.props.getCartItem({});
+        }
+        else {
+            this.props.cartReducer.cart = [];
+        }
     }
 
 
@@ -134,7 +177,7 @@ class OrderReview extends Component {
             <div className='or-wrap'>
                 <Header />
                 <div className='or-body'>
-                    <h1>Order Review</h1>
+                    <h1>Order #{this.state.orderNum} Review</h1>
                     <div className='or-customer-info'>
                         <div className='or-customer-left'>
                             <p>{this.state.first_name} {this.state.last_name}</p>
@@ -177,7 +220,7 @@ class OrderReview extends Component {
                         </div>
                     </div>
                     <div className='or-button'>
-                        <button onClick={this.handleSubmit}>SUBMIT ORDER</button>
+                        <Link to='/thanks'><button onClick={this.handleSubmit}>SUBMIT ORDER</button></Link>
                     </div>
                 </div>
                 <Footer />

@@ -3,7 +3,15 @@ const getDb = require('../database/bootstrap.database');
 
 const ordersRouter = express.Router();
 
-// get all orders
+//get all orders in database
+ordersRouter.get('/all', (req, res) => {
+    const db = getDb();
+    db.get_all_orders()
+        .then(response => res.status(200).send(response))
+        .catch(err => console.log(err))
+});
+
+// get all user orders
 ordersRouter.get('/:email', (req, res) => { //get orders based on userid
     const db = getDb();
     const email = req.params.email;
@@ -32,17 +40,26 @@ ordersRouter.get('/items/:orderid', (req, res) => { //get order based on order i
         .catch(err => console.log(err))
 });
 
-
-ordersRouter.post('/new', (req, res) => {
+//Create order in orders table
+ordersRouter.post('/newOrder', (req, res) => {
     const db = getDb();
-    const { email, order_date, order_price, payment_type } = req.body;
-    db.create_order([email, order_date, order_price, payment_type])
+    const { email, date, total, paymentType } = req.body;
+    db.create_order([email, date, total, paymentType])
         .then( () => res.status(200).send() )
         .catch( err => res.send(err) );
     // db.create_order_item([user_id, order_id, product_id, quantity, price, sales_tax, total, payment_type])
     //     .then( () => res.status(200).send() )
     //     .catch( err => res.send(err) );
 });
+
+//create order item in order_items table
+ordersRouter.post('/newOrderItem', (req, res) => {
+    const db = getDb();
+    const { orderNum, productId, productPrice, productQty } = req.body;
+    db.create_order_item([orderNum, productId, productPrice, productQty])
+        .then( () => res.status(200).send() )
+        .catch( err => res.send(err));
+})
 
 ordersRouter.put('/update/:id', (req, res) => {
     const db = getDb();

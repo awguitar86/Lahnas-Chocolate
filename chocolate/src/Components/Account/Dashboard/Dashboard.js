@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
-import { getUserFromEmail } from '../../../services/account.services';
+// import { getUserFromEmail } from '../../../services/account.services';
 import { getCartItems } from '../../../services/cart.services';
 import './dashboard.css';
 import { updateUser, getCartItem } from '../../../actions/actionCreators';

@@ -23,7 +23,7 @@
   display: grid;
   grid-gap: 15px;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(8, 40px);
+  grid-template-rows: repeat(7, 40px);
   margin-bottom: 20px; }
   .regi-inputs input {
     padding-left: 10px;
@@ -64,12 +64,6 @@
 
 .reTypeEmail {
   grid-column: span 6; }
-
-.password {
-  grid-column: span 3; }
-
-.reTypePassword {
-  grid-column: span 3; }
 
 .register-buttons {
   width: 600px;
