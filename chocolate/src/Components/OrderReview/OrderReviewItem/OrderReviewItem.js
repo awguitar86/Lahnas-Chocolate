@@ -16,10 +16,9 @@ class OrderReviewItem extends Component {
             <div className='order-review-item'>
                 <h4>{productName}</h4>
                 <div className='order-review-item-total'>
-                    <div className='order-review-item-remove'></div>
                     <div>${price}</div>
                     <div>Qty: {qty}</div>
-                    <div className='order-review-item-total'>${total}</div>
+                    <div>${total}</div>
                 </div>
             </div>
         )

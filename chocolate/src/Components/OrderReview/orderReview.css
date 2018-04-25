@@ -45,7 +45,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 16pt;
   font-family: Baskerville;
   color: #4E2E71;
   margin-top: 20px;
@@ -79,10 +78,6 @@
     display: flex;
     justify-content: flex-end;
     align-items: center; }
-
-.order-review-item-remove {
-  font-size: 12pt;
-  color: blue; }
 
 .order-review-item-total {
   font-size: 16pt; }
@@ -124,13 +119,13 @@
   justify-content: space-between; }
 
 .or-total-payment {
-  width: 235px;
+  width: 300px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center; }
-  .or-total-payment li {
-    list-style-type: none;
-    margin-left: -40px; }
+  .or-total-payment p {
+    margin: 0;
+    margin-right: 15px; }
 
 .or-total-price {
   width: 120px;
@@ -187,20 +182,17 @@
   .or-body h1 {
     font-size: 20pt; }
   .order-review-item h4 {
-    font-size: 16pt; }
-  .order-review-item-total {
-    width: 50vw;
     font-size: 12pt; }
-  .order-review-item-remove {
-    font-size: 11pt; }
   .order-review-item-total {
-    font-size: 14pt; }
+    width: 50vw; }
+    .order-review-item-total div {
+      font-size: 12pt; }
   .or-price {
     font-size: 12pt; }
   .or-price-subtotal {
     width: 190px; }
   .or-total-payment {
-    width: 170px; } }
+    width: 240px; } }
 
 @media only screen and (max-width: 600px) {
   .or-customer-info {
@@ -225,6 +217,12 @@
       font-size: 11pt; }
   .or-items h3 {
     font-size: 14pt; }
+  .order-review-item {
+    width: 90vw;
+    flex-direction: column;
+    align-items: flex-start; }
+    .order-review-item h4 {
+      margin-bottom: 5px; }
   .order-review-item-total {
     width: 90vw; }
   .or-price {
@@ -252,7 +250,7 @@
   .or-total {
     justify-content: space-between; }
   .or-total-payment {
-    width: 80px;
+    width: 150px;
     flex-direction: column; } }
 
 @media only screen and (max-width: 330px) {

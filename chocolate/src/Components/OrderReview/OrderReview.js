@@ -51,17 +51,17 @@ class OrderReview extends Component {
             let bagTotal = (Number(bagSubTotal) + Number(taxes)).toFixed(2);
             let today = moment().format('MMMM DD, YYYY');
             this.setState({
-                cart: this.props.cartItem,
-                first_name: this.props.userInfo.first_name,
-                last_name: this.props.userInfo.last_name,
-                company: this.props.userInfo.company,
-                address: this.props.userInfo.address,
-                city: this.props.userInfo.city,
-                usState: this.props.userInfo.state,
-                zip_code: this.props.userInfo.zip_code,
-                phone: this.props.userInfo.phone,
-                email: this.props.userInfo.email,
-                paymentType: this.props.userInfo.paymentMthd,
+                cart: this.props.customerInfo.cart,
+                first_name: this.props.customerInfo.first_name,
+                last_name: this.props.customerInfo.last_name,
+                company: this.props.customerInfo.company,
+                address: this.props.customerInfo.address,
+                city: this.props.customerInfo.city,
+                usState: this.props.customerInfo.state,
+                zip_code: this.props.customerInfo.zip_code,
+                phone: this.props.customerInfo.phone,
+                email: this.props.customerInfo.email,
+                paymentType: this.props.customerInfo.paymentMthd,
                 date: today,
                 subtotal: bagSubTotal,
                 tax: taxes,
@@ -105,8 +105,8 @@ class OrderReview extends Component {
     handleSubmit(){
         console.log('register button fired!')
         console.log(this.state);
-        const { first_name, last_name, company, address, city, usState, zip_code, phone, email, paymentType, date, subtotal, tax, total } = this.state;
-        const reqBody = { first_name, last_name, company, address, city, usState, zip_code, phone, email, paymentType, date, subtotal, tax, total };
+        const { cart, first_name, last_name, company, address, city, usState, zip_code, phone, email, paymentType, date, subtotal, tax, total } = this.state;
+        const reqBody = { cart, first_name, last_name, company, address, city, usState, zip_code, phone, email, paymentType, date, subtotal, tax, total };
         orderMailer(reqBody)
             .then( res => res.data )
             .catch( err => {throw err});
@@ -166,10 +166,10 @@ class OrderReview extends Component {
                             </div>
                         </div>
                         <div className='or-total'>
-                            <ul className='or-total-payment'>
-                                <li>Payment Method:</li>
-                                <li>{this.state.paymentType}</li>
-                            </ul>
+                            <div className='or-total-payment'>
+                                <p>Payment Method:</p>
+                                <p>{this.state.paymentType}</p>
+                            </div>
                             <ul className='or-total-price'>
                                 <li>Total</li>
                                 <li>${this.state.total}</li>
@@ -177,7 +177,7 @@ class OrderReview extends Component {
                         </div>
                     </div>
                     <div className='or-button'>
-                        <Link to='/thanks'><button>SUBMIT ORDER</button></Link>
+                        <button onClick={this.handleSubmit}>SUBMIT ORDER</button>
                     </div>
                 </div>
                 <Footer />
