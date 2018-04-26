@@ -10,6 +10,7 @@ import About from './Components/About/About';
 import Contact from './Components/Contact/Contact';
 // import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
+import Logout from './Components/Logout/Logout';
 
 import Dashboard from './Components/Account/Dashboard/Dashboard';
 import ChangeInfo from './Components/Account/ChangeInfo/ChangeInfo';
@@ -62,6 +63,7 @@ class App extends Component {
         <Route path='/about' component={About} />
         <Route path='/contact' component={Contact} />
         <Route path='/register' component={Register} />
+        <Route path='/logout' component={Logout} />
 
         <Route path='/dashboard' component={Dashboard} />
         <Route path='/changeinfo/:id' component={ChangeInfo} />

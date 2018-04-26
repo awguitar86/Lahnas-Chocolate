@@ -93,7 +93,7 @@ class Header extends Component {
                         <Link to= '/register'> Register </Link>
                     </div>
                     <div className={this.state.loggedIn ? 'logout-account-true' : 'logout-account-false'}>
-                        <Link to='/' onClick={this.logout}> Logout </Link>
+                        <Link to='/logout' onClick={this.logout}> Logout </Link>
                         <Link to= '/dashboard'> Account </Link>
                     </div>
                     <Link to='/shoppingbag' className='bag'>
