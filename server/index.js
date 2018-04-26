@@ -28,7 +28,7 @@ const strategy = new Auth0Strategy({
     domain: process.env.DOMAIN,
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "http://localhost:5050/login",
+    callbackURL: "/login",
     scope: 'openid email profile'
 },
     function (accessToken, refreshToken, extraParams, profile, done) {
@@ -59,7 +59,7 @@ passport.deserializeUser(function (user, done) {
 // ENDPOINTS
 //auth endpoint
 app.get('/login', passport.authenticate('auth0', {
-    successRedirect: "http://localhost:3000/dashboard",
+    successRedirect: "/dashboard",
     failureRedirect: "/"
 }))
 // check for logged in user
