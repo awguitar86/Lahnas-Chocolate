@@ -47,7 +47,7 @@ export default class HamDropdown extends Component {
                         <div className='ham-menu-items'><Link to='/about'>About</Link></div>
                         <div className='ham-menu-items'><Link to='/contact'>Contact</Link></div>
                         <div className={loggedIn ? 'ham-false' : 'ham-true'}><Link to='/register'>Register</Link></div>
-                        <div className={loggedIn ? 'ham-false' : 'ham-true'}><a href="http://localhost:7777/login">Login</a></div>
+                        <div className={loggedIn ? 'ham-false' : 'ham-true'}><a href={process.env.REACT_APP_LOGIN}>Login</a></div>
                         <div className={loggedIn ? 'ham-account-true' : 'ham-false'}><Link to='/dashboard'>Account</Link></div>
                         <div className={loggedIn ? 'ham-account-true' : 'ham-false'}><Link to='/logout' onClick={logout}>Logout</Link></div>
                     </div>}
