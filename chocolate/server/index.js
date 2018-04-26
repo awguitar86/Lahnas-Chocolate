@@ -13,7 +13,7 @@ const getDb = require('./database/bootstrap.database');
 const app = express();
 
 app.use(bodyParser.json());
-app.use( express.static( `${__dirname}/../../build`));
+app.use(express.static('../build'));
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
@@ -86,9 +86,9 @@ app.get('/logout', function (req, res) {
 delegateRoutes(app);
 
 const path = require('path');
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../build/index.html'));
-})
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../build/index.html'));
+// })
 
 app.listen(port, () =>
     console.log(`===================================\n Server is listening on port ${port}.\n===================================`
