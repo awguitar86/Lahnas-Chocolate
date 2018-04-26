@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addToCart } from '../../../actions/actionCreators';
-import '../orderReview.scss';
+import '../orderReview.css';
 
 class OrderReviewItem extends Component {
     constructor(props){

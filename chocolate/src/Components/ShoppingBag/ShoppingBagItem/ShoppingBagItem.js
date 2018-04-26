@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { addToCart } from '../../../actions/actionCreators';
 import { connect } from 'react-redux';
-import '../shoppingBag.scss';
+import '../shoppingBag.css';
 
 class ShoppingBagItem extends Component {
     constructor(props){
