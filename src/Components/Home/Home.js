@@ -13,8 +13,31 @@ import LahnaBar from '../../images/lahnaBar.jpg';
 import Lollipop from '../../images/lollipop.jpg';
 import Oreos from '../../images/oreos.jpg';
 import Caramels from '../../images/caramels.jpg';
+import { updateUser, getCartItem } from '../../actions/actionCreators';
+import { getCartItems } from '../../services/cart.services';
+import { connect } from 'react-redux';
+import axios from 'axios';
 
 class Home extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+
+        }
+    }
+
+    componentWillMount(){
+        axios.get('/check').then(resp => {
+            console.log(resp.data);
+            this.props.updateUser(resp.data[0]);
+            getCartItems(resp.data[0].id)
+                .then( res => {
+                    this.props.getCartItem(res.data)
+                })
+        })
+
+    }
+
   render() {
     return (
         <div className="home-wrap">
@@ -43,4 +66,9 @@ class Home extends Component {
   }
 }
 
-export default Home;
+function mapStateToProps(state){
+    return state;
+}
+
+
+export default connect(mapStateToProps, {updateUser}) (Home);
