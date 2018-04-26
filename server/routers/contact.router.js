@@ -31,7 +31,7 @@ contactMailer.post('/contact', (req, res, next) => {
         if(error) {
             console.error(error);
         }
-        console.log('Message sent: %s', info.messageId);
+        console.log('Message sent: %s');
         res.send('Message Sent')
     });
 })
