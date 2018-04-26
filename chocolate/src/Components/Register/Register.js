@@ -68,7 +68,7 @@ class Register extends Component {
                         <input className='reTypeEmail' placeholder='Re-Type Email' />
                     </div>
                     <div className='register-buttons'>
-                        <a href="http://localhost:7777/login"><button className='register-btn'onClick={this.handleButtonRegister}>REGISTER</button></a>
+                        <a href={process.env.REACT_APP_LOGIN}><button className='register-btn'onClick={this.handleButtonRegister}>REGISTER</button></a>
                         <Link to='/'><button className='regi-cancel-btn'>CANCEL</button></Link>
                     </div>
                 </div>

@@ -89,7 +89,7 @@ class Header extends Component {
                 </div>
                 <div className="login-register-wrap">
                     <div className={!this.state.loggedIn ? 'login-regi-true' : 'login-regi-false'}>
-                        <a href="http://localhost:7777/login"> Login </a>
+                        <a href={process.env.REACT_APP_LOGIN}> Login </a>
                         <Link to= '/register'> Register </Link>
                     </div>
                     <div className={this.state.loggedIn ? 'logout-account-true' : 'logout-account-false'}>
