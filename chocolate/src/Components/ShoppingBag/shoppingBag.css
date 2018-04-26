@@ -50,7 +50,12 @@
 
 .item-remove {
   font-size: 12pt;
-  color: blue; }
+  font-family: Baskerville;
+  color: blue;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: white; }
 
 .item-total {
   font-size: 16pt; }
@@ -135,8 +140,6 @@
   .shopping-item-total {
     width: 50vw;
     font-size: 12pt; }
-  .item-remove {
-    font-size: 11pt; }
   .item-total {
     font-size: 14pt; } }
 

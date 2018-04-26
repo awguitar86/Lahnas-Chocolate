@@ -9,6 +9,13 @@ class ShoppingBagItem extends Component {
         this.state = {}
     }
 
+    // handleRemove = () => {
+    //     let bagArray = this.props.cartReducer.cart;
+    //     for(let i = 0; i < bagArray.length; i++){
+    //         bagArray.splice([i], 1);
+    //     }
+    // }
+
     render(){
         const { productName, price, qty } = this.props;
         const total = (price * qty).toFixed(2);
@@ -16,7 +23,6 @@ class ShoppingBagItem extends Component {
             <div className='shopping-bag-item'>
                 <h4>{productName}</h4>
                 <div className='shopping-item-total'>
-                    <div className='item-remove'></div>
                     <div>${price}</div>
                     <div>Qty: {qty}</div>
                     <div className='item-total'>${total}</div>

@@ -1,16 +1,11 @@
 const massive = require('massive');
-// const connectionString = require('./connection.database');
+const connectionString = require('./connection.database');
 
 let db;
 let messageString;
 
-massive({
-    host: 'localhost',
-    port: 5432,
-    database: 'Chocolate',
-    user: 'postgres',
-    password: ''
-}).then( dbInstance => {
+massive(connectionString)
+    .then( dbInstance => {
         db = dbInstance;
         messageString = 'Connection to the database was successful.'
         // return db.chocolate_init();
@@ -31,3 +26,11 @@ massive({
     }
 
 module.exports = getDb;
+
+// {
+//     host: 'localhost',
+//     port: 5432,
+//     database: 'Chocolate',
+//     user: 'postgres',
+//     password: ''
+// }
