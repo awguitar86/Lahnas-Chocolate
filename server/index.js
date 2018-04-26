@@ -84,6 +84,10 @@ app.get('/logout', function (req, res) {
     req.session.destroy(function () { res.send(200) })
 })
 
+app.get('/*', (req, res) => {
+    res.sendFile('index.html', {root:'../build'});
+})
+
 delegateRoutes(app);
 
 const path = require('path');
