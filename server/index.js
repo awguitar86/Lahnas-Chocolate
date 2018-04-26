@@ -12,7 +12,7 @@ const getDb = require('./database/bootstrap.database');
 
 const app = express();
 
-app.use( express.static('../build'));
+app.use( express.static(`${__dirname}/../build`));
 
 app.use(bodyParser.json());
 
