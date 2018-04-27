@@ -10,17 +10,32 @@ contactMailer.post('/contact', (req, res, next) => {
             service: 'gmail',
             host: 'smtp.gmail.com',
             auth: {
-                XOAuth2: {
-                    user: process.env.GMAIL_USER,
+                    type: XOAuth2,
                     clientId: process.env.GOOGLE_CLIENT_ID,
                     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-                    refreshToken: process.env.GOOGLE_REFRESH_TOKEN
-                }
             },
     }));
 
-    let mailOptions = {
-        from: `wright2896@gmail.com`,
+    // let mailOptions = {
+    //     from: `${email}`,
+    //     to: `wright2896@gmail.com`,
+    //     subject: `${subject}`,
+    //     html:`
+    //         <h4 style="margin:0px;">${firstName} ${lastName}</h4>
+    //         <h4 style="margin:0px;">${company}</h4>
+    //         <h4 style="margin:0px;">${email}</h4>
+    //         <p>${message}</p>
+    //     `,
+    //     auth: {
+    //         user: process.env.GMAIL_USER,
+    //         refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
+    //         accessToken: process.env.GOOGLE_ACCESS_TOKEN,
+    //         expires: 3599
+    //     }
+    // };
+
+    transporter.sendMail({
+        from: `${email}`,
         to: `wright2896@gmail.com`,
         subject: `${subject}`,
         html:`
@@ -28,16 +43,25 @@ contactMailer.post('/contact', (req, res, next) => {
             <h4 style="margin:0px;">${company}</h4>
             <h4 style="margin:0px;">${email}</h4>
             <p>${message}</p>
-        `
-    };
-
-    transporter.sendMail(mailOptions, (error, info) => {
-        if(error) {
-            console.error(error);
+        `,
+        auth: {
+            user: process.env.GMAIL_USER,
+            refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
+            accessToken: process.env.GOOGLE_ACCESS_TOKEN,
+            expires: 3599
         }
-        console.log('Message sent: %s');
-        res.send('Message Sent')
     });
 })
 
 module.exports = contactMailer;
+
+
+
+
+// (mailOptions, (error, info) => {
+//     if(error) {
+//         console.error(error);
+//     }
+//     console.log('Message sent: %s');
+//     res.send('Message Sent')
+// })
