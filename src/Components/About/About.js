@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Header from '../Header/Header';
+// import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import './about.css';
 import Florence from '../../images/florenceprows.jpg';
@@ -9,7 +9,6 @@ class About extends Component {
     render(){
         return(
             <div className='about-wrap'>
-                <Header />
                 <div className='about-body'>
                     <h1>Why Lahna Makes Chocolate</h1>
                     <div className='about-top'>

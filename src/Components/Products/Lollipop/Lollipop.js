@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from '../../Header/Header';
+// import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 import { createCartItems, getCartItems } from '../../../services/cart.services';
 import { getProduct } from '../../../services/products.service';
@@ -69,7 +69,6 @@ class Lollipop extends Component {
         console.log(this.props.cartItem);
         return(
             <div className='wrapper'>
-                <Header />
                 <div className='product-body'>
                     <div className='product-info'>
                         <div className='product-description'>

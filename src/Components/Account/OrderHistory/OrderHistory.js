@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
-import Header from '../../Header/Header';
+// import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 import Order from './Order/Order';
 import { getOrders } from '../../../services/order.services';
@@ -53,7 +53,6 @@ class OrderHistory extends Component {
         })
         return(
             <div className='history-wrap'>
-                <Header />
                 <div className='history-body'>
                     <h2>Order Review</h2>
                     <div className='order-history'>

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 // import { findUserInfo } from './services/account.services';
 import { updateUser } from './actions/actionCreators';
 import './App.css';
+import Header from './Components/Header/Header';
 
 import Home from './Components/Home/Home';
 import About from './Components/About/About';
@@ -59,6 +60,8 @@ class App extends Component {
     return (
       //!loading &&
       <div className="App">
+        <Header />
+
         <Route exact path='/' component={Home} />
         <Route path='/about' component={About} />
         <Route path='/contact' component={Contact} />

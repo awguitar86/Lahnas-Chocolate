@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './products.css';
-import Header from '../Header/Header';
+// import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 import LePetite from '../../images/LePetite-top.jpg';
@@ -20,7 +20,6 @@ class Products extends Component {
   render() {
     return (
         <div className="products-wrap">
-            <Header />
             <div className="products-body">
                 <div className="boxes-wrap">
                     <h1>Boxed Chocolates</h1>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
-import Header from '../Header/Header';
+// import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { getCartItems } from '../../services/cart.services';
 import './checkout.css';
@@ -93,7 +93,6 @@ class Checkout extends Component {
         let today = moment().format('MMM DD, YYYY');
         return(
             <div className='checkout-wrap'>
-                <Header />
                 <div className='checkout-body'>
                     <h1>Contact & Shipping Info</h1>
                     <div className={'checkout-form' + (this.state.isUser ? '-off' : '-on')}>

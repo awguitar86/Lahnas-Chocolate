@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import Header from '../Header/Header';
+// import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { getAllOrders, createOrder, createOrderItem } from '../../services/order.services';
 import OrderReviewItem from './OrderReviewItem/OrderReviewItem';
@@ -175,7 +175,6 @@ class OrderReview extends Component {
         })
         return(
             <div className='or-wrap'>
-                <Header />
                 <div className='or-body'>
                     <h1>Order #{this.state.orderNum} Review</h1>
                     <div className='or-customer-info'>

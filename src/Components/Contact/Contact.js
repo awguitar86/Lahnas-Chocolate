@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from '../Header/Header';
+// import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Nuts from '../../images/nuts.jpg';
 import BoxOfChocolate from '../../images/BoxOfChocolates.jpg';
@@ -54,7 +54,6 @@ class Contact extends Component {
     render(){
         return(
             <div className='contact-wrap'>
-                <Header />
                 <div className='contact-body'>
                     <h1>Contact Me</h1>
                     <p>

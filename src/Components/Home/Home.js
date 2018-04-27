@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './home.css';
-import Header from '../Header/Header';
+// import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 import LePetite from '../../images/lePetite.jpg';
@@ -18,7 +18,6 @@ class Home extends Component {
   render() {
     return (
         <div className="home-wrap">
-            <Header />
             <div className="body">
                 <Link to='/products' className='hero-link'>
                     <div className="hero">

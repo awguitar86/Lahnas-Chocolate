@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../Header/Header';
+// import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import './login.css';
 
@@ -17,7 +17,6 @@ class Login extends Component {
     render(){
         return(
             <div className='login-wrap'>
-                <Header />
                 <div className='login-body'>
                     <div className='login'>
                         <h1>Login</h1>

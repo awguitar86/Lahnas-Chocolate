@@ -48,16 +48,26 @@ class Header extends Component {
             if(nextProps.cartItem.length > 0){
                 this.setState({bag: nextProps.cartItem.length});
             }
+            else {
+                this.setState({bag: 0});
+            }
         }
         else {
             if(nextProps.cartReducer.cart.length > 0){
                 this.setState({bag: nextProps.cartReducer.cart.length});
             }
+            else {
+                this.setState({bag: 0});
+            }
         }
         if(nextProps.userInfo.id){
             this.setState({loggedIn: true});
         }
+        else {
+            this.setState({loggedIn: false});
+        }
     }
+
     logout() {
         this.props.updateUser({});
         this.props.getCartItem({});

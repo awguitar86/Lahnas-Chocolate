@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../../Header/Header';
+// import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 // import { getUserFromEmail } from '../../../services/account.services';
 import { getCartItems } from '../../../services/cart.services';
@@ -47,7 +47,6 @@ class Dashboard extends Component {
         // console.log(this.props.match.params.id);
         return(
             <div className='dash-wrap'>
-                <Header />
                 <div className='dash-body'>
                     <div className='dash-header'>
                         Hello, {first_name}!

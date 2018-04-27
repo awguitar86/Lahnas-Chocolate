@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
-import Header from '../../Header/Header';
+// import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 import './singleOrder.css';
 import { updateUser } from '../../../actions/actionCreators';
@@ -95,7 +95,6 @@ class SingleOrder extends Component {
         let bagTotal = (Number(bagSubtotal) + Number(taxes)).toFixed(2);
         return(
             <div className='single-wrap'>
-                <Header />
                 <div className='single-body'>
                     <h1>Order #{orderNumber}</h1>
                     <div className='single-customer-info'>

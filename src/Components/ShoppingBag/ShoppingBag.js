@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../Header/Header';
+// import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { addToCart, updateUser } from '../../actions/actionCreators';
 import { getCartItems } from '../../services/cart.services';
@@ -63,7 +63,6 @@ class ShoppingBag extends Component {
         let bagTotal = (Number(bagSubTotal) + Number(taxes)).toFixed(2);
         return(
             <div className='shopping-wrap'>
-                <Header />
                 <div className='shopping-body'>
                     <h1>Items in Your Bag</h1>
                     {displayOrderItems}

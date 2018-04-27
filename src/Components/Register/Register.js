@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { register } from '../../services/register.services';
-import Header from '../Header/Header';
+// import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import './register.css';
 
@@ -52,7 +52,6 @@ class Register extends Component {
     render(){
         return(
             <div className='register-wrap'>
-                <Header />
                 <div className='register-body'>
                     <h1>Register</h1>
                     <div className='regi-inputs'>
