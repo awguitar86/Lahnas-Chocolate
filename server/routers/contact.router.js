@@ -1,5 +1,6 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
+const XOAuth2 = require('xoauth2');
 const contactMailer = express.Router();
 let smtpTransport = require('nodemailer-smtp-transport');
 require('dotenv').config()
