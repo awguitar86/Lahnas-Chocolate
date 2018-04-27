@@ -2,7 +2,6 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const orderMailer = express.Router();
 let smtpTransport = require('nodemailer-smtp-transport');
-require('dotenv').config()
 
 orderMailer.post('/ordermailer', (req, res, next) => {
     let { orderNum, cart, first_name, last_name, company, address, city, usState, zip_code, phone, email, paymentType, date, subtotal, tax, total } = req.body;
@@ -20,13 +19,17 @@ orderMailer.post('/ordermailer', (req, res, next) => {
             service: 'gmail',
             host: 'smtp.gmail.com',
             auth: {
-                user: process.env.GMAIL_USER,
-                pass: process.env.GMAIL_PASS
+                XOAuth2: {
+                    user: process.env.GMAIL_USER,
+                    clientId: process.env.GOOGLE_CLIENT_ID,
+                    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+                    refreshToken: process.env.GOOGLE_REFRESH_TOKEN
+                }
             },
     }));
 
     let mailOptions = {
-        from: `Lahna's Chocolates`,
+        from: `wright2896@gmail.com`,
         to: `wright2896@gmail.com, ${email}`,
         subject: `Lahna's Chocolates Order`,
         html:`

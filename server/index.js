@@ -33,7 +33,7 @@ const strategy = new Auth0Strategy({
     scope: 'openid email profile'
 },
     function (accessToken, refreshToken, extraParams, profile, done) {
-        console.log('profile', profile)
+        // console.log('profile', profile)
         // get name and other relevant data
         const user = {
             auth_id: profile.id, //id from google
@@ -60,8 +60,8 @@ passport.deserializeUser(function (user, done) {
 // ENDPOINTS
 //auth endpoint
 app.get('/login', passport.authenticate('auth0', {
-    successRedirect: "/dashboard",
-    failureRedirect: "/"
+    successRedirect: (process.env.NODE_ENV == 'dev' ? 'http://localhost:3000' : '' ) + "/dashboard",
+    failureRedirect: (process.env.NODE_ENV == 'dev' ? 'http://localhost:3000' : '' ) + "/"
 }))
 // check for logged in user
 app.get('/check', function (req, res) {
@@ -85,15 +85,10 @@ app.get('/logout', function (req, res) {
     req.session.destroy(function () { res.send(200) })
 })
 
-app.get('/*', (req, res) => {
-    res.sendFile('index.html', {root: path.join(__dirname, '../build')});
-})
-
 delegateRoutes(app);
 
-
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../build/index.html'));
+    res.sendFile('index.html', {root: path.join(__dirname, '../build')});
 })
 
 app.listen(port, () =>

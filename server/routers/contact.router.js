@@ -10,13 +10,17 @@ contactMailer.post('/contact', (req, res, next) => {
             service: 'gmail',
             host: 'smtp.gmail.com',
             auth: {
-                user: process.env.GMAIL_USER,
-                pass: process.env.GMAIL_PASS
+                XOAuth2: {
+                    user: process.env.GMAIL_USER,
+                    clientId: process.env.GOOGLE_CLIENT_ID,
+                    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+                    refreshToken: process.env.GOOGLE_REFRESH_TOKEN
+                }
             },
     }));
 
     let mailOptions = {
-        from: `${email}`,
+        from: `wright2896@gmail.com`,
         to: `wright2896@gmail.com`,
         subject: `${subject}`,
         html:`
