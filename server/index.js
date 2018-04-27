@@ -63,6 +63,10 @@ app.get('/login', passport.authenticate('auth0', {
     successRedirect: "/dashboard",
     failureRedirect: "/"
 }))
+
+app.get('/*', (req, res) => {
+    res.sendFile('index.html', {root: path.join(__dirname, '../build')});
+})
 // check for logged in user
 app.get('/check', function (req, res) {
     console.log('checking for logged in user')
@@ -83,10 +87,6 @@ app.get('/logout', function (req, res) {
     //req.logout()
     console.log('loggin out')
     req.session.destroy(function () { res.send(200) })
-})
-
-app.get('/*', (req, res) => {
-    res.sendFile('index.html', {root: path.join(__dirname, '../build')});
 })
 
 delegateRoutes(app);
