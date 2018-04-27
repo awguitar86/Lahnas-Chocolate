@@ -60,7 +60,7 @@ passport.deserializeUser(function (user, done) {
 // ENDPOINTS
 //auth endpoint
 app.get('/login', passport.authenticate('auth0', {
-    successRedirect: "http://138.68.58.73:5050",
+    successRedirect: "/dashboard",
     failureRedirect: "/"
 }))
 // check for logged in user

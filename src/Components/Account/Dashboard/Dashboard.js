@@ -2,30 +2,42 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
+// import { getUserFromEmail } from '../../../services/account.services';
 import { getCartItems } from '../../../services/cart.services';
 import './dashboard.css';
-import { updateUser } from '../../../actions/actionCreators';
+import { updateUser, getCartItem } from '../../../actions/actionCreators';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 class Dashboard extends Component {
     constructor(props){
         super(props);
         this.state = {
-
+            id: '',
+            first_name: '',
+            last_name: '',
+            company: '',
+            address: '',
+            city: '',
+            state: '',
+            zip_code: '',
+            phone: '',
+            email: '',
+            user: {}
         }
     }
 
-    // componentWillMount(){
-    //     axios.get('/check').then(resp => {
-    //         console.log(resp.data);
-    //         this.props.updateUser(resp.data[0]);
-    //         getCartItems(resp.data[0].id)
-    //             .then( res => {
-    //                 this.props.getCartItem(res.data)
-    //             })
-    //     })
+    componentWillMount(){
+        axios.get('/check').then(resp => {
+            console.log(resp.data);
+            this.props.updateUser(resp.data[0]);
+            getCartItems(resp.data[0].id)
+                .then( res => {
+                    this.props.getCartItem(res.data)
+                })
+        })
 
-    // }
+    }
 
 
     render(){
@@ -66,4 +78,4 @@ function mapStateToProps(state){
 }
 
 
-export default connect(mapStateToProps, {updateUser}) (Dashboard);
+export default connect(mapStateToProps, {updateUser, getCartItem}) (Dashboard);
