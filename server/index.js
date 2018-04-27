@@ -8,6 +8,7 @@ const passport = require('passport')
 const Auth0Strategy = require('passport-auth0')
 const port = process.env.SERVER_PORT || 5050;
 const getDb = require('./database/bootstrap.database');
+const path = require('path');
 // const authRoute = require('./routers/auth.router');
 
 const app = express();
@@ -85,12 +86,12 @@ app.get('/logout', function (req, res) {
 })
 
 app.get('/*', (req, res) => {
-    res.sendFile('index.html', {root:'../build'});
+    res.sendFile('index.html', {root: path.join(__dirname, '../build')});
 })
 
 delegateRoutes(app);
 
-const path = require('path');
+
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../build/index.html'));
 })
