@@ -89,7 +89,11 @@ delegateRoutes(app);
 
 app.get('*', (req, res) => {
     res.sendFile('index.html', {root: path.join(__dirname, '../build')});
-})
+});
+
+app.all('*', (req, res) => {
+    res.status(404).send({message: "Cannot access any resources at " + req.originalUrl });
+});
 
 app.listen(port, () =>
     console.log(`===================================\n Server is listening on port ${port}.\n===================================`
