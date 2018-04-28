@@ -25,7 +25,7 @@ class Contact extends Component {
     }
 
     handleSubmit(){
-        console.log('register button fired!')
+        console.log('submit message button fired!')
         console.log(this.state);
         const { firstName, lastName, company, email, subject, message } = this.state;
         const reqBody = { firstName, lastName, company, email, subject, message };

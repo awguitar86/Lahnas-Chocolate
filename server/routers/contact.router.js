@@ -5,7 +5,7 @@ const contactMailer = express.Router();
 let smtpTransport = require('nodemailer-smtp-transport');
 require('dotenv').config()
 
-contactMailer.post('/contact', (req, res, next) => {
+contactMailer.post('/contact', (req, res) => {
     let { firstName, lastName, company, email, subject, message } = req.body;
     let transporter = nodemailer.createTransport(smtpTransport({
             service: 'gmail',
