@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 const XOAuth2 = require('xoauth2');
 
 let transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: 'Gmail',
     auth: {
         XOAuth2: XOAuth2.createXOAuth2Generator({
             user: 'wright2896@gmail.com',

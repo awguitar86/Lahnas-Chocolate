@@ -16,9 +16,6 @@ class Contact extends Component {
             email: '',
             subject: '',
             message: '',
-            formSent: false,
-            hideButtonSuccess: true,
-            buttonLoading: false
         }
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
