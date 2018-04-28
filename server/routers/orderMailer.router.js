@@ -1,9 +1,9 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const orderMailer = express.Router();
-let smtpTransport = require('nodemailer-smtp-transport');
+// let smtpTransport = require('nodemailer-smtp-transport');
 
-orderMailer.post('/ordermailer', (req, res, next) => {
+orderMailer.post('/ordermailer', (req, res) => {
     let { orderNum, cart, first_name, last_name, company, address, city, usState, zip_code, phone, email, paymentType, date, subtotal, tax, total } = req.body;
 
     let cartItems = cart.map(item => {
@@ -15,23 +15,20 @@ orderMailer.post('/ordermailer', (req, res, next) => {
         </div>`
     });
 
-    let transporter = nodemailer.createTransport(smtpTransport({
-            service: 'gmail',
+    let transporter = nodemailer.createTransport({
             host: 'smtp.gmail.com',
+            port: 465,
+            secure: true,
             auth: {
-                XOAuth2: {
                     user: process.env.GMAIL_USER,
-                    clientId: process.env.GOOGLE_CLIENT_ID,
-                    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-                    refreshToken: process.env.GOOGLE_REFRESH_TOKEN
-                }
+                    pass: process.env.GMAIL_PASS
             },
-    }));
+    });
 
     let mailOptions = {
         from: `wright2896@gmail.com`,
         to: `wright2896@gmail.com, ${email}`,
-        subject: `Lahna's Chocolates Order`,
+        subject: `Lahna's Chocolates Order #${orderNum}`,
         html:`
             <div>Lahna's Chocolates Order #${orderNum}</div>
             <div style="display:inline-block;">
@@ -60,12 +57,12 @@ orderMailer.post('/ordermailer', (req, res, next) => {
         `
     };
 
-    transporter.sendMail(mailOptions, (error, info) => {
-        if(error) {
-            console.error(error);
+    transporter.sendMail(mailOptions, (err, info) => {
+        if(err) {
+            return console.error(err);
         }
-        console.log('Message sent: %s');
-        res.send('Message Sent')
+        console.log('Message %s sent: %s', info.messageId, info.response);
+        res.render('index');
     });
 })
 

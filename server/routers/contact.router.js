@@ -11,8 +11,8 @@ contactMailer.post('/contact', (req, res) => {
             port: 465,
             secure: true,
             auth: {
-                user: 'wright2896@gmail.com',
-                pass: 'Chatham33'
+                user: process.env.GMAIL_USER,
+                pass: process.env.GMAIL_PASS
                     // xoauth2: xoauth2.createXOAuth2Generator({
                     //     user: 'wright2896@gmail.com',
                     //     pass: 'Chatham33'
