@@ -120,20 +120,6 @@ class OrderReview extends Component {
         createOrder(order)
             .then( res => res.data)
             .catch( err => {throw err} );
-        // const cartItems = cart.map(item => {
-        //     console.log(item);
-        //     let productId = item.product_id;
-        //     let productPrice = item.price;
-        //     let productQty = item.quantity;
-        //     console.log(productId);
-        //     console.log(productPrice);
-        //     console.log(productQty);
-        //     console.log(orderNum);
-        //     const orderItem = {orderNum, productId, productPrice, productQty };
-        //     createOrderItem(orderItem)
-        //         .then( res => res.data )
-        //         .catch( err => {throw err} );
-        // });
         cart.forEach((item) => {
             console.log(item);
             let productId = item['product_id'];
@@ -233,3 +219,19 @@ function mapStateToProps(state){
 }
 
 export default connect(mapStateToProps, {addToCart, updateCustomer, updateUser, getCartItem}) (OrderReview);
+
+
+        // const cartItems = cart.map(item => {
+        //     console.log(item);
+        //     let productId = item.product_id;
+        //     let productPrice = item.price;
+        //     let productQty = item.quantity;
+        //     console.log(productId);
+        //     console.log(productPrice);
+        //     console.log(productQty);
+        //     console.log(orderNum);
+        //     const orderItem = {orderNum, productId, productPrice, productQty };
+        //     createOrderItem(orderItem)
+        //         .then( res => res.data )
+        //         .catch( err => {throw err} );
+        // });
