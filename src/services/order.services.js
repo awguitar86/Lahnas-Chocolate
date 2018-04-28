@@ -32,14 +32,14 @@ function getOrderItems(orderid){
 
 function createOrder(body){
     return axios
-        .post(`${baseURL}/newOrder`, body)
+        .post(`${baseURL}/neworder`, body)
         .then( res => res)
         .catch( err => {throw err})
 }
 
 function createOrderItem(body){
     return axios
-        .post(`${baseURL}/newOrderItem`, body)
+        .post(`${baseURL}/newitem`, body)
         .then( res => res)
         .catch( err => {throw err})
 }

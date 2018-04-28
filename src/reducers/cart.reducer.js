@@ -1,4 +1,4 @@
-import { ADD_TO_CART } from '../actions/actionCreators';
+import { ADD_TO_CART, EMPTY_CART } from '../actions/actionCreators';
 
 export function cartReducer( state = {
         cart: []
@@ -9,11 +9,11 @@ export function cartReducer( state = {
                 cart: [...state.cart, action.payload]
             }
         }
-        // case EMPTY_CART: {
-        //     return {
-        //         cart: [...state.cart.]
-        //     }
-        // }
+        case EMPTY_CART: {
+            return {
+                cart: []
+            }
+        }
 
     default:
     return state;

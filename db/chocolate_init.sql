@@ -21,7 +21,7 @@ CREATE TABLE users (
 
 CREATE TABLE orders (
     id SERIAL PRIMARY KEY,
-    email TEXT REFERENCES users (email),
+    email TEXT,
     order_date VARCHAR,
     order_price DECIMAL,
     payment_type TEXT
@@ -74,10 +74,6 @@ INSERT INTO order_items (order_id, product_id, price, quantity)
     VALUES
         ( 1, 1, 3.75, 1 ),
         ( 2, 8, 4.95, 2 ),
-        ( 3, 2, 2.49, 3 ),
-        ( 3, 3, 2.49, 1 ),
-        ( 3, 5, 0.60, 5 ),
-        ( 3, 6, 0.60, 5 ),
         ( 3, 8, 4.95, 1 )
 ;
 

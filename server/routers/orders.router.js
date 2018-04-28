@@ -41,7 +41,7 @@ ordersRouter.get('/items/:orderid', (req, res) => { //get order based on order i
 });
 
 //Create order in orders table
-ordersRouter.post('/newOrder', (req, res) => {
+ordersRouter.post('/neworder', (req, res) => {
     const db = getDb();
     const { email, date, total, paymentType } = req.body;
     db.create_order([email, date, total, paymentType])
@@ -53,7 +53,7 @@ ordersRouter.post('/newOrder', (req, res) => {
 });
 
 //create order item in order_items table
-ordersRouter.post('/newOrderItem', (req, res) => {
+ordersRouter.post('/newitem', (req, res) => {
     const db = getDb();
     const { orderNum, productId, productPrice, productQty } = req.body;
     db.create_order_item([orderNum, productId, productPrice, productQty])

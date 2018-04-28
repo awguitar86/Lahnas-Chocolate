@@ -8,7 +8,7 @@ import OrderReviewItem from './OrderReviewItem/OrderReviewItem';
 import { orderMailer } from '../../services/nodemailer.services';
 import { deleteCartItems } from '../../services/cart.services';
 import './orderReview.css';
-import { addToCart, updateCustomer, updateUser, getCartItem } from '../../actions/actionCreators';
+import { addToCart, updateCustomer, updateUser, getCartItem, emptyCart } from '../../actions/actionCreators';
 import { connect } from 'react-redux';
 
 class OrderReview extends Component {
@@ -109,26 +109,13 @@ class OrderReview extends Component {
     }
 
     handleSubmit(){
-        console.log('register button fired!')
+        console.log('submit order button fired!')
         console.log(this.state);
-        const { orderNum, cart, first_name, last_name, company, address, city, usState, zip_code, phone, email, paymentType, date, subtotal, tax, total } = this.state;
-        const reqBody = { orderNum, cart, first_name, last_name, company, address, city, usState, zip_code, phone, email, paymentType, date, subtotal, tax, total };
+        const {orderNum, cart, email, date, total, paymentType} = this.state;
         const order = {email, date, total, paymentType};
-        orderMailer(reqBody)
-            .then( res => res.data )
-            .catch( err => {throw err});
         createOrder(order)
             .then( res => res.data)
             .catch( err => {throw err} );
-        cart.forEach((item) => {
-            console.log(item);
-            let productId = item['product_id'];
-            let productPrice = item['price'];
-            let productQty = item['quantity'];
-            createOrderItem({orderNum, productId, productPrice, productQty})
-                .then( res => res.data )
-                .catch( err => {throw err} );
-        })
         this.props.updateCustomer({});
         if(this.props.userInfo.id){
             deleteCartItems(this.props.userInfo.id)
@@ -137,8 +124,25 @@ class OrderReview extends Component {
             this.props.getCartItem({});
         }
         else {
-            this.props.cartReducer.cart = [];
+            this.props.emptyCart();
         }
+        cart.forEach((item) => {
+            console.log(item);
+            let productId = item.product_id;
+            let productPrice = item.price;
+            let productQty = item.quantity;
+            let itemBody = {orderNum, productId, productPrice, productQty}
+            createOrderItem(itemBody)
+                .then( res => res.data )
+                .catch( err => {throw err} );
+        });
+        const reqBody = {
+            ...this.state,
+        };
+        orderMailer(reqBody)
+        .then( res => res.data )
+        .catch( err => {throw err});
+
     }
 
 
@@ -218,7 +222,7 @@ function mapStateToProps(state){
     return state;
 }
 
-export default connect(mapStateToProps, {addToCart, updateCustomer, updateUser, getCartItem}) (OrderReview);
+export default connect(mapStateToProps, {addToCart, updateCustomer, updateUser, getCartItem, emptyCart}) (OrderReview);
 
 
         // const cartItems = cart.map(item => {
