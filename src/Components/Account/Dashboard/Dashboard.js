@@ -36,7 +36,6 @@ class Dashboard extends Component {
                     this.props.getCartItem(res.data)
                 })
         })
-
     }
 
 
