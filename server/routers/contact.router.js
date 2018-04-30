@@ -24,7 +24,7 @@ contactMailer.post('/contact', (req, res) => {
     });
 
     let mailOptions = {
-        from: `${firstName} <${email}>`,
+        from: `${firstName} ${lastName}`,
         to: `wright2896@gmail.com`,
         subject: `${subject}`,
         html:`
@@ -40,7 +40,7 @@ contactMailer.post('/contact', (req, res) => {
             return console.log(err);
         }
         console.log('Message %s sent: %s', info.messageId, info.response);
-              res.render('index');
+        res.render('index');
     });
 })
 

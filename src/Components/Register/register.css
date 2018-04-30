@@ -65,6 +65,32 @@
 .reTypeEmail {
   grid-column: span 6; }
 
+.email-error-false {
+  display: none; }
+
+.email-error-true {
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  height: 20px;
+  font-size: 9pt;
+  color: red;
+  margin-bottom: 10px;
+  font-family: Baskerville; }
+
+.reTypeEmail-error-false {
+  display: none; }
+
+.reTypeEmail-error-true {
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  height: 20px;
+  font-size: 9pt;
+  color: red;
+  margin-bottom: 10px;
+  font-family: Baskerville; }
+
 .register-buttons {
   width: 600px;
   display: flex;
@@ -88,6 +114,11 @@
     transition: 0.3s ease-in-out; }
   .register-btn:active {
     background: #4E2E71; }
+  .register-btn:disabled {
+    background: lightgray; }
+    .register-btn:disabled:hover {
+      color: white;
+      transition: none; }
 
 .regi-cancel-btn {
   background: #EAE6F7;
@@ -110,7 +141,7 @@
 
 @media only screen and (max-width: 500px) {
   .regi-inputs {
-    grid-template-rows: repeat(12, 50px); }
+    grid-template-rows: repeat(10, 50px); }
     .regi-inputs input {
       grid-column: span 6; }
   .register-buttons {

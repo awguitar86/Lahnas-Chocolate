@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 // import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import { addToCart, updateUser } from '../../actions/actionCreators';
-import { getCartItems } from '../../services/cart.services';
+import { addToCart, updateUser, emptyCart, getCartItem } from '../../actions/actionCreators';
+import { getCartItems, deleteCartItems } from '../../services/cart.services';
 import { connect } from 'react-redux';
 import ShoppingBagItem from './ShoppingBagItem/ShoppingBagItem';
 import './shoppingBag.css';
@@ -14,6 +14,7 @@ class ShoppingBag extends Component {
         this.state = {
             cart: []
         }
+        this.clearBag = this.clearBag.bind(this);
     }
 
     componentDidMount(){
@@ -32,6 +33,22 @@ class ShoppingBag extends Component {
         }
         else {
             this.setState({ cart: this.props.cartReducer.cart});
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({cart: nextProps.cartReducer.cart});
+    }
+
+    clearBag(){
+        if(this.props.userInfo.id){
+            deleteCartItems(this.props.userInfo.id)
+                .then( res => res.data )
+                .catch( err => {throw err} );
+            this.props.getCartItem({});
+        }
+        else {
+            this.props.emptyCart();
         }
     }
 
@@ -65,6 +82,9 @@ class ShoppingBag extends Component {
             <div className='shopping-wrap'>
                 <div className='shopping-body'>
                     <h1>Items in Your Bag</h1>
+                    <div className='clear-bag-btn'>
+                        <button onClick={this.clearBag}>Clear Bag</button>
+                    </div>
                     {displayOrderItems}
                     <div className='bag-price'>
                         <div className='bag-subtotal'>
@@ -98,4 +118,4 @@ function mapStateToProps(state){
     return state;
 }
 
-export default connect(mapStateToProps, {addToCart, updateUser}) (ShoppingBag);
+export default connect(mapStateToProps, {addToCart, updateUser, emptyCart, getCartItem}) (ShoppingBag);

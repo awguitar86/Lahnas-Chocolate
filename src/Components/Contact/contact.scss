@@ -113,13 +113,18 @@
         cursor: pointer;
         font-family: $font;
         font-size: 10pt;
-    }
-    button:hover {
-        color: $dark-purple;
-        transition: 0.3s ease-in-out;
-    }
-    button:active {
-        background: $dark-purple;
+        &:hover {
+            color: $dark-purple;
+            transition: 0.3s ease-in-out;
+        }
+        &:active {
+            background: $dark-purple;
+        }
+        &:disabled {
+            background: lightgray;
+            color: white;
+            transition: none;
+        }
     }
 }
 

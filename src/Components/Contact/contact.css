@@ -90,11 +90,15 @@
     cursor: pointer;
     font-family: Baskerville;
     font-size: 10pt; }
-  .contact-button button:hover {
-    color: #4E2E71;
-    transition: 0.3s ease-in-out; }
-  .contact-button button:active {
-    background: #4E2E71; }
+    .contact-button button:hover {
+      color: #4E2E71;
+      transition: 0.3s ease-in-out; }
+    .contact-button button:active {
+      background: #4E2E71; }
+    .contact-button button:disabled {
+      background: lightgray;
+      color: white;
+      transition: none; }
 
 .contact-images {
   width: 1050px;

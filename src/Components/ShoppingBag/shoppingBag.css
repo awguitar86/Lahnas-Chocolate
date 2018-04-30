@@ -21,6 +21,21 @@
     padding-bottom: 5px;
     color: #4E2E71; }
 
+.clear-bag-btn {
+  width: 1050px;
+  margin-top: -15px;
+  margin-bottom: 10px; }
+  .clear-bag-btn button {
+    border: none;
+    background: white;
+    color: #907AD6;
+    font-size: 12pt;
+    font-family: Baskerville;
+    cursor: pointer;
+    outline: none; }
+    .clear-bag-btn button:active {
+      color: #4E2E71; }
+
 .shopping-bag-item {
   width: 950px;
   display: flex;
@@ -125,6 +140,8 @@
     width: 90vw; }
     .shopping-body h1 {
       width: 90vw; }
+  .clear-bag-btn {
+    width: 90vw; }
   .shopping-bag-item {
     width: 80vw; }
   .bag-price {

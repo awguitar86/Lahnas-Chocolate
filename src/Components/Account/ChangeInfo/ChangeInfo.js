@@ -18,11 +18,13 @@ class ChangeInfo extends Component {
             state: '',
             zip_code: '',
             phone: '',
-            email: ''
+            email: '',
+            rightEmail: false
         }
         this.pullFromBackend = this.pullFromBackend.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleButtonSave = this.handleButtonSave.bind(this);
+        this.GmailCheck = this.GmailCheck.bind(this);
     }
 
     componentDidMount(){
@@ -86,6 +88,14 @@ class ChangeInfo extends Component {
             .catch( err => {throw err})
     }
 
+    GmailCheck(e) {
+        let email = e.target.value;
+        this.setState({email: email});
+        if(email.length > 0){
+            email.includes('@gmail.com') ? this.setState({rightEmail: true}) : this.setState({rightEmail: false});
+        }
+    }
+
     render(){
         let id = this.state.id;
         let firstName = this.state.first_name;
@@ -108,13 +118,14 @@ class ChangeInfo extends Component {
                         <input className='change-company' placeholder={company} type="text" name="company" onChange={ e => {this.handleInputChange(e) }}/>
                         <input className='change-address' placeholder={address} type="text" name="address" onChange={ e => {this.handleInputChange(e) }}/>
                         <input className='change-city' placeholder={city} type="text" name="city" onChange={ e => {this.handleInputChange(e) }}/>
-                        <input className='change-state' placeholder={state} type="text" name="state" onChange={ e => {this.handleInputChange(e) }}/>
-                        <input className='change-zip' placeholder={zipCode} type="number" name="zip_code" onChange={ e => {this.handleInputChange(e) }}/>
-                        <input className='change-phone' placeholder={phone} type="text" name="phone" onChange={ e => {this.handleInputChange(e) }}/>
-                        <input className='change-email' placeholder={email} type="text" name="email" onChange={ e => {this.handleInputChange(e) }}/>
+                        <input className='change-state' placeholder={state} type="text" name="state" maxLength="2" onChange={ e => {this.handleInputChange(e) }}/>
+                        <input className='change-zip' placeholder={zipCode} type="text" name="zip_code" maxLength="5" onChange={ e => {this.handleInputChange(e) }}/>
+                        <input className='change-phone' placeholder={phone} type="text" name="phone" maxLength="12" onChange={ e => {this.handleInputChange(e) }}/>
+                        <input className='change-email' placeholder={email} type="text" name="email" onChange={ e => {this.GmailCheck(e) }}/>
                     </div>
+                    <div className={'email-error' + (this.state.rightEmail ? '-false' : '-true')}>* MUST BE GMAIL *</div>
                     <div className='change-buttons'>
-                        <Link to={`/dashboard/${id}`}><button className='change-btn' onClick={ this.handleButtonSave }>SAVE</button></Link>
+                        <Link to={`/dashboard/${id}`}><button className='change-btn' onClick={ this.handleButtonSave } disabled={!this.state.rightEmail}>SAVE</button></Link>
                         <Link to={`/dashboard/${id}`}><button className='change-cancel-btn'>CANCEL</button></Link>
                     </div>
                 </div>

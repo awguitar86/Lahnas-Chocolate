@@ -6,6 +6,7 @@ export const UPDATE_ORDER = "UPDATE_ORDER";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const CREATE_CART_ITEM = "CREATE_CART_ITEM";
 export const EMPTY_CART = "EMPTY_CART";
+export const DELETE_ITEM = "DELETE_ITEM";
 
 export function updateAuth(boolean){
     return {
@@ -45,6 +46,12 @@ export function addToCart(product){
 export function emptyCart(){
     return {
         type: EMPTY_CART,
+    }
+}
+
+export function deleteItem() {
+    return {
+        type: DELETE_ITEM
     }
 }
 

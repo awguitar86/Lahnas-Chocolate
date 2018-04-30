@@ -78,6 +78,35 @@
     grid-column: span 6;
 }
 
+.email-error-false {
+    display: none
+}
+.email-error-true {
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    height: 20px;
+    font-size: 9pt;
+    color: red;
+    margin-bottom: 10px;
+    font-family: $font;
+    // border: solid;
+}
+.reTypeEmail-error-false {
+    display: none;
+}
+.reTypeEmail-error-true {
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    height: 20px;
+    font-size: 9pt;
+    color: red;
+    margin-bottom: 10px;
+    font-family: $font;
+    // border: solid;
+}
+
 .register-buttons {
     width: 600px;
     display: flex;
@@ -106,6 +135,13 @@
     }
     &:active {
         background: $dark-purple;
+    }
+    &:disabled {
+        background: lightgray;
+        &:hover {
+            color: white;
+            transition: none;
+        }
     }
 }
 
@@ -137,7 +173,7 @@
 
 @media only screen and (max-width: 500px){
     .regi-inputs {
-        grid-template-rows: repeat(12, 50px);
+        grid-template-rows: repeat(10, 50px);
         input {
             grid-column: span 6;
         }

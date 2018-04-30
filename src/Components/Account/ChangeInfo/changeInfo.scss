@@ -74,14 +74,15 @@
 .change-email {
     grid-column: span 6;
 }
-.change-reTypeEmail {
-    grid-column: span 6;
+
+.email-error-true {
+    width: 150px;
+    height: 20px;
+    color: red;
+    font-family: $font;
 }
-.change-password {
-    grid-column: span 3;
-}
-.change-reTypePassword {
-    grid-column: span 3;
+.email-error-false {
+    display: none;
 }
 
 .change-buttons {
@@ -112,6 +113,13 @@
     }
     &:active {
         background: $dark-purple;
+    }
+    &:disabled {
+        background: lightgray;
+        &:hover {
+            color: white;
+            transition: none;
+        }
     }
 }
 

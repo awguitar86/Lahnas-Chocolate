@@ -27,6 +27,26 @@
     }
 }
 
+.clear-bag-btn {
+    width: 1050px;
+    margin-top: -15px;
+    margin-bottom: 10px;
+     // border: solid;
+    button {
+        border: none;
+        background: white;
+        color: $purple;
+        font-size: 12pt;
+        font-family: $font;
+        cursor: pointer;
+        outline: none;
+        &:active {
+            color: $dark-purple;
+        }
+    }
+
+}
+
 .shopping-bag-item {
     width: 950px;
     // height: 350px;
@@ -151,6 +171,9 @@
         h1 {
             width: 90vw;
         }
+    }
+    .clear-bag-btn {
+        width: 90vw;
     }
     .shopping-bag-item {
         width: 80vw;

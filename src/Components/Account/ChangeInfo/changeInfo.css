@@ -62,14 +62,14 @@
 .change-email {
   grid-column: span 6; }
 
-.change-reTypeEmail {
-  grid-column: span 6; }
+.email-error-true {
+  width: 150px;
+  height: 20px;
+  color: red;
+  font-family: Baskerville; }
 
-.change-password {
-  grid-column: span 3; }
-
-.change-reTypePassword {
-  grid-column: span 3; }
+.email-error-false {
+  display: none; }
 
 .change-buttons {
   width: 600px;
@@ -94,6 +94,11 @@
     transition: 0.3s ease-in-out; }
   .change-btn:active {
     background: #4E2E71; }
+  .change-btn:disabled {
+    background: lightgray; }
+    .change-btn:disabled:hover {
+      color: white;
+      transition: none; }
 
 .change-cancel-btn {
   background: #EAE6F7;

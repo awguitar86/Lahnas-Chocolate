@@ -1,4 +1,4 @@
-import { ADD_TO_CART, EMPTY_CART } from '../actions/actionCreators';
+import { ADD_TO_CART, EMPTY_CART, DELETE_ITEM} from '../actions/actionCreators';
 
 export function cartReducer( state = {
         cart: []
@@ -12,6 +12,11 @@ export function cartReducer( state = {
         case EMPTY_CART: {
             return {
                 cart: []
+            }
+        }
+        case DELETE_ITEM: {
+            return {
+                cart: [state.cart.filter(item => action.payload !== item)]
             }
         }
 

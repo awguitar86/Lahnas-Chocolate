@@ -5,6 +5,7 @@ import Nuts from '../../images/nuts.jpg';
 import BoxOfChocolate from '../../images/BoxOfChocolates.jpg';
 import './contact.css';
 import { contact } from '../../services/nodemailer.services';
+import { setTimeout } from 'timers';
 
 class Contact extends Component {
     constructor(props){
@@ -16,6 +17,8 @@ class Contact extends Component {
             email: '',
             subject: '',
             message: '',
+            fullFields: false,
+            submitted: false
         }
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,7 +39,12 @@ class Contact extends Component {
             email: '',
             subject: '',
             message: '',
+            fullFields: false,
+            submitted: true
         });
+        setTimeout( () => {
+            this.setState({submitted: false});
+        }, 5000);
     }
 
     handleInputChange(e){
@@ -45,6 +53,10 @@ class Contact extends Component {
         newState = e.target.value;
         this.setState({ [key]: newState })
         console.log(e.target.value);
+        console.log(this.state);
+        if(this.state.firstName.length && this.state.lastName.length && this.state.company.length && this.state.email.length && this.state.subject.length && this.state.message.length > 0){
+            this.setState({fullFields: true});
+        }
     }
 
 
@@ -70,7 +82,7 @@ class Contact extends Component {
                         </div>
                     </div>
                     <div className='contact-button'>
-                        <button onClick={(e) => {this.handleSubmit()}}>SUBMIT</button>
+                        <button onClick={(e) => {this.handleSubmit()}} disabled={!this.state.fullFields}>SUBMIT</button>
                     </div>
                     <div className='contact-images'>
                         <img src={Nuts} alt='nuts in chocolate'/>
