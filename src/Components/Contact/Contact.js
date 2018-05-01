@@ -44,7 +44,7 @@ class Contact extends Component {
         });
         setTimeout( () => {
             this.setState({submitted: false});
-        }, 5000);
+        }, 4000);
     }
 
     handleInputChange(e){
@@ -69,7 +69,7 @@ class Contact extends Component {
                         Please fill out this form with any questions, comments, or orders
                         and I will respond to you shortly. Thank you.
                     </p>
-                    <div className='contact-form'>
+                    <div className={'contact-form' + (this.state.submitted ? '-true' : '-false')}>
                         <div className='contact-form-left'>
                             <input className='contact-input' value={this.state.firstName} placeholder='First Name' name='firstName' type='text' onChange={ e => {this.handleInputChange(e) }}/>
                             <input className='contact-input' value={this.state.lastName} placeholder='Last Name' name='lastName' type='text' onChange={ e => {this.handleInputChange(e) }}/>
@@ -81,8 +81,11 @@ class Contact extends Component {
                             <textarea className='contact-input' value={this.state.message} placeholder='Message' name='message' type='text' onChange={ e => {this.handleInputChange(e) }}/>
                         </div>
                     </div>
-                    <div className='contact-button'>
-                        <button onClick={(e) => {this.handleSubmit()}} disabled={!this.state.fullFields}>SUBMIT</button>
+                    <div className={'submitted' + (this.state.submitted ? '-true' : '-false')}>
+                        <p>Thank you for contacting us!<br/>We will be in contact with you soon.</p>
+                    </div>
+                    <div className={'contact-button' + (this.state.submitted ? '-true' : '-false')}>
+                        <button onClick={(e) => {this.handleSubmit()}} disabled={!this.state.fullFields || this.state.submitted}>{this.state.submitted ? "SENT" : "SUBMIT"}</button>
                     </div>
                     <div className='contact-images'>
                         <img src={Nuts} alt='nuts in chocolate'/>

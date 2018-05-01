@@ -26,11 +26,34 @@
     }
 }
 
-.contact-form {
+.contact-form-false {
     width: 1050px;
     // height: 300px;
     display: flex;
     justify-content: space-between;
+}
+
+.contact-form-true {
+    display: none;
+}
+
+.submitted-true {
+    width: 1050px;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // border: solid;
+    p {
+        font-family: $font;
+        font-size: 16pt;
+        text-align: center;
+        line-height: 30pt;
+    }
+}
+
+.submitted-false {
+    display: none;
 }
 
 .contact-form-left {
@@ -96,7 +119,7 @@
     }
 }
 
-.contact-button {
+.contact-button-false {
     width: 1050px;
     display: flex;
     justify-content: flex-end;
@@ -128,6 +151,31 @@
     }
 }
 
+.contact-button-true {
+    width: 1050px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+
+    button {
+        width: 100px;
+        height: 30px;
+        background: green;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        cursor: pointer;
+        font-family: $font;
+        font-size: 10pt;
+        &:disabled {
+            background: green;
+            color: white;
+            transition: none;
+        }
+    }
+}
+
 .contact-images {
     width: 1050px;
     display: flex;
@@ -147,7 +195,7 @@
         margin-top: 10px;
         margin-bottom: 30px;
     }
-    .contact-form {
+    .contact-form-false {
         width: 90vw;
     }
     .contact-form-left {
@@ -156,7 +204,10 @@
     .contact-form-right {
         width: 43vw;
     }
-    .contact-button {
+    .contact-button-false {
+        width: 90vw;
+    }
+    .contact-button-true {
         width: 90vw;
     }
     .contact-images {
@@ -164,6 +215,9 @@
         img {
             width: 43vw;
         }
+    }
+    .submitted-true {
+        width: 90vw;
     }
 }
 
@@ -179,7 +233,7 @@
 }
 
 @media only screen and (max-width: 500px){
-    .contact-form {
+    .contact-form-false {
         flex-direction: column;
     }
     .contact-form-left {
@@ -189,7 +243,13 @@
         width: 90vw;
         margin-top: 20px;
     }
-    .contact-button {
+    .contact-button-false {
+        button {
+            width: 90vw;
+            height: 40px;
+        }
+    }
+    .contact-button-true {
         button {
             width: 90vw;
             height: 40px;
@@ -202,5 +262,8 @@
     }
     .BoxOfChocolates {
         display: none;
+    }
+    .submitted-true {
+        height: 600px;
     }
 }
