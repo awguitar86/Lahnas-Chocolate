@@ -45,7 +45,6 @@ class App extends Component {
   }
 
   // componentWillMount(){
-
   //   findUserInfo(2)
   //     .then( res => {
   //       let newUserInfo = res.data[0];

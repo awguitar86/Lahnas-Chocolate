@@ -31,7 +31,6 @@ function updateUserInfo( id, body ) {
 }
 
 export {
-
     findUserInfo,
     getUserFromEmail,
     updateUserInfo
