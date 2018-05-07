@@ -13,8 +13,7 @@ class Footer extends Component {
         <div className="footer">"When life gives you lemons, eat some Lahna's Chocolates."</div>
         <div className="social">
             <div className="social-media">
-                <a href=""><img src={facebook} alt="facebook logo"/></a>
-                <a href=""><img src={twitter} alt="twitter logo"/></a>
+                <a href="https://www.facebook.com/lahna.prows" target='_blank'><img src={facebook} alt="facebook logo"/></a>
                 <a href="https://www.instagram.com/lahnaschocolates/?hl=af" target="_blank" rel='noopener noreferrer'><img src={instagram} alt="instagram logo"/></a>
                 <a href="https://www.pinterest.com/lahnascandy/" target="_blank" rel='noopener noreferrer'><img src={pinterist} alt="pinterist logo"/></a>
             </div>
