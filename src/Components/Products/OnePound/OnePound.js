@@ -83,15 +83,12 @@ class OnePound extends Component {
                                 Lahna’s One Pound box of chocolates are filled with the very best chocolates
                                 you will ever have. Don’t worry about taking the first bite because you’re
                                 not sure what the heck is inside of it. These are only the very best tasting
-                                ones that everybody will love so much they will bite peoples fingers off for them.
-                                Literally, bite fingers off.  This box contains 5 of each chocolate.
+                                ones that everybody will love. This box contains 5 of each chocolate.
                             </p>
                             <div className='product-ingredients'>
                                 <h3>Ingredients</h3>
                                 <p>
-                                    Love, joy, sweat, tears, marshmollow, chocolate, sometimes blood,
-                                    roasted pecans, snot from grandkids, and coconut. Contains lots of
-                                    sugar, milk, nuts, a the taste of guilt-free self indulgence. Gluten-free.
+                                    Chocolate, coconut, caramel, almonds, and roasted pecans,  Contains milk and nuts. Gluten-free.
                                 </p>
                             </div>
                         </div>

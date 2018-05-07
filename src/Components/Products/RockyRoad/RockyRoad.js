@@ -82,14 +82,11 @@ class RockyRoad extends Component {
                                 Lahna’s Rocky Road is one of the very best chocolate confections out there.
                                 A delicious 3-ounce brick of marshmallow, chocolate, coconut, and roasted
                                 pecans will give you a sugar high that will put your kids sugar high to shame.
-                                Just don’t tell your husband, and you should be fine.
                             </p>
                             <div className='product-ingredients'>
                                 <h3>Ingredients</h3>
                                 <p>
-                                    Love, joy, sweat, tears, marshmollow, chocolate, sometimes blood,
-                                    roasted pecans, snot from grandkids, and coconut. Contains lots of
-                                    sugar, milk, nuts, a the taste of guilt-free self indulgence. Gluten-free.
+                                    Chocolate, coconut, marshmallow, and roasted pecans,  Contains milk and nuts. Gluten-free.
                                 </p>
                             </div>
                         </div>

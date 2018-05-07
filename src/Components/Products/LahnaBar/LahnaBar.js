@@ -81,15 +81,12 @@ class LahnaBar extends Component {
                             <p>
                                 The Lahna Bar is one of the most delicious chocolate confections in the world.
                                 A circular bar of chocolate with almonds, coconut, and pecans all over.
-                                This is one of those treats that you can easily sneak into your purse for a
-                                secret snack later. Make sure to take some wipes with you to wipe off the evidence from your face.
+                                Make sure to have a wipe close by to wipe off your face after eating this!
                             </p>
                             <div className='product-ingredients'>
                                 <h3>Ingredients</h3>
                                 <p>
-                                    Love, joy, sweat, tears, marshmollow, chocolate, sometimes blood,
-                                    roasted pecans, snot from grandkids, and coconut. Contains lots of
-                                    sugar, milk, nuts, a the taste of guilt-free self indulgence. Gluten-free.
+                                    Chocolate, coconut, almonds, and roasted pecans,  Contains milk and nuts. Gluten-free.
                                 </p>
                             </div>
                         </div>

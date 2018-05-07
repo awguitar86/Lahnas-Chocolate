@@ -88,9 +88,7 @@ class HalfPound extends Component {
                             <div className='product-ingredients'>
                                 <h3>Ingredients</h3>
                                 <p>
-                                    Love, joy, sweat, tears, marshmollow, chocolate, sometimes blood,
-                                    roasted pecans, snot from grandkids, and coconut. Contains lots of
-                                    sugar, milk, nuts, a the taste of guilt-free self indulgence. Gluten-free.
+                                Chocolate, coconut, caramel, almonds, and roasted pecans,  Contains milk and nuts. Gluten-free.
                                 </p>
                             </div>
                         </div>

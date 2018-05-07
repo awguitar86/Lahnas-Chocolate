@@ -80,17 +80,13 @@ class Licorice extends Component {
                             </div>
                             <p>
                                 Lahna’s Grandma’s Licorice Carmels are absolutely amazing! This ample and incredibly smooth confection
-                                rivals all black licorice. You will not be able to just have one. And everyone will know that you didn’t
-                                just have one. That’s because after eating many of these, your teeth will turn black. If this is your
-                                little treat your trying to hide from others, it won’t work. It would be great if you would eat a few
-                                of these before your wedding photos! They would be the best wedding photos ever!
+                                rivals all black licorice. You will not be able to just have one. These are a great treat to give to friends
+                                and neighbors, or to put in a candy dish at work.
                             </p>
                             <div className='product-ingredients'>
                                 <h3>Ingredients</h3>
                                 <p>
-                                    Love, joy, sweat, tears, marshmollow, chocolate, sometimes blood,
-                                    roasted pecans, snot from grandkids, and coconut. Contains lots of
-                                    sugar, milk, nuts, a the taste of guilt-free self indulgence. Gluten-free.
+                                    Black licorice caramel. Contains milk. Gluten-free.
                                 </p>
                             </div>
                         </div>

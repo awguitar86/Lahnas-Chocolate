@@ -81,16 +81,13 @@ class PretzelRod extends Component {
                             <p>
                                 Lahna’s Pretzel Rod is one of the most delicious chocolate confections in the world.
                                 A fresh 8″  pretzel rod enrobed in caramel and dipped in chocolate. This is one of
-                                those treats that you can easily sneak into your purse for a secret snack later.
-                                Make sure it’s in that hidden pocket where you keep your lady products though.
-                                Your husband and kids won’t touch that pocket.
+                                those treats that you can easily hide somewhere for a midnight snack while everyone else
+                                is asleep.
                             </p>
                             <div className='product-ingredients'>
                                 <h3>Ingredients</h3>
                                 <p>
-                                    Love, joy, sweat, tears, marshmollow, chocolate, sometimes blood,
-                                    roasted pecans, snot from grandkids, and coconut. Contains lots of
-                                    sugar, milk, nuts, a the taste of guilt-free self indulgence. Gluten-free.
+                                    Chocolate, caramel, and a pretzel. Contains milk, and wheat.
                                 </p>
                             </div>
                         </div>

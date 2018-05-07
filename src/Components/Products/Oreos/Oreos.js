@@ -80,16 +80,12 @@ class Oreos extends Component {
                             </div>
                             <p>
                                 Lahna’s Chocolate Dipped Oreos are America’s favorite cookie smothered in special milk chocolate.
-                                US Senator Orrin Hatch loved them so much he ordered 10,000 of them! These are so good that many
-                                people turn into the cookie monster and shove the whole thing in their mouths while chewing as fast
-                                as they can.
+                                US Senator Orrin Hatch loved them so much he ordered 10,000 of them!
                             </p>
                             <div className='product-ingredients'>
                                 <h3>Ingredients</h3>
                                 <p>
-                                    Love, joy, sweat, tears, marshmollow, chocolate, sometimes blood,
-                                    roasted pecans, snot from grandkids, and coconut. Contains lots of
-                                    sugar, milk, nuts, and the taste of guilt-free self indulgence. Gluten-free.
+                                    Chocolate and oreos. Contains milk and wheat.
                                 </p>
                             </div>
                         </div>

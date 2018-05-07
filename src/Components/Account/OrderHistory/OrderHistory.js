@@ -54,7 +54,7 @@ class OrderHistory extends Component {
         return(
             <div className='history-wrap'>
                 <div className='history-body'>
-                    <h2>Order Review</h2>
+                    <h2>Order History</h2>
                     <div className='order-history'>
                         {displayOrders}
                     </div>

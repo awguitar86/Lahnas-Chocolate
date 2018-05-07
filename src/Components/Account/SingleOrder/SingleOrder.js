@@ -55,7 +55,7 @@ class SingleOrder extends Component {
         }
 
     render(){
-        let orderNumber = this.props.match.params.orderid;
+        let orderNumber = this.props.match.params.id;
         let firstName = this.props.userInfo.first_name;
         let lastName = this.props.userInfo.last_name;
         let company = this.props.userInfo.company;

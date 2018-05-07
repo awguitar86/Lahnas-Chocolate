@@ -51,7 +51,7 @@ class Products extends Component {
                 <div className="confections-wrap">
                     <h1>Chocolate Confections</h1>
                     <p>
-                        Lahna’s chocolate confections are prepared and hand-dipped with love a care. Each one of these beautiful
+                        Lahna’s chocolate confections are prepared and hand-dipped with love and care. Each one of these beautiful
                         confections are delicious and bring comfort to the soul. These are great as gifts for any occasion.
                         Or if you just want to be selfish you can buy them for yourself too! Just be sure to wipe your
                         face off when you’re done.
