@@ -79,11 +79,11 @@ class Products extends Component {
                             </Link>
                             <Link to={`/caramels/${6}`} className='confections-pictures'>
                                 <img src={Caramels} alt='caramels'/>
-                                <h3> Grandma’s Carmels <br/> $0.60 </h3>
+                                <h3> Grandma’s Caramels <br/> $0.60 </h3>
                             </Link>
                             <Link to={`/licorice/${7}`} className='confections-pictures'>
                                 <img src={Licorice} alt='licorice'/>
-                                <h3> Grandma’s Licorice Carmels <br/> $0.60 </h3>
+                                <h3> Grandma’s Licorice Caramels <br/> $0.60 </h3>
                             </Link>
                     </div>
                 </div>
