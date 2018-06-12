@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-// const addMiddlewareTo = require('./middleware/decorate.middleware');
 const delegateRoutes = require('./routers/delegate.router');
 require('dotenv').config()
 const session = require('express-session')

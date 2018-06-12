@@ -1,4 +1,10 @@
-DROP TABLE IF EXISTS products, users, orders, order_items, cart CASCADE;
+DROP TABLE IF EXISTS
+    products,
+    users,
+    orders,
+    order_items,
+    cart
+CASCADE;
 
 CREATE TABLE products (
     id SERIAL PRIMARY KEY,
