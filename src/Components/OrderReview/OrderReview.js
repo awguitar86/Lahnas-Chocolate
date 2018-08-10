@@ -71,6 +71,7 @@ class OrderReview extends Component {
             })
         }
         else {
+            console.log(this.props.cartReducer.cart);
             const reviewItems = this.props.cartReducer.cart;
             reviewItems.map( reviewItem => {
                 return totalArr.push(Number((reviewItem.price * reviewItem.quantity).toFixed(2)));
@@ -85,7 +86,7 @@ class OrderReview extends Component {
             let bagTotal = (Number(bagSubTotal) + Number(taxes)).toFixed(2);
             let today = moment().format('MMMM DD, YYYY');
             this.setState({
-                cart: this.props.customerInfo.cart,
+                cart: this.props.cartReducer.cart,
                 first_name: this.props.customerInfo.first_name,
                 last_name: this.props.customerInfo.last_name,
                 company: this.props.customerInfo.company,

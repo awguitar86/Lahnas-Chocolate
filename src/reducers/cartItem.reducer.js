@@ -5,11 +5,14 @@ let cartState = {};
 function cartItem( state = cartState, action ){
     switch( action.type ) {
         case CREATE_CART_ITEM:
-            return Object.assign( action.payload );
+            return {
+                ...state,
+                cartState: [...state.cartState, action.payload]
+            }
 
         default:
         return state;
-    }
+    };
 }
 
 export default cartItem;

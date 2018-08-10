@@ -7,6 +7,9 @@ import { getCartItems } from '../../services/cart.services';
 import './checkout.css';
 import { addToCart, updateCustomer, updateUser } from '../../actions/actionCreators';
 import { connect } from 'react-redux';
+import Script from 'react-load-script';
+
+// let bagSubTotal;
 
 class Checkout extends Component {
     constructor(props){
@@ -23,14 +26,22 @@ class Checkout extends Component {
             phone: '',
             email: '',
             paymentMthd: '',
-            isUser: false
+            isUser: false,
+            routeChecked: '',
+            quoteamt: '',
+            taxes: '',
+            subtotal: '',
+            total: ''
         }
 
         this.handleChange = this.handleChange.bind(this);
         this.handleUpdateCustomer = this.handleUpdateCustomer.bind(this);
+        this.handleRoute = this.handleRoute.bind(this);
     }
 
     componentDidMount(){
+        // let checked = document.getElementById('route-widget').dataset.ischecked;
+        // let quote = document.getElementById('route-widget').dataset.quoteamt;
         if(this.props.userInfo.id){
             let userid = this.props.userInfo.id;
             getCartItems(userid)
@@ -50,17 +61,59 @@ class Checkout extends Component {
                       zip_code: this.props.userInfo.zip_code,
                       phone: this.props.userInfo.phone,
                       email: this.props.userInfo.email,
-                      isUser: true
+                      isUser: true,
                     });
                   console.log(res.data);
                 }
               })
         }
         else {
-            this.setState({ cart: this.props.cartReducer.cart});
+            let checked = document.getElementById('route-widget').dataset.ischecked;
+            let name = document.getElementById('route-widget').dataset.name;
+            let description = document.getElementById('route-widget').dataset.description;
+            let quantity = document.getElementById('route-widget').dataset.quantity;
+            const shoppingItems = this.props.cartReducer.cart;
+            let totalArr = [0];
+            let bagSubTotal;
+            shoppingItems.map( shoppingItem => {
+                return totalArr.push(Number((shoppingItem.price * shoppingItem.quantity).toFixed(2)));
+            })
+            function totalSum(numbers){
+                bagSubTotal = numbers.reduce((a,b) => {
+                    return a + b;
+                }).toFixed(2)
+            }
+            totalSum(totalArr);
+            let taxes = (bagSubTotal * 0.067).toFixed(2);
+            let bagTotal = (Number(bagSubTotal) + Number(taxes)).toFixed(2);
+            let routeQuote = (bagSubTotal * 0.01).toFixed(2);
+            bagSubTotal = (Number(bagSubTotal) + Number(routeQuote)).toFixed(2);
+            console.log(routeQuote);
+            console.log(bagSubTotal);
+            this.setState({
+                cart: this.props.cartReducer.cart,
+                routeChecked: checked,
+                quoteamt: routeQuote,
+                taxes: taxes,
+                subtotal: bagSubTotal,
+                total: bagTotal
+            });
+            let routeBody = {name: name, description: description, quantity: quantity, price: routeQuote};
+            this.props.addToCart(routeBody);
         }
+
     }
 
+    handleRoute(){
+        let checked = document.getElementById('route-widget').dataset.ischecked;
+        let quote = document.getElementById('route-widget').dataset.quoteamt;
+        let name = document.getElementById('route-widget').dataset.name;
+        let description = document.getElementById('route-widget').dataset.description;
+        let quantity = document.getElementById('route-widget').dataset.quantity;
+        let routeBody = {name: name, description: description, quantity: quantity, price: quote};
+        this.setState({routeChecked: checked, quoteamt: quote});
+        this.props.addToCart(routeBody);
+    }
 
     handleChange(e){
         const key = e.target.name;
@@ -73,24 +126,26 @@ class Checkout extends Component {
     handleUpdateCustomer(){
         this.props.updateCustomer(this.state);
     }
+
     render(){
         console.log(this.state);
         console.log(this.props.customerInfo);
-        const shoppingItems = this.state.cart;
-        let totalArr = [0];
-        let bagSubTotal;
-        shoppingItems.map( shoppingItem => {
-            return totalArr.push(Number((shoppingItem.price * shoppingItem.quantity).toFixed(2)));
-        })
-        function totalSum(numbers){
-            bagSubTotal = numbers.reduce((a,b) => {
-                return a + b;
-            }).toFixed(2)
-        }
-        totalSum(totalArr);
-        let taxes = (bagSubTotal * 0.067).toFixed(2);
-        let bagTotal = (Number(bagSubTotal) + Number(taxes)).toFixed(2);
+        // const shoppingItems = this.state.cart;
+        // let totalArr = [0];
+        // let bagSubTotal;
+        // shoppingItems.map( shoppingItem => {
+        //     return totalArr.push(Number((shoppingItem.price * shoppingItem.quantity).toFixed(2)));
+        // })
+        // function totalSum(numbers){
+        //     bagSubTotal = numbers.reduce((a,b) => {
+        //         return a + b;
+        //     }).toFixed(2)
+        // }
+        // totalSum(totalArr);
+        // let taxes = (bagSubTotal * 0.067).toFixed(2);
+        // let bagTotal = (Number(bagSubTotal) + Number(taxes)).toFixed(2);
         let today = moment().format('MMM DD, YYYY');
+        // let routeQuote = (bagSubTotal * 0.01).toFixed(2);
         return(
             <div className='checkout-wrap'>
                 <div className='checkout-body'>
@@ -138,11 +193,15 @@ class Checkout extends Component {
                         </div>
                     </div>
 
+                    <div className='route-widget-wrap'>
+                        <div id="route-widget" data-name='Route' data-description='shipment protection' data-quantity='1' data-routequoteamt={this.state.quoteamt} data-style='true' data-routeischecked='true' onClick={this.handleRoute} styles="width:575px;display:flex;justify-content:flex-start;align-items:center;"></div>
+                    </div>
+
                     <div className='total-price'>
                         <div className='subtotal-shipping-tax'>
                             <div className='subtotal'>
                                 <h3>Subtotal</h3>
-                                <p>${bagSubTotal}</p>
+                                <p>${this.state.subtotal}</p>
                             </div>
                             <div className='shipping'>
                                 <h3>Shipping</h3>
@@ -150,13 +209,13 @@ class Checkout extends Component {
                             </div>
                             <div className='tax'>
                                 <h3>Tax 6.7%</h3>
-                                <p>${taxes}</p>
+                                <p>${this.state.taxes}</p>
                             </div>
                         </div>
                         <div className='price-divider'></div>
                         <div className='total'>
                             <h2>Total</h2>
-                            <p>${bagTotal}</p>
+                            <p>${this.state.total}</p>
                         </div>
                     </div>
                     <div className='checkout-button'>
@@ -164,6 +223,7 @@ class Checkout extends Component {
                     </div>
                 </div>
                 <Footer />
+                <Script url='http://d3is9nf54e5cww.cloudfront.net/RouteWidget.js'/>
             </div>
         )
     }

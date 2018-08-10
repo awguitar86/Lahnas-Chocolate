@@ -121,6 +121,12 @@
   .shipping-method label {
     margin-right: 20px; }
 
+.route-widget-wrap {
+  width: 600px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; }
+
 .total-price {
   width: 600px;
   display: flex;

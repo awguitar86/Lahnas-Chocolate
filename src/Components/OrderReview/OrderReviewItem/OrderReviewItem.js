@@ -12,6 +12,7 @@ class OrderReviewItem extends Component {
     render(){
         const { productName, price, qty } = this.props;
         const total = (price * qty).toFixed(2);
+        console.log(this.props);
         return(
             <div className='order-review-item'>
                 <h4>{productName}</h4>
