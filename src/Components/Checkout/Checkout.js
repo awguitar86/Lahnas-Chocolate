@@ -68,10 +68,6 @@ class Checkout extends Component {
               })
         }
         else {
-            let checked = document.getElementById('route-widget').dataset.ischecked;
-            let name = document.getElementById('route-widget').dataset.name;
-            let description = document.getElementById('route-widget').dataset.description;
-            let quantity = document.getElementById('route-widget').dataset.quantity;
             const shoppingItems = this.props.cartReducer.cart;
             let totalArr = [0];
             let bagSubTotal;
@@ -102,17 +98,6 @@ class Checkout extends Component {
             this.props.addToCart(routeBody);
         }
 
-    }
-
-    handleRoute(){
-        let checked = document.getElementById('route-widget').dataset.ischecked;
-        let quote = document.getElementById('route-widget').dataset.quoteamt;
-        let name = document.getElementById('route-widget').dataset.name;
-        let description = document.getElementById('route-widget').dataset.description;
-        let quantity = document.getElementById('route-widget').dataset.quantity;
-        let routeBody = {name: name, description: description, quantity: quantity, price: quote};
-        this.setState({routeChecked: checked, quoteamt: quote});
-        this.props.addToCart(routeBody);
     }
 
     handleChange(e){
@@ -191,10 +176,6 @@ class Checkout extends Component {
                         <div className='shipping-method-input'>
                             <label>Delivery Only</label>
                         </div>
-                    </div>
-
-                    <div className='route-widget-wrap'>
-                        <div id="route-widget" data-name='Route' data-description='shipment protection' data-quantity='1' data-routequoteamt={this.state.quoteamt} data-style='true' data-routeischecked='true' onClick={this.handleRoute} styles="width:575px;display:flex;justify-content:flex-start;align-items:center;"></div>
                     </div>
 
                     <div className='total-price'>
