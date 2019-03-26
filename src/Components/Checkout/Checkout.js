@@ -27,7 +27,6 @@ class Checkout extends Component {
             email: '',
             paymentMthd: '',
             isUser: false,
-            routeChecked: '',
             quoteamt: '',
             taxes: '',
             subtotal: '',
@@ -36,7 +35,6 @@ class Checkout extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleUpdateCustomer = this.handleUpdateCustomer.bind(this);
-        this.handleRoute = this.handleRoute.bind(this);
     }
 
     componentDidMount(){
@@ -88,14 +86,11 @@ class Checkout extends Component {
             console.log(bagSubTotal);
             this.setState({
                 cart: this.props.cartReducer.cart,
-                routeChecked: checked,
                 quoteamt: routeQuote,
                 taxes: taxes,
                 subtotal: bagSubTotal,
                 total: bagTotal
             });
-            let routeBody = {name: name, description: description, quantity: quantity, price: routeQuote};
-            this.props.addToCart(routeBody);
         }
 
     }

@@ -32,7 +32,6 @@ class Register extends Component {
         let newState = this.state[key];
         newState = e.target.value;
         this.setState({ [key]: newState });
-
     }
 
     GmailCheck(e) {
